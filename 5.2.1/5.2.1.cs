@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace _5._2._1
 {
     /// <summary>
-    /// Program.
+    /// Программа, определяющая верно ли, что слов в тексте больше чем чисел.
     /// </summary>
     internal class Program
     {
