@@ -25,7 +25,6 @@ namespace _5._1._1
                     counter++;
             }
 
-            // вернуть значение счетчика коротких слов
             return counter;
         }
 
