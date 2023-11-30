@@ -25,7 +25,7 @@ namespace _5._1._1
                     counter++;
             }
 
-            // счетчик
+            // вернуть значение счетчика
             return counter;
         }
 
