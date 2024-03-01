@@ -13,7 +13,7 @@ namespace EverythingAboutPerson
         private string _firstName;
         private string _secondName;
         private int _age;
-        private Gender _gender;
+        private readonly Gender _gender;
 
         public Person() : this("Unknown", "Unknown", 0, Gender.Male) { }
 

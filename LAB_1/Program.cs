@@ -104,6 +104,7 @@ namespace LAB_1
 
         static void Main()
         {
+
             //3 пункт
             //a.
             Console.WriteLine("Нажмите любую кнопку");
@@ -125,6 +126,7 @@ namespace LAB_1
             personList2.AddPerson(Geralt);
             personList2.AddPerson(Vesemyr);
             personList2.AddPerson(Ulfric);
+
             ////b.
             Console.ReadKey();
             Console.WriteLine("Список 1:");

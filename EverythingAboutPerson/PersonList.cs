@@ -11,6 +11,7 @@ namespace EverythingAboutPerson
     {
         //TODO: RSDN
         List<Person> Persons = new List<Person>();
+        private List<Person> Persons = new List<Person>();
 
         public void AddPerson(Person person)
         {
