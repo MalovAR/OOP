@@ -10,29 +10,28 @@ namespace EverythingAboutPerson
     public class PersonList
     {
         //TODO: RSDN
-        List<Person> Persons = new List<Person>();
-        private List<Person> Persons = new List<Person>();
+        private List<Person> persons = new List<Person>();
 
         public void AddPerson(Person person)
         {
-            Persons.Add(person);
+            persons.Add(person);
         }
 
         public void RemovePerson(Person person)
         {
-            Persons.Remove(person);
+            persons.Remove(person);
         }
 
         public int GetListLength()
         {
-            return Persons.Count;
+            return persons.Count;
         }
 
         public int GetPersonIndex(Person person)
         {
-            if (Persons.Contains(person))
+            if (persons.Contains(person))
             {
-                return Persons.IndexOf(person);
+                return persons.IndexOf(person);
             }
             else 
             {
@@ -44,23 +43,23 @@ namespace EverythingAboutPerson
 
         public void RemovePersonsByIndex(int index)
         {
-            Persons.RemoveAt(index);
+            persons.RemoveAt(index);
         }
 
         public Person GetPersonByIndex(int index)
         {
-            return Persons[index];
+            return persons[index];
         }
 
         public void ClearList()
         {
-            Persons.Clear();
+            persons.Clear();
         }
            
         public string GetPersonsList()
         {
             string List = "";
-            foreach (Person person in Persons)
+            foreach (Person person in persons)
             {
                 List += person.GetPersonInfo();
             }

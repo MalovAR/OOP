@@ -30,10 +30,8 @@ namespace EverythingAboutPerson
     private static bool NameCheck(string name)
         {
             //TODO:
-            if (Regex.IsMatch(name, @"^[а-яА-Я]*-?[а-яА-Я]+$") |
-                Regex.IsMatch(name, @"^[a-zA-Z]*-?[a-zA-Z]*$") |
-                Regex.IsMatch(name, @"^[a-zA-Z]*-?[а-яА-Я]*$") |
-                Regex.IsMatch(name, @"^[а-яА-Я]*-?[a-zA-Z]*$"))
+            if (Regex.IsMatch(name, @"^[а-яА-Я]+-?[а-яА-Я]+$") ||
+                Regex.IsMatch(name, @"^[a-zA-Z]+-?[a-zA-Z]*$"))
             {
                 return true;
             }
