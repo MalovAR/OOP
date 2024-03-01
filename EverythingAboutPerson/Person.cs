@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-   
+   //TODO: XML
     public class Person
     {
         private string _firstName;
@@ -27,8 +27,9 @@ namespace EverythingAboutPerson
 
         }
 
-                private static bool NameCheck(string name)
+    private static bool NameCheck(string name)
         {
+            //TODO:
             if (Regex.IsMatch(name, @"^[а-яА-Я]*-?[а-яА-Я]+$") |
                 Regex.IsMatch(name, @"^[a-zA-Z]*-?[a-zA-Z]*$") |
                 Regex.IsMatch(name, @"^[a-zA-Z]*-?[а-яА-Я]*$") |
@@ -42,6 +43,7 @@ namespace EverythingAboutPerson
             }
         }
 
+        //TODO: RSDN
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
 
         public string FirstName 
@@ -49,7 +51,7 @@ namespace EverythingAboutPerson
             get { return _firstName;} 
             set 
             {
-                if (NameCheck(value) == true)
+                if (NameCheck(value))
                 {
                     _firstName = ti.ToTitleCase(value);
                 }
@@ -67,7 +69,7 @@ namespace EverythingAboutPerson
             get { return _secondName; }
             set
             {
-                if (NameCheck(value) == true)
+                if (NameCheck(value))
                 {
                     _secondName = ti.ToTitleCase(value);
                 }
@@ -85,6 +87,7 @@ namespace EverythingAboutPerson
             get { return _age; }
             set 
             {
+                //TODO: скобочки
                 if (value < 0)
                     throw new ArgumentException( "Возраст не может быть " +
                         "отрицательным");
@@ -110,8 +113,8 @@ namespace EverythingAboutPerson
         public static Person GetRandomPerson()
         {
             
-            List<string> maleNames = new List<string>() { "Андрей","Артемий",
-                "Александр","Владимир","Вячеслав","Владлен","Глеб","Георгий",
+            List<string> maleNames = new List<string>() { "Андрей", "Артемий",
+                "Александр", "Владимир", "Вячеслав","Владлен","Глеб","Георгий",
                 "Григорий","Ерофей","Евгений","Егор" };
             List<string> femaleNames = new List<string>() { "Анастасия",
                 "Анна","Александра","Валентина","Валерия","Василиса",
@@ -132,6 +135,7 @@ namespace EverythingAboutPerson
             person.Gender = 
                 (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 
             
+            //TODO: switch-case
             if (person.Gender == Gender.Male)
             {
                 person.FirstName = 

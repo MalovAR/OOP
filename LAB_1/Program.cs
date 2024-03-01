@@ -2,12 +2,13 @@
 
 namespace LAB_1
 {
+    //TODO: XML
     public class Program
     {
         public static Person InsertPerson()
         {
             Person person = new Person();
-
+            //TODO: duplication
             while (true)
             {
                 try
@@ -22,6 +23,7 @@ namespace LAB_1
                     Console.WriteLine(ex.Message);
                 }
             }
+
 
             while (true)
             {
@@ -38,6 +40,7 @@ namespace LAB_1
                 }
             }
 
+            //TODO: duplication
             while (true)
             {
                 try
@@ -59,6 +62,7 @@ namespace LAB_1
                 }
             }
 
+            //TODO: duplication
             while (true)
             {
                 try
@@ -105,6 +109,7 @@ namespace LAB_1
             Console.WriteLine("Нажмите любую кнопку");
             Console.ReadKey();
             Console.WriteLine("Создано 2 списка персон");
+            //TODO: RSDN
             Person Valera = new ("Валера", "Жмышенко", 54, Gender.Male);
             Person Geralt = new ("Геральт", "Приблуда", 100, Gender.Male);
             Person Vesemyr = new ("Весемир", "Старый", 160, Gender.Male);

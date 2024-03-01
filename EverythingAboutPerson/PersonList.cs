@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace EverythingAboutPerson
 {
+    //TODO: XML
     public class PersonList
     {
+        //TODO: RSDN
         List<Person> Persons = new List<Person>();
 
         public void AddPerson(Person person)
@@ -27,12 +29,13 @@ namespace EverythingAboutPerson
 
         public int GetPersonIndex(Person person)
         {
-            if (Persons.Contains(person) == true)
+            if (Persons.Contains(person))
             {
                 return Persons.IndexOf(person);
             }
             else 
             {
+                //TODO: remove
                 Console.WriteLine("ничего не найдено, код ошибки:");
                 return -1;
             }
@@ -45,7 +48,7 @@ namespace EverythingAboutPerson
 
         public Person GetPersonByIndex(int index)
         {
-            return (Person)Persons[index];
+            return Persons[index];
         }
 
         public void ClearList()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace EverythingAboutPerson
 {
+    //TODO: XML
     public enum Gender
     {
         Male,
