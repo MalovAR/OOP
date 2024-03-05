@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 using System.Runtime;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
@@ -13,6 +14,8 @@ namespace EverythingAboutPerson
         private string _firstName;
         private string _secondName;
         private int _age;
+        private const int _minAge = 0;
+        private const int _maxAge = 150;
         private readonly Gender _gender;
 
         public Person() : this("Unknown", "Unknown", 0, Gender.Male) { }
@@ -42,7 +45,7 @@ namespace EverythingAboutPerson
         }
 
         //TODO: RSDN
-        TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
+        TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
         public string FirstName 
         {
@@ -51,7 +54,7 @@ namespace EverythingAboutPerson
             {
                 if (NameCheck(value))
                 {
-                    _firstName = ti.ToTitleCase(value);
+                    _firstName = textInfo.ToTitleCase(value);
                 }
                 else
                 {
@@ -69,7 +72,7 @@ namespace EverythingAboutPerson
             {
                 if (NameCheck(value))
                 {
-                    _secondName = ti.ToTitleCase(value);
+                    _secondName = textInfo.ToTitleCase(value);
                 }
                 else
                 {
@@ -86,14 +89,23 @@ namespace EverythingAboutPerson
             set 
             {
                 //TODO: скобочки
-                if (value < 0)
-                    throw new ArgumentException( "Возраст не может быть " +
-                        "отрицательным");
-                if (value > 150)
+                if (value < _minAge)
+                {
                     throw new ArgumentException("Возраст не может быть " +
-                        "настолько большим");
+                        "отрицательным");
+                }
+ 
+                if (value > _maxAge)
+                {
+                    throw new ArgumentException("Возраст не может быть " + 
+                        $"больше {_maxAge}");
+                }
+
                 else
-                    _age = value; 
+                {
+                    _age = value;
+                }
+
             }
         }
 
@@ -134,19 +146,25 @@ namespace EverythingAboutPerson
                 (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 
             
             //TODO: switch-case
-            if (person.Gender == Gender.Male)
+            switch(person.Gender)
             {
-                person.FirstName = 
-                    maleNames[random.Next(maleNames.Count)];
-                person.SecondName = 
-                    maleSecondNames[random.Next(maleSecondNames.Count)];
-            }
-            if (person.Gender == Gender.Female)
-            {
-                person.FirstName = 
-                    femaleNames[random.Next(femaleNames.Count)];
-                person.SecondName = 
-                    femaleSecondNames[random.Next(femaleSecondNames.Count)];
+                case Gender.Male:
+                    person.FirstName =
+                        maleNames
+                        [random.Next(maleNames.Count)];
+                    person.SecondName =
+                        maleSecondNames
+                        [random.Next(maleSecondNames.Count)];
+                    break;
+
+                case Gender.Female:
+                    person.FirstName =
+                        femaleNames
+                        [random.Next(femaleNames.Count)];
+                    person.SecondName =
+                        femaleSecondNames
+                        [random.Next(femaleSecondNames.Count)];
+                    break;
             }
             return person;
         }

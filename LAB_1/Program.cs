@@ -105,68 +105,68 @@ namespace LAB_1
         static void Main()
         {
 
-            //3 пункт
-            //a.
-            Console.WriteLine("Нажмите любую кнопку");
-            Console.ReadKey();
-            Console.WriteLine("Создано 2 списка персон");
-            //TODO: RSDN
-            Person Valera = new ("Валера", "Жмышенко", 54, Gender.Male);
-            Person Geralt = new ("Геральт", "Приблуда", 100, Gender.Male);
-            Person Vesemyr = new ("Весемир", "Старый", 160, Gender.Male);
-            Person Gendalf = new ("Гендальф", "Серый", 1000, Gender.Male);
-            Person Ulfric = new ("Ульфрик", "Буревестник", 45, Gender.Male);
-            Person Goblin = new ("Дмитрий", "Пучков", 62, Gender.Male);
-            Person Vova = new ("Владимир", "Вист", 30, Gender.Male);
-            PersonList personList1 = new PersonList();
-            PersonList personList2 = new PersonList();
-            personList1.AddPerson(Valera);
-            personList1.AddPerson(Gendalf);
-            personList1.AddPerson(Goblin);
-            personList2.AddPerson(Geralt);
-            personList2.AddPerson(Vesemyr);
-            personList2.AddPerson(Ulfric);
+            ////3 пункт
+            ////a.
+            //Console.WriteLine("Нажмите любую кнопку");
+            //Console.ReadKey();
+            //Console.WriteLine("Создано 2 списка персон");
+            ////TODO: RSDN
+            //Person Valera = new ("Валера", "Жмышенко", 54, Gender.Male);
+            //Person Geralt = new ("Геральт", "Приблуда", 100, Gender.Male);
+            //Person Vesemyr = new ("Весемир", "Старый", 160, Gender.Male);
+            //Person Gendalf = new ("Гендальф", "Серый", 1000, Gender.Male);
+            //Person Ulfric = new ("Ульфрик", "Буревестник", 45, Gender.Male);
+            //Person Goblin = new ("Дмитрий", "Пучков", 62, Gender.Male);
+            //Person Vova = new ("Владимир", "Вист", 30, Gender.Male);
+            //PersonList personList1 = new PersonList();
+            //PersonList personList2 = new PersonList();
+            //personList1.AddPerson(Valera);
+            //personList1.AddPerson(Gendalf);
+            //personList1.AddPerson(Goblin);
+            //personList2.AddPerson(Geralt);
+            //personList2.AddPerson(Vesemyr);
+            //personList2.AddPerson(Ulfric);
 
-            ////b.
-            Console.ReadKey();
-            Console.WriteLine("Список 1:");
-            Console.WriteLine(personList1.GetPersonsList());
-            Console.ReadKey();
-            Console.WriteLine("Список 2:");
-            Console.WriteLine(personList2.GetPersonsList());
-            ////c.
-            Console.ReadKey();
-            Console.WriteLine("Добавление нового человека в первый список");
-            personList1.AddPerson(Vova);
-            Console.WriteLine(personList1.GetPersonsList());
-            ////d.
-            Console.ReadKey();
-            Console.WriteLine("Добавление второго человека из первого " +
-                "списка в конец второго списка");
-            personList2.AddPerson(personList1.GetPersonByIndex(1));
-            Console.WriteLine($"Список 1 : " +
-                $"\n{personList1.GetPersonsList()}");
-            Console.WriteLine($"Список 2 : " +
-                $"\n{personList2.GetPersonsList()}");
-            ////e.
-            Console.ReadKey();
-            Console.WriteLine("Удаление второго человека из первого списка");
-            personList1.RemovePersonsByIndex(1);
-            Console.WriteLine($"Список 1 : " +
-                $"\n{personList1.GetPersonsList()}");
-            Console.WriteLine($"Список 2 : " +
-                $"\n{personList2.GetPersonsList()}");
-            ////f.
-            Console.ReadKey();
-            Console.WriteLine("Очищение второго списка");
-            personList2.ClearList();
-            Console.WriteLine($"Список 2 : " +
-                $"\n{personList2.GetPersonsList()}");
+            //////b.
+            //Console.ReadKey();
+            //Console.WriteLine("Список 1:");
+            //Console.WriteLine(personList1.GetPersonsList());
+            //Console.ReadKey();
+            //Console.WriteLine("Список 2:");
+            //Console.WriteLine(personList2.GetPersonsList());
+            //////c.
+            //Console.ReadKey();
+            //Console.WriteLine("Добавление нового человека в первый список");
+            //personList1.AddPerson(Vova);
+            //Console.WriteLine(personList1.GetPersonsList());
+            //////d.
+            //Console.ReadKey();
+            //Console.WriteLine("Добавление второго человека из первого " +
+            //    "списка в конец второго списка");
+            //personList2.AddPerson(personList1.GetPersonByIndex(1));
+            //Console.WriteLine($"Список 1 : " +
+            //    $"\n{personList1.GetPersonsList()}");
+            //Console.WriteLine($"Список 2 : " +
+            //    $"\n{personList2.GetPersonsList()}");
+            //////e.
+            //Console.ReadKey();
+            //Console.WriteLine("Удаление второго человека из первого списка");
+            //personList1.RemovePersonsByIndex(1);
+            //Console.WriteLine($"Список 1 : " +
+            //    $"\n{personList1.GetPersonsList()}");
+            //Console.WriteLine($"Список 2 : " +
+            //    $"\n{personList2.GetPersonsList()}");
+            //////f.
+            //Console.ReadKey();
+            //Console.WriteLine("Очищение второго списка");
+            //personList2.ClearList();
+            //Console.WriteLine($"Список 2 : " +
+            //    $"\n{personList2.GetPersonsList()}");
 
 
-            //проверка 4 пункта
-            Person newPerson = InsertPerson();
-            ShowPersonToConsole(newPerson);
+            ////проверка 4 пункта
+            //Person newPerson = InsertPerson();
+            //ShowPersonToConsole(newPerson);
 
             //проверка 5 пункта
             for (int i = 0; i < 10; i++)
