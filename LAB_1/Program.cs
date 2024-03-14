@@ -1,98 +1,107 @@
 ﻿using EverythingAboutPerson;
+using System;
 
 namespace LAB_1
 {
     //TODO: XML
+    /// <summary>
+    /// класс Programm
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Метод обработки возможных исключений.
+        /// </summary>
+        /// <param name="action">Действие.</param>
+        public static void ActionHandler(Action action)
+        {
+            while (true)
+            {
+                try
+                {
+                    action.Invoke();
+                    return;
+                }
+
+                catch (Exception ex)
+                {
+                    var exceptionType = ex.GetType();
+                    //switch (exceptionType)
+                    //{
+                    //    case
+                    //    typeof(ArgumentOutOfRangeException):
+                    //        typeof(ArgumentException):
+                    //        Console.WriteLine(ex.Message);
+                    //        break;
+                    //    case
+                    //        typeof(FormatException):
+                    //        Console.WriteLine("Некорректный формат. Возраст " +
+                    //    "должен состоять только из цифр");
+                    //        break;
+                    //}
+                    if (exceptionType == typeof(ArgumentOutOfRangeException) ||
+                        exceptionType == typeof(ArgumentException))
+
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    if (exceptionType == typeof(FormatException))
+                    {
+                        Console.WriteLine("Некорректный формат. Возраст " +
+                        "должен состоять только из цифр");
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Метод для ввода объекта класса Person с консоли
+        /// </summary>
+        /// <returns></returns>
         public static Person InsertPerson()
         {
             Person person = new Person();
             //TODO: duplication
-            while (true)
+
+            List<Action> actions = new List<Action>()
             {
-                try
+                () =>
                 {
                     Console.WriteLine("Введите имя");
                     person.FirstName = Console.ReadLine();
-                    break;
-                }
-
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-
-
-            while (true)
-            {
-                try
+                },
+                () =>
                 {
                     Console.WriteLine("Введите фамилию");
                     person.SecondName = Console.ReadLine();
-                    break;
-                }
-
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-
-            //TODO: duplication
-            while (true)
-            {
-                try
+                },
+                () =>
                 {
                     Console.WriteLine("Введите возраст");
                     person.Age = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                catch (FormatException)
-                {
-                    Console.WriteLine("Некорректный формат. Возраст " +
-                        "должен состоять только из цифр");
-                }
-            }
-
-            //TODO: duplication
-            while (true)
-            {
-                try
+                },
+                () =>
                 {
                     Console.WriteLine("Укажите пол: М - Male (мужской), " +
                 "Ж(F) - Female (женский)");
-                    string insertedGender = Console.ReadLine();
-
+                    string insertedGender = Console.ReadLine().ToUpper();
                     switch (insertedGender)
                     {
                         case "M":
-                        case "m":
                         case "М":
-                        case "м":
                             break;
                         case "F":
-                        case "f":
                         case "Ж":
-                        case "ж":
                             person.Gender = Gender.Female;
                             break;
                         default:
-                            throw new Exception();
+                            throw new ArgumentException("Неправильно указан пол.\n");
                     }
-                    break;
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Неправильно указан пол.\n");
-                }
+
+            };
+            foreach (Action action in actions)
+            {
+                ActionHandler(action);
             }
             return person;
         }
@@ -111,21 +120,23 @@ namespace LAB_1
             //Console.ReadKey();
             //Console.WriteLine("Создано 2 списка персон");
             ////TODO: RSDN
-            //Person Valera = new ("Валера", "Жмышенко", 54, Gender.Male);
-            //Person Geralt = new ("Геральт", "Приблуда", 100, Gender.Male);
-            //Person Vesemyr = new ("Весемир", "Старый", 160, Gender.Male);
-            //Person Gendalf = new ("Гендальф", "Серый", 1000, Gender.Male);
-            //Person Ulfric = new ("Ульфрик", "Буревестник", 45, Gender.Male);
-            //Person Goblin = new ("Дмитрий", "Пучков", 62, Gender.Male);
-            //Person Vova = new ("Владимир", "Вист", 30, Gender.Male);
+            //Person valera = new("Валера", "Жмышенко", 54, Gender.Male);
+            //Person geralt = new("Геральт", "Приблуда", 100, Gender.Male);
+            //Person vesemyr = new("Весемир", "Старый", 160, Gender.Male);
+            //Person gendalf = new("Гендальф", "Серый", 1000, Gender.Male);
+            //Person ulfric = new("Ульфрик", "Буревестник", 45, Gender.Male);
+            //Person goblin = new("Дмитрий", "Пучков", 62, Gender.Male);
+            //Person vova = new("Владимир", "Вист", 30, Gender.Male);
             //PersonList personList1 = new PersonList();
             //PersonList personList2 = new PersonList();
-            //personList1.AddPerson(Valera);
-            //personList1.AddPerson(Gendalf);
-            //personList1.AddPerson(Goblin);
-            //personList2.AddPerson(Geralt);
-            //personList2.AddPerson(Vesemyr);
-            //personList2.AddPerson(Ulfric);
+            //personList1.AddPerson(valera);
+            //personList1.AddPerson(gendalf);
+            //personList1.AddPerson(goblin);
+            //personList2.AddPerson(geralt);
+            //personList2.AddPerson(vesemyr);
+            //personList2.AddPerson(ulfric);
+            //Console.ReadKey();
+            //personList2.GetPersonIndex(vova);
 
             //////b.
             //Console.ReadKey();
@@ -164,16 +175,16 @@ namespace LAB_1
             //    $"\n{personList2.GetPersonsList()}");
 
 
-            ////проверка 4 пункта
-            //Person newPerson = InsertPerson();
-            //ShowPersonToConsole(newPerson);
+            //проверка 4 пункта
+            Person newPerson = InsertPerson();
+            ShowPersonToConsole(newPerson);
 
-            //проверка 5 пункта
-            for (int i = 0; i < 10; i++)
-            {
-                Person newRandomPerson = Person.GetRandomPerson();
-                ShowPersonToConsole(newRandomPerson);
-            }
+            ////проверка 5 пункта
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Person newRandomPerson = Person.GetRandomPerson();
+            //    ShowPersonToConsole(newRandomPerson);
+            //}
 
         }
     }

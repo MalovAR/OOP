@@ -9,6 +9,9 @@ using System.Xml.Linq;
 namespace EverythingAboutPerson
 {
    //TODO: XML
+   /// <summary>
+   /// Класс Person.
+   /// </summary>
     public class Person
     {
         private string _firstName;
@@ -16,17 +19,17 @@ namespace EverythingAboutPerson
         private int _age;
         private const int _minAge = 0;
         private const int _maxAge = 150;
-        private readonly Gender _gender;
+        
 
         public Person() : this("Unknown", "Unknown", 0, Gender.Male) { }
 
         public Person(string name, string secondName, int age, Gender gender)
         {
 
-            _firstName = name;
-            _secondName = secondName;
-            _age = age;
-            _gender =  gender;
+            FirstName = name;
+            SecondName = secondName;
+            Age = age;
+            Gender =  gender;
 
         }
 
@@ -58,7 +61,7 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    throw new Exception("Имя должно содержать только " +
+                    throw new ArgumentException("Имя должно содержать только " +
                         "русские или английские символы");
                 }
 
@@ -76,7 +79,7 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    throw new Exception("Фамилия должна содержать только " +
+                    throw new ArgumentException("Фамилия должна содержать только " +
                         "русские или английские символы");
                 }
 
@@ -140,7 +143,7 @@ namespace EverythingAboutPerson
 
             Person person = new Person();
 
-            person.Age = random.Next(0, 100);
+            person.Age = random.Next(_minAge, _maxAge);
 
             person.Gender = 
                 (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace EverythingAboutPerson
 {
     //TODO: XML
+    /// <summary>
+    /// Класс PersonList
+    /// </summary>
     public class PersonList
     {
         //TODO: RSDN
@@ -36,8 +39,7 @@ namespace EverythingAboutPerson
             else 
             {
                 //TODO: remove
-                Console.WriteLine("ничего не найдено, код ошибки:");
-                return -1;
+                throw new ArgumentException("Не найдено");
             }
         }
 
