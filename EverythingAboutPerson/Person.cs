@@ -32,8 +32,15 @@ namespace EverythingAboutPerson
             Gender =  gender;
 
         }
-
-    private static bool NameCheck(string name)
+        /// <summary>
+        ///  Метод, проверяющий, имя состоит из русских или английских букв
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns> true, если имя состовит из русских 
+        /// или англиских символов
+        /// false, если имя содержит что-то кроме русских
+        /// или английских букв. Например, цифры или символы.</returns>
+        private static bool NameCheck(string name)
         {
             //TODO:
             if (Regex.IsMatch(name, @"^[а-яА-Я]+-?[а-яА-Я]+$") ||
@@ -117,12 +124,21 @@ namespace EverythingAboutPerson
             get; set; 
         }
 
+        /// <summary>
+        /// Метод, показывающий информацию об объекте класса Person 
+        /// </summary>
+        /// <returns> строку с информацией об объекте 
+        /// класса Person. </returns>
         public string GetPersonInfo()
         {
             return ($"{FirstName} {SecondName},Возраст {Age}, " +
                 $"Пол {Gender}\n");
         }
 
+        /// <summary>
+        /// Метод, создающий случайный объект класса Person
+        /// </summary>
+        /// <returns>объект класса Person</returns>
         public static Person GetRandomPerson()
         {
             
