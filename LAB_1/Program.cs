@@ -38,16 +38,6 @@ namespace LAB_1
                                 "должен состоять только из цифр");
                             break;
                     }
-                    //if (exceptionType == typeof(ArgumentOutOfRangeException) ||
-                    //    exceptionType == typeof(ArgumentException))
-                    //{
-                    //    Console.WriteLine(ex.Message);
-                    //}
-                    //if (exceptionType == typeof(FormatException))
-                    //{
-                    //    Console.WriteLine("Некорректный формат. Возраст " +
-                    //    "должен состоять только из цифр");
-                    //}
                 }
             }
         }
@@ -110,7 +100,7 @@ namespace LAB_1
         }
 
         //TODO: RSDN
-        static void Main()
+        public static void Main()
         {
 
             ////3 пункт

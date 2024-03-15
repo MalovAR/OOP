@@ -13,46 +13,58 @@ namespace EverythingAboutPerson
     public class PersonList
     {
         //TODO+: RSDN
-        private List<Person> persons = new List<Person>();
+        /// <summary>
+        /// объект класса <see cref="List<>"/>, содержащий в себе 
+        /// объекты класса <see cref="Person"/>
+        /// </summary>
+        private List<Person> _persons = new List<Person>();
 
         /// <summary>
-        /// Метод, добавляющий объект класса Person в список
+        /// Метод, добавляющий объект класса <see cref="Person"/> в список
         /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person">объект класса <see cref="Person"/></param>
         public void AddPerson(Person person)
         {
-            persons.Add(person);
+            _persons.Add(person);
         }
 
         /// <summary>
-        /// Метод, удаляющий объект класса Person из списка
+        /// Метод, удаляющий объект класса <see cref="Person"/> из списка
         /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person">объект класса <see cref="Person"/></param>
         public void RemovePerson(Person person)
         {
-            persons.Remove(person);
+            _persons.Remove(person);
         }
 
         /// <summary>
-        /// Метод, определяющий количество объектов класса Person в списке
+        /// Метод, определяющий количество объектов класса
+        /// <see cref="Person"/> в списке
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// количество объектов класса <see cref="Person"/> в списке
+        /// </returns>
         public int GetListLength()
         {
-            return persons.Count;
+            return _persons.Count;
         }
 
         /// <summary>
-        /// Метод, возвращающий индекс объекта класса Person в списке
+        /// Метод, возвращающий индекс объекта 
+        /// класса <see cref="Person"/> в списке
         /// </summary>
-        /// <param name="person"> объект класса Person</param>
-        /// <returns> индекс объекта класса Person в списке</returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <param name="person"> объект класса <see cref="Person"/></param>
+        /// <returns> 
+        /// индекс объекта класса <see cref="Person"/> в списке
+        /// </returns>
+        /// <exception cref="ArgumentException"> 
+        /// исключение, появляющееся при отстутствии объекта класса 
+        /// <see cref="Person"/> в списке</exception>
         public int GetPersonIndex(Person person)
         {
-            if (persons.Contains(person))
+            if (_persons.Contains(person))
             {
-                return persons.IndexOf(person);
+                return _persons.IndexOf(person);
             }
             else 
             {
@@ -62,23 +74,25 @@ namespace EverythingAboutPerson
         }
 
         /// <summary>
-        /// Метод, удаляющий из списка объект класса Person по его индексу
+        /// Метод, удаляющий из списка объект класса 
+        /// <see cref="Person"/> по его индексу
         /// </summary>
         /// <param name="index"> индекс </param>
         public void RemovePersonsByIndex(int index)
         {
-            persons.RemoveAt(index);
+            _persons.RemoveAt(index);
         }
 
         /// <summary>
-        /// Метод, возвращающий из списка объект класса Person по его индексу
+        /// Метод, возвращающий из списка объект 
+        /// класса <see cref="Person"/> по его индексу
         /// </summary>
         /// <param name="index"></param>
-        /// <returns> объект класса Person соответствующий 
-        /// заданному индексу в списке </returns>
+        /// <returns> объект класса <see cref="Person"/> 
+        /// соответствующий заданному индексу в списке </returns>
         public Person GetPersonByIndex(int index)
         {
-            return persons[index];
+            return _persons[index];
         }
 
         /// <summary>
@@ -86,23 +100,26 @@ namespace EverythingAboutPerson
         /// </summary>
         public void ClearList()
         {
-            persons.Clear();
+            _persons.Clear();
         }
 
         /// <summary>
-        /// Метод, получения данных об объектах класса Person из списка
+        /// Метод, получения данных об объектах 
+        /// класса <see cref="Person"/> из списка
         /// </summary>
-        /// <returns> строку с данными об объектах класса Person 
-        /// из списка</returns>
+        /// <returns> 
+        /// строка с данными об объектах 
+        /// класса <see cref="Person"/> из списка
+        /// </returns>
         public string GetPersonsList()
         {
-            //TODO: RSDN
-            string List = "";
-            foreach (Person person in persons)
+            //TODO+: RSDN
+            string list = "";
+            foreach (Person person in _persons)
             {
-                List += person.GetPersonInfo();
+                list += person.GetPersonInfo();
             }
-            return List;
+            return list;
         }
     }
 }
