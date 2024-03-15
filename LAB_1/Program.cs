@@ -25,31 +25,29 @@ namespace LAB_1
 
                 catch (Exception ex)
                 {
-                    var exceptionType = ex.GetType();
-                    //switch (exceptionType)
+                    //var exceptionType = ex.GetType();
+                    switch (ex)
+                    {
+                        //TODO: {}
+                        case ArgumentOutOfRangeException _:
+                        case ArgumentException _:
+                            Console.WriteLine(ex.Message);
+                            break;
+                        case FormatException _:
+                            Console.WriteLine("Некорректный формат. Возраст " +
+                                "должен состоять только из цифр");
+                            break;
+                    }
+                    //if (exceptionType == typeof(ArgumentOutOfRangeException) ||
+                    //    exceptionType == typeof(ArgumentException))
                     //{
-                    //    case
-                    //    typeof(ArgumentOutOfRangeException):
-                    //        typeof(ArgumentException):
-                    //        Console.WriteLine(ex.Message);
-                    //        break;
-                    //    case
-                    //        typeof(FormatException):
-                    //        Console.WriteLine("Некорректный формат. Возраст " +
-                    //    "должен состоять только из цифр");
-                    //        break;
+                    //    Console.WriteLine(ex.Message);
                     //}
-                    if (exceptionType == typeof(ArgumentOutOfRangeException) ||
-                        exceptionType == typeof(ArgumentException))
-
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                    if (exceptionType == typeof(FormatException))
-                    {
-                        Console.WriteLine("Некорректный формат. Возраст " +
-                        "должен состоять только из цифр");
-                    }
+                    //if (exceptionType == typeof(FormatException))
+                    //{
+                    //    Console.WriteLine("Некорректный формат. Возраст " +
+                    //    "должен состоять только из цифр");
+                    //}
                 }
             }
         }
@@ -60,7 +58,6 @@ namespace LAB_1
         public static Person InsertPerson()
         {
             Person person = new Person();
-            //TODO+: duplication
 
             List<Action> actions = new List<Action>()
             {
@@ -106,11 +103,13 @@ namespace LAB_1
             return person;
         }
         
+        //TODO: XML
         public static void ShowPersonToConsole(Person person)
         {
             Console.WriteLine(person.GetPersonInfo());
         }
 
+        //TODO: RSDN
         static void Main()
         {
 

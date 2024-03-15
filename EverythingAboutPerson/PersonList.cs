@@ -96,6 +96,7 @@ namespace EverythingAboutPerson
         /// из списка</returns>
         public string GetPersonsList()
         {
+            //TODO: RSDN
             string List = "";
             foreach (Person person in persons)
             {
@@ -103,6 +104,5 @@ namespace EverythingAboutPerson
             }
             return List;
         }
-
     }
 }

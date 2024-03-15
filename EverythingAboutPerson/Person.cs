@@ -20,41 +20,34 @@ namespace EverythingAboutPerson
         private const int _minAge = 0;
         private const int _maxAge = 150;
         
-
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Person"/>
+        /// </summary>
         public Person() : this("Unknown", "Unknown", 0, Gender.Male) { }
 
         public Person(string name, string secondName, int age, Gender gender)
         {
-
             FirstName = name;
             SecondName = secondName;
             Age = age;
             Gender =  gender;
-
         }
+
         /// <summary>
         ///  Метод, проверяющий, имя состоит из русских или английских букв
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">//TODO: XML</param>
         /// <returns> true, если имя состовит из русских 
         /// или англиских символов
         /// false, если имя содержит что-то кроме русских
         /// или английских букв. Например, цифры или символы.</returns>
         private static bool NameCheck(string name)
         {
-            //TODO+:
-            if (Regex.IsMatch(name, @"^[а-яА-Я]+-?[а-яА-Я]+$") ||
-                Regex.IsMatch(name, @"^[a-zA-Z]+-?[a-zA-Z]*$"))
-            {
-                return true;
-            }
-            else 
-            { 
-                return false; 
-            }
+            return Regex.IsMatch(name, @"^[а-яА-Я]+-?[а-яА-Я]+$") 
+                || Regex.IsMatch(name, @"^[a-zA-Z]+-?[a-zA-Z]*$");
         }
 
-        //TODO+: RSDN
+        //TODO: RSDN
         TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
         public string FirstName 
@@ -98,7 +91,6 @@ namespace EverythingAboutPerson
             get { return _age; }
             set 
             {
-                //TODO+: скобочки
                 if (value < _minAge)
                 {
                     throw new ArgumentException("Возраст не может быть " +
@@ -110,12 +102,10 @@ namespace EverythingAboutPerson
                     throw new ArgumentException("Возраст не может быть " + 
                         $"больше {_maxAge}");
                 }
-
                 else
                 {
                     _age = value;
                 }
-
             }
         }
 
@@ -168,27 +158,25 @@ namespace EverythingAboutPerson
             person.Gender = 
                 (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 
             
-            //TODO+: switch-case
             switch(person.Gender)
             {
                 case Gender.Male:
+                    //TODO: {}
                     person.FirstName =
-                        maleNames
-                        [random.Next(maleNames.Count)];
+                        maleNames[random.Next(maleNames.Count)];
                     person.SecondName =
-                        maleSecondNames
-                        [random.Next(maleSecondNames.Count)];
+                        maleSecondNames[random.Next(maleSecondNames.Count)];
                     break;
 
                 case Gender.Female:
+                    //TODO: {}
                     person.FirstName =
-                        femaleNames
-                        [random.Next(femaleNames.Count)];
+                        femaleNames[random.Next(femaleNames.Count)];
                     person.SecondName =
-                        femaleSecondNames
-                        [random.Next(femaleSecondNames.Count)];
+                        femaleSecondNames[random.Next(femaleSecondNames.Count)];
                     break;
             }
+
             return person;
         }
     }
