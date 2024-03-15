@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-   //TODO: XML
+   //TODO+: XML
    /// <summary>
    /// Класс Person.
    /// </summary>
@@ -42,7 +42,7 @@ namespace EverythingAboutPerson
         /// или английских букв. Например, цифры или символы.</returns>
         private static bool NameCheck(string name)
         {
-            //TODO:
+            //TODO+:
             if (Regex.IsMatch(name, @"^[а-яА-Я]+-?[а-яА-Я]+$") ||
                 Regex.IsMatch(name, @"^[a-zA-Z]+-?[a-zA-Z]*$"))
             {
@@ -54,7 +54,7 @@ namespace EverythingAboutPerson
             }
         }
 
-        //TODO: RSDN
+        //TODO+: RSDN
         TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
         public string FirstName 
@@ -68,8 +68,8 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    throw new ArgumentException("Имя должно содержать только " +
-                        "русские или английские символы");
+                    throw new ArgumentException("Имя должно содержать " +
+                        "только русские или английские символы");
                 }
 
             }
@@ -86,8 +86,8 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    throw new ArgumentException("Фамилия должна содержать только " +
-                        "русские или английские символы");
+                    throw new ArgumentException("Фамилия должна содержать " +
+                        "только русские или английские символы");
                 }
 
             }
@@ -98,7 +98,7 @@ namespace EverythingAboutPerson
             get { return _age; }
             set 
             {
-                //TODO: скобочки
+                //TODO+: скобочки
                 if (value < _minAge)
                 {
                     throw new ArgumentException("Возраст не может быть " +
@@ -142,18 +142,22 @@ namespace EverythingAboutPerson
         public static Person GetRandomPerson()
         {
             
-            List<string> maleNames = new List<string>() { "Андрей", "Артемий",
-                "Александр", "Владимир", "Вячеслав","Владлен","Глеб","Георгий",
+            List<string> maleNames = new List<string>() { 
+                "Андрей", "Артемий","Александр", "Владимир", 
+                "Вячеслав","Владлен","Глеб","Георгий",
                 "Григорий","Ерофей","Евгений","Егор" };
-            List<string> femaleNames = new List<string>() { "Анастасия",
-                "Анна","Александра","Валентина","Валерия","Василиса",
-                "Галина","Дарья","Оксана","Елена","Евгения","Екатерина" };
-            List<string> maleSecondNames = new List<string>() { "Попов",
-                "Лебедев","Петров","Ленин","Русский","Татарский","Дугин",
-                "Сковорода","Путин","Копцев","Кац","Сорокин" };
-            List<string> femaleSecondNames = new List<string>() { "Попова",
-                "Лебедева","Петрова","Ленина","Русская","Татарская","Дугина",
-                "Сковорода","Путина","Копцева","Кац","Сорокина" };
+            List<string> femaleNames = new List<string>() { 
+                "Анастасия","Анна","Александра","Валентина",
+                "Валерия","Василиса","Галина","Дарья",
+                "Оксана","Елена","Евгения","Екатерина" };
+            List<string> maleSecondNames = new List<string>() { 
+                "Попов","Лебедев","Петров","Ленин",
+                "Русский","Татарский","Дугин","Сковорода",
+                "Путин","Копцев","Кац","Сорокин" };
+            List<string> femaleSecondNames = new List<string>() { 
+                "Попова","Лебедева","Петрова","Ленина",
+                "Русская","Татарская","Дугина","Сковорода",
+                "Путина","Копцева","Кац","Сорокина" };
             
             Random random = new Random();
 
@@ -164,7 +168,7 @@ namespace EverythingAboutPerson
             person.Gender = 
                 (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 
             
-            //TODO: switch-case
+            //TODO+: switch-case
             switch(person.Gender)
             {
                 case Gender.Male:

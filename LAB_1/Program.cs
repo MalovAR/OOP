@@ -3,7 +3,7 @@ using System;
 
 namespace LAB_1
 {
-    //TODO: XML
+    //TODO+: XML
     /// <summary>
     /// класс Programm
     /// </summary>
@@ -60,7 +60,7 @@ namespace LAB_1
         public static Person InsertPerson()
         {
             Person person = new Person();
-            //TODO: duplication
+            //TODO+: duplication
 
             List<Action> actions = new List<Action>()
             {

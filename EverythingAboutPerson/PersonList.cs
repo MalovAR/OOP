@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace EverythingAboutPerson
 {
-    //TODO: XML
+    //TODO+: XML
     /// <summary>
     /// Класс PersonList
     /// </summary>
     public class PersonList
     {
-        //TODO: RSDN
+        //TODO+: RSDN
         private List<Person> persons = new List<Person>();
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace EverythingAboutPerson
             }
             else 
             {
-                //TODO: remove
-                throw new ArgumentException("Не найдено");
+                //TODO+: remove
+                throw new ArgumentException("Не найден элемент списка");
             }
         }
 
