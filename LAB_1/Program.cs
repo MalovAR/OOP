@@ -80,17 +80,23 @@ namespace LAB_1
                     {
                         case "M":
                         case "М":
-                            break;
+                            {
+                                break;
+                            }
                         case "F":
                         case "Ж":
-                            person.Gender = Gender.Female;
+                            {
+                                person.Gender = Gender.Female;
                             break;
+                            }
                         default:
-                            throw new ArgumentException("Неправильно указан пол.\n");
+                            {
+                                throw new ArgumentException("Неправильно указан пол.\n");
+                            }
                     }
                 }
-
             };
+
             foreach (Action action in actions)
             {
                 ActionHandler(action);
