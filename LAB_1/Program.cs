@@ -87,7 +87,7 @@ namespace LAB_1
                         case "Ж":
                             {
                                 person.Gender = Gender.Female;
-                            break;
+                                break;
                             }
                         default:
                             {
