@@ -25,22 +25,27 @@ namespace LAB_1
 
                 catch (Exception ex)
                 {
-                    //var exceptionType = ex.GetType();
                     switch (ex)
                     {
                         //TODO: {}
                         case ArgumentOutOfRangeException _:
                         case ArgumentException _:
-                            Console.WriteLine(ex.Message);
-                            break;
+                            {
+                                Console.WriteLine(ex.Message);
+                                break;
+                            }
+
                         case FormatException _:
-                            Console.WriteLine("Некорректный формат. Возраст " +
+                            {
+                                Console.WriteLine("Некорректный формат. Возраст " +
                                 "должен состоять только из цифр");
-                            break;
+                                break;
+                            }
                     }
                 }
             }
         }
+
         /// <summary>
         /// Метод для ввода объекта класса Person с консоли
         /// </summary>
@@ -92,8 +97,13 @@ namespace LAB_1
             }
             return person;
         }
-        
+
         //TODO: XML
+        /// <summary>
+        /// Метод, который выводит информацию об объекте 
+        /// класса <see cref="Person"/> в консоль
+        /// </summary>
+        /// <param name="person"> объект класса <see cref="Person"/> </param>
         public static void ShowPersonToConsole(Person person)
         {
             Console.WriteLine(person.GetPersonInfo());

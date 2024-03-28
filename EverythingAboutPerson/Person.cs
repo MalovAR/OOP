@@ -18,18 +18,22 @@ namespace EverythingAboutPerson
         /// поле класса - Имя
         /// </summary>
         private string _firstName;
+
         /// <summary>
         /// поле класса - Фамилия
         /// </summary>
         private string _secondName;
+
         /// <summary>
         /// поле класса - Возраст
         /// </summary>
         private int _age;
+
         /// <summary>
         /// константа -  минимальный возраст
         /// </summary>
         private const int _minAge = 0;
+
         /// <summary>
         /// константа - максимальный возраст
         /// </summary>
@@ -90,7 +94,6 @@ namespace EverythingAboutPerson
         /// true, если имя и фамилия написаны на одном и том же языке
         /// false, если нет
         /// </returns>
-
         private static bool IsLanguageSame(string name, string secondName)
         {
             return (Regex.IsMatch(name, @_rusNamePattern)
@@ -98,6 +101,7 @@ namespace EverythingAboutPerson
                 || (Regex.IsMatch(name, @_engNamePattern)
                 && Regex.IsMatch(secondName, @_engNamePattern));
         }
+
         //TODO: RSDN
         /// <summary>
         /// экземпляр класса <see cref="TextInfo"/>
@@ -121,7 +125,6 @@ namespace EverythingAboutPerson
                     throw new ArgumentException("Имя должно содержать " +
                         "только русские или английские символы");
                 }
-
             }
         }
 
@@ -142,7 +145,6 @@ namespace EverythingAboutPerson
                     throw new ArgumentException("Фамилия должна содержать " +
                         "только русские или английские символы ");
                 }
-
             }
         }
 
@@ -200,7 +202,6 @@ namespace EverythingAboutPerson
         /// </returns>
         public static Person GetRandomPerson()
         {
-            
             List<string> maleNames = new List<string>() { 
                 "Андрей", "Артемий","Александр", "Владимир", 
                 "Вячеслав","Владлен","Глеб","Георгий",
@@ -249,7 +250,6 @@ namespace EverythingAboutPerson
                     }
                     break;
             }
-
             return person;
         }
     }
