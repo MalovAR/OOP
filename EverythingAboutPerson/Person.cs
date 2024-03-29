@@ -190,8 +190,8 @@ namespace EverythingAboutPerson
         /// </returns>
         public string GetPersonInfo()
         {
-            return ($"{FirstName} {SecondName},Возраст {Age}, " +
-                $"Пол {Gender}\n");
+            return ($"{FirstName} {SecondName}," +
+                $"Возраст {Age}, Пол {Gender}\n");
         }
 
         /// <summary>
