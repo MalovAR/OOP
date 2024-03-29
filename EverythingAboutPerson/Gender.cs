@@ -11,13 +11,11 @@ namespace EverythingAboutPerson
     /// </summary>
     public enum Gender
     {
-        //TODO+: XML
         /// <summary>
         /// константа Male - мужской пол
         /// </summary>
         Male,
 
-        //TODO: XML
         /// <summary>
         /// константа Female - женский пол
         /// </summary>

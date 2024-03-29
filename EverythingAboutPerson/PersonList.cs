@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace EverythingAboutPerson
 {
-    //TODO+: XML
     /// <summary>
     /// Класс PersonList
     /// </summary>
     public class PersonList
     {
-        //TODO+: RSDN
         /// <summary>
         /// объект класса <see cref="List<>"/>, содержащий в себе 
         /// объекты класса <see cref="Person"/>
@@ -68,7 +66,6 @@ namespace EverythingAboutPerson
             }
             else 
             {
-                //TODO+: remove
                 throw new ArgumentException("Не найден элемент списка");
             }
         }
@@ -113,7 +110,6 @@ namespace EverythingAboutPerson
         /// </returns>
         public string GetPersonsList()
         {
-            //TODO+: RSDN
             string list = "";
             foreach (Person person in _persons)
             {

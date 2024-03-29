@@ -8,10 +8,9 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-   //TODO+: XML
-   /// <summary>
-   /// Класс Person.
-   /// </summary>
+    /// <summary>
+    /// Класс Person.
+    /// </summary>
     public class Person
     {
         /// <summary>
@@ -102,7 +101,6 @@ namespace EverythingAboutPerson
                 && Regex.IsMatch(secondName, @_engNamePattern));
         }
 
-        //TODO: RSDN
         /// <summary>
         /// экземпляр класса <see cref="TextInfo"/>
         /// </summary>
@@ -231,24 +229,21 @@ namespace EverythingAboutPerson
             switch(person.Gender)
             {
                 case Gender.Male:
-                    //TODO+: {}
-                    {
-                        person.FirstName =
-                        maleNames[random.Next(maleNames.Count)];
-                        person.SecondName =
-                            maleSecondNames[random.Next(maleSecondNames.Count)];
-                    }
+                {
+                    person.FirstName =
+                    maleNames[random.Next(maleNames.Count)];
+                    person.SecondName =
+                        maleSecondNames[random.Next(maleSecondNames.Count)];
                     break;
-
-                case Gender.Female:
-                    //TODO+: {}
-                    {
-                        person.FirstName =
-                        femaleNames[random.Next(femaleNames.Count)];
-                        person.SecondName =
-                            femaleSecondNames[random.Next(femaleSecondNames.Count)];
-                    }
+                }
+                case Gender.Female:                
+                {
+                    person.FirstName =
+                    femaleNames[random.Next(femaleNames.Count)];
+                    person.SecondName =
+                        femaleSecondNames[random.Next(femaleSecondNames.Count)];
                     break;
+                }
             }
             return person;
         }
