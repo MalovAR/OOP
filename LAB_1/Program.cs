@@ -23,15 +23,15 @@ namespace LAB_1
                     return;
                 }
 
-                catch (Exception ex)
+                catch (Exception exception)
                 {
-                    switch (ex)
+                    switch (exception)
                     {
                         //TODO: {}
                         case ArgumentOutOfRangeException _:
                         case ArgumentException _:
                             {
-                                Console.WriteLine(ex.Message);
+                                Console.WriteLine(exception.Message);
                                 break;
                             }
 
