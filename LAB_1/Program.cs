@@ -109,7 +109,7 @@ namespace LAB_1
         /// <param name="person"> объект класса <see cref="Person"/> </param>
         public static void ShowPersonToConsole(Person person)
         {
-            Console.WriteLine(person.GetPersonInfo());
+            Console.Write(person.GetPersonInfo());
         }
 
         public static void Main()
@@ -122,21 +122,19 @@ namespace LAB_1
             Console.WriteLine("Создано 2 списка персон");
             Person valera = new("Валера", "Жмышенко", 54, Gender.Male);
             Person geralt = new("Геральт", "Приблуда", 100, Gender.Male);
-            //Person vesemyr = new("Весемир", "Старый", 160, Gender.Male);
-            //Person gendalf = new("Гендальф", "Серый", 1000, Gender.Male);
+            Person vesemyr = new("Весемир", "Старый", 120, Gender.Male);
+            Person gendalf = new("Гендальф", "Серый", 130, Gender.Male);
             Person ulfric = new("Ульфрик", "Буревестник", 45, Gender.Male);
             Person goblin = new("Дмитрий", "Пучков", 62, Gender.Male);
             Person vova = new("Владимир", "Вист", 30, Gender.Male);
             PersonList personList1 = new PersonList();
             PersonList personList2 = new PersonList();
             personList1.AddPerson(valera);
-            //personList1.AddPerson(gendalf);
+            personList1.AddPerson(gendalf);
             personList1.AddPerson(goblin);
             personList2.AddPerson(geralt);
-            //personList2.AddPerson(vesemyr);
+            personList2.AddPerson(vesemyr);
             personList2.AddPerson(ulfric);
-            Console.ReadKey();
-            personList2.GetPersonIndex(vova);
 
             ////b.
             Console.ReadKey();
@@ -178,6 +176,10 @@ namespace LAB_1
             //проверка 4 пункта
             Person newPerson = InsertPerson();
             ShowPersonToConsole(newPerson);
+
+            Console.WriteLine("______________________________________________");
+
+            Console.WriteLine("Cписок случайно сгенерированных персон:\n");
 
             //проверка 5 пункта
             for (int i = 0; i < 10; i++)
