@@ -11,7 +11,7 @@ namespace EverythingAboutPerson
     /// <summary>
     /// Класс Person.
     /// </summary>
-    public class Person
+    public abstract class Person
     {
         /// <summary>
         /// поле класса - Имя
@@ -29,14 +29,14 @@ namespace EverythingAboutPerson
         private int _age;
 
         /// <summary>
-        /// константа -  минимальный возраст
+        /// Свойство - минимальный возраст
         /// </summary>
-        private const int _minAge = 0;
+        public virtual int MinAge { get; } = 0;
 
         /// <summary>
-        /// константа - максимальный возраст
+        /// Свойство - максимальный возраст
         /// </summary>
-        private const int _maxAge = 150;
+        public virtual int MaxAge { get; } = 110;
 
         /// <summary>
         /// Шаблон задания имен на русском языке
@@ -48,10 +48,7 @@ namespace EverythingAboutPerson
         /// </summary>
         private const string _engNamePattern = "^[a-zA-Z]+-?[a-zA-Z]*$";
 
-        /// <summary>
-        /// Экземпляр класса <see cref="Person"/> по умолчанию
-        /// </summary>
-        public Person() : this("Unknown", "Unknown", 0, Gender.Male) { }
+        public Person() : this("Неизвестно", "Неизвестно", 0, Gender.Male) { }
 
         /// <summary>
         /// Конструктор класса
@@ -154,16 +151,16 @@ namespace EverythingAboutPerson
             get { return _age; }
             set 
             {
-                if (value < _minAge)
+                if (value < MinAge)
                 {
                     throw new ArgumentException("Возраст не может быть " +
                         "отрицательным");
                 }
  
-                if (value > _maxAge)
+                if (value > MaxAge)
                 {
                     throw new ArgumentException("Возраст не может быть " + 
-                        $"больше {_maxAge}");
+                        $"больше {MaxAge}");
                 }
                 else
                 {
@@ -181,71 +178,17 @@ namespace EverythingAboutPerson
         }
 
         /// <summary>
-        /// Метод, показывающий информацию об объекте класса <see cref="Person"/> 
+        /// Метод, показывающий информацию об 
+        /// объекте класса <see cref="Person"/> 
         /// </summary>
         /// <returns> 
-        /// строка с информацией об объекте класса <see cref="Person"/> 
+        /// Cтрока с информацией об объекте класса <see cref="Person"/> 
         /// </returns>
-        public string GetPersonInfo()
+        public virtual string GetInfo()
         {
             return ($"{FirstName} {SecondName}," +
-                $"Возраст {Age}, Пол {Gender}\n");
+                $"Возраст {Age}, Пол {Gender} ");
         }
 
-        /// <summary>
-        /// Метод, создающий случайный объект класса <see cref="Person"/>
-        /// </summary>
-        /// <returns>
-        /// объект класса Person
-        /// </returns>
-        public static Person GetRandomPerson()
-        {
-            List<string> maleNames = new List<string>() { 
-                "Андрей", "Артемий","Александр", "Владимир", 
-                "Вячеслав","Владлен","Глеб","Георгий",
-                "Григорий","Ерофей","Евгений","Егор" };
-            List<string> femaleNames = new List<string>() { 
-                "Анастасия","Анна","Александра","Валентина",
-                "Валерия","Василиса","Галина","Дарья",
-                "Оксана","Елена","Евгения","Екатерина" };
-            List<string> maleSecondNames = new List<string>() { 
-                "Попов","Лебедев","Петров","Ленин",
-                "Русский","Татарский","Дугин","Сковорода",
-                "Путин","Копцев","Кац","Сорокин" };
-            List<string> femaleSecondNames = new List<string>() { 
-                "Попова","Лебедева","Петрова","Ленина",
-                "Русская","Татарская","Дугина","Сковорода",
-                "Путина","Копцева","Кац","Сорокина" };
-            
-            Random random = new Random();
-
-            Person person = new Person();
-
-            person.Age = random.Next(_minAge, _maxAge);
-
-            person.Gender = 
-                (Gender)random.Next(Enum.GetValues(typeof(Gender)).Length); 
-            
-            switch(person.Gender)
-            {
-                case Gender.Male:
-                {
-                    person.FirstName =
-                    maleNames[random.Next(maleNames.Count)];
-                    person.SecondName =
-                        maleSecondNames[random.Next(maleSecondNames.Count)];
-                    break;
-                }
-                case Gender.Female:                
-                {
-                    person.FirstName =
-                    femaleNames[random.Next(femaleNames.Count)];
-                    person.SecondName =
-                        femaleSecondNames[random.Next(femaleSecondNames.Count)];
-                    break;
-                }
-            }
-            return person;
-        }
     }
 }

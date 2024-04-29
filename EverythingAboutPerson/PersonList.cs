@@ -113,7 +113,7 @@ namespace EverythingAboutPerson
             string list = "";
             foreach (Person person in _persons)
             {
-                list += person.GetPersonInfo();
+                list += person.GetInfo();
             }
             return list;
         }
