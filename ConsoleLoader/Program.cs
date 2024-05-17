@@ -14,18 +14,21 @@ namespace ConsoleLoader
             Resistor resistor = new Resistor();
             Inductor inductor = new Inductor();
             Capacitor capacitor = new Capacitor();
+            
 
             Console.Write("Расчет полного сопротивления цепи\n" +
                 "Введите активное сопротивление элемента: ");
             resistor.Resistance = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите индуктивность элемента");
+            Console.Write("Введите индуктивность элемента: ");
             inductor.Inductance = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите емкость элемента");
+            Console.Write("Введите емкость элемента: ");
             capacitor.Capacity = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите частоту электрического тока");
-            capacitor.Frecuency = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите частоту электрического тока: ");
+            CircuitElement.Frequency = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write(resistor.GetInfo());
+            Console.WriteLine(resistor.GetInfo());
+            Console.WriteLine(inductor.GetInfo());
+            Console.WriteLine(capacitor.GetInfo());
             Console.ReadKey();
         }
     }

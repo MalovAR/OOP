@@ -13,22 +13,22 @@ namespace Passive_electrical_circuit_elements_Model
         /// <summary>
         /// Поле класса - частота электрического тока в цепи
         /// </summary>
-        private double _frecuency;
+        private static double _frequency;
 
         /// <summary>
         /// Поле класса - минимальное значение величины
         /// </summary>
         private const int _minValue = 0;
 
-        public double Frecuency 
+        public static double Frequency 
         {
             get  
             {
-                return _frecuency; 
+                return _frequency; 
             }
             set
             {
-                _frecuency = CheckValue(value);
+                _frequency = CheckValue(value);
             }
         }
         /// <summary>
