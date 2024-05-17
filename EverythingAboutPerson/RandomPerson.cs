@@ -9,6 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace EverythingAboutPerson
 {
+    //TODO: XML
     public class RandomPerson
     {
         static List<string> maleNamesList = new List<string>() {
@@ -67,6 +68,7 @@ namespace EverythingAboutPerson
 
             switch (person.Gender)
             {
+                //TODO: RSDN
                 case Gender.Male:
                     {
                         person.FirstName = maleNamesList
@@ -109,6 +111,7 @@ namespace EverythingAboutPerson
             {
                 switch (adult.Gender)
                 {
+                    //TODO: RSDN
                     case Gender.Male:
                         {
                             int secondNameIndex = maleSecondNamesList.IndexOf(adult.SecondName);
@@ -145,6 +148,7 @@ namespace EverythingAboutPerson
                         child.Mother = parent.Partner;
                         switch (child.Gender)
                         {
+                            //TODO: RSDN
                             case Gender.Male:
                                 {
                                     child.SecondName = parent.SecondName;
@@ -166,6 +170,7 @@ namespace EverythingAboutPerson
                         child.Father = parent.Partner;
                         switch (child.Gender)
                         {
+                            //TODO: RSDN
                             case Gender.Male:
                                 {
                                     int secondNameIndex = femaleSecondNamesList.IndexOf(parent.SecondName);
@@ -225,6 +230,7 @@ namespace EverythingAboutPerson
                 adult.Job = "Пенсионер";
             }
 
+            //TODO: duplication
             adult.PassportSeries = GetRandomNumbers(4);
             adult.PassportNumber = GetRandomNumbers(6);
             SetAPartner(adult);

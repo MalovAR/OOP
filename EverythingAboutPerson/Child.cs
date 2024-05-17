@@ -76,8 +76,6 @@ namespace EverythingAboutPerson
                     throw new ArgumentException
                         ("Отец должен быть мужского пола");
                 }
-
-
             }
         }
 

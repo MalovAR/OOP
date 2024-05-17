@@ -11,6 +11,7 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
+    //TODO: XML    
     public class Adult : Person
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace EverythingAboutPerson
         /// </summary>
         private string _job;
 
+        //TODO: XML
         private const string _onlyNumbersPattern = @"^\d+$";
 
         /// <summary>
@@ -87,6 +89,7 @@ namespace EverythingAboutPerson
             get { return _passportSeries; }
             set
             {
+                //TODO: duplication
                 if (value.Length == 4 && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
@@ -109,6 +112,7 @@ namespace EverythingAboutPerson
             get { return _passportNumber; }
             set
             {
+                //TODO: duplication
                 if (value.Length == 6 && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
@@ -187,6 +191,7 @@ namespace EverythingAboutPerson
             job = $"Место работы: {Job}";
             switch (textInfo.ToUpper(Job))
             {
+                //TODO: RSDN
                 case "":
                     {
                         job = "Нигде не работает";
@@ -215,5 +220,4 @@ namespace EverythingAboutPerson
                 $"И я устал, я устал";
         }
     }
-
 }

@@ -8,6 +8,7 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
+    //TODO: RSDN
     /// <summary>
     /// Класс Person.
     /// </summary>
@@ -48,6 +49,7 @@ namespace EverythingAboutPerson
         /// </summary>
         private const string _engNamePattern = "^[a-zA-Z]+-?[a-zA-Z]*$";
 
+        //TODO: XML
         public Person() : this("Неизвестно", "Неизвестно", 0, Gender.Male) { }
 
         /// <summary>
