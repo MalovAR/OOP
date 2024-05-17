@@ -55,20 +55,15 @@ namespace Test
             {
                 bool isAdult = random.Next(0,2) == 0;
                 //TODO: refactor
-                switch (isAdult)
+                personList.AddPerson(RandomPerson.CreateRandomChild());
+                if (isAdult)
                 {
-                    case true:
-                        {
-                            personList.AddPerson(RandomPerson.CreateRandomAdult());
-                            break;
-                        }
-                    case false:
-                        {
-                            personList.AddPerson(RandomPerson.CreateRandomChild());
-                            break;
-                        }
+                    personList.AddPerson(RandomPerson.CreateRandomAdult());
                 }
-
+                //else
+                //{
+                //    personList.AddPerson(RandomPerson.CreateRandomChild());
+                //}
             }
 
             Console.WriteLine(personList.GetPersonsList());
