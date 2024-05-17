@@ -8,11 +8,11 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-    //TODO: RSDN
+    //TODO: RSDN+
     /// <summary>
-    /// Класс Person.
+    /// Базовый класс Person
     /// </summary>
-    public abstract class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// поле класса - Имя
@@ -49,9 +49,6 @@ namespace EverythingAboutPerson
         /// </summary>
         private const string _engNamePattern = "^[a-zA-Z]+-?[a-zA-Z]*$";
 
-        //TODO: XML
-        public Person() : this("Неизвестно", "Неизвестно", 0, Gender.Male) { }
-
         /// <summary>
         /// Конструктор класса
         /// </summary>
@@ -59,7 +56,7 @@ namespace EverythingAboutPerson
         /// <param name="secondName"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public Person(string name, string secondName, int age, Gender gender)
+        public PersonBase(string name, string secondName, int age, Gender gender)
         {
             FirstName = name;
             SecondName = secondName;
@@ -181,10 +178,10 @@ namespace EverythingAboutPerson
 
         /// <summary>
         /// Метод, показывающий информацию об 
-        /// объекте класса <see cref="Person"/> 
+        /// объекте класса <see cref="PersonBase"/> 
         /// </summary>
         /// <returns> 
-        /// Cтрока с информацией об объекте класса <see cref="Person"/> 
+        /// Cтрока с информацией об объекте класса <see cref="PersonBase"/> 
         /// </returns>
         public virtual string GetInfo()
         {

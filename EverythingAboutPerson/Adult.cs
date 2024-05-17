@@ -11,8 +11,11 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-    //TODO: XML    
-    public class Adult : Person
+    //TODO: XML+
+    /// <summary>
+    /// Класс Adult
+    /// </summary>
+    public class Adult : PersonBase
     {
         /// <summary>
         /// поле класса - серия паспорта
@@ -35,21 +38,34 @@ namespace EverythingAboutPerson
         /// </summary>
         private string _job;
 
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Регулярное выражение проверяющее, что строка состоит только из цифр
+        /// </summary>
         private const string _onlyNumbersPattern = @"^\d+$";
 
         /// <summary>
-        /// Свойство - минимальный возраст
+        /// Длина серии паспорта
+        /// </summary>
+        public const int SeriesLength = 4;
+
+        /// <summary>
+        /// Длина номера паспорта
+        /// </summary>
+        public const int NumberLength = 6;
+
+        /// <summary>
+        /// Свойство - минимальный возраст взрослого человека
         /// </summary>
         public override int MinAge { get; } = 18;
 
         /// <summary>
         /// Мужской пенсионный возраст
         /// </summary>
-        public const int MalePensionAge = 65;
+        public const int MalePensionAge  = 65;
 
         /// <summary>
-        /// Мужской пенсионный возраст
+        /// Женский пенсионный возраст
         /// </summary>
         public const int FemalePensionAge = 60;
 
@@ -89,8 +105,8 @@ namespace EverythingAboutPerson
             get { return _passportSeries; }
             set
             {
-                //TODO: duplication
-                if (value.Length == 4 && 
+                //TODO: duplication+
+                if (value.Length == SeriesLength && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
                     _passportSeries = value;
@@ -98,10 +114,9 @@ namespace EverythingAboutPerson
                 else
                 {
                     throw new ArgumentException
-                        ("Серия должна состоять из 4 цифр");
+                        ($"Серия должна состоять из {SeriesLength} цифр");
                 }
             }
-
         }
 
         /// <summary>
@@ -112,8 +127,8 @@ namespace EverythingAboutPerson
             get { return _passportNumber; }
             set
             {
-                //TODO: duplication
-                if (value.Length == 6 && 
+                //TODO: duplication+
+                if (value.Length == NumberLength && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
                     _passportNumber = value;                    
@@ -121,10 +136,9 @@ namespace EverythingAboutPerson
                 else
                 {
                     throw new ArgumentException
-                        ("Номер должен состоять из 6 цифр");
+                        ($"Номер должен состоять из {NumberLength} цифр");
                 }
             }
-
         }
 
         /// <summary>
@@ -145,7 +159,6 @@ namespace EverythingAboutPerson
                     throw new ArgumentException("Однополый брак невозможен");
                 }
             }
-
         }
 
         /// <summary>
@@ -191,17 +204,17 @@ namespace EverythingAboutPerson
             job = $"Место работы: {Job}";
             switch (textInfo.ToUpper(Job))
             {
-                //TODO: RSDN
+                //TODO: RSDN+
                 case "":
-                    {
-                        job = "Нигде не работает";
-                        break;
-                    }
+                {
+                    job = "Нигде не работает";
+                    break;
+                }
                 case "ПЕНСИОНЕР":
-                    {
-                        job = "Пенсионер";
-                        break;
-                    }
+                {
+                    job = "Пенсионер";
+                    break;
+                }
             }
 
             return ($"{base.GetInfo()}" +

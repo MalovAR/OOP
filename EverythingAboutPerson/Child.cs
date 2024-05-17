@@ -9,9 +9,9 @@ using System.Xml.Linq;
 namespace EverythingAboutPerson
 {
     /// <summary>
-    /// Класс Child (наследник класса Person).
+    /// Класс Child
     /// </summary>
-    public class Child : Person
+    public class Child : PersonBase
     {
         /// <summary>
         /// Поле отца

@@ -9,7 +9,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace EverythingAboutPerson
 {
-    //TODO: XML
+    //TODO: XML+
+    /// <summary>
+    /// класс RandomPerson
+    /// </summary>
     public class RandomPerson
     {
         static List<string> maleNamesList = new List<string>() {
@@ -40,7 +43,9 @@ namespace EverythingAboutPerson
         static List<string> schoolsList = new List<string>() {
                 "Школа N1", "Государственный Лицей", "Гимназия N5"};
 
-
+        /// <summary>
+        /// экземпляр класса Random
+        /// </summary>
         private static Random _random = new Random();
 
         /// <summary>
@@ -62,29 +67,23 @@ namespace EverythingAboutPerson
         /// <summary>
         /// Метод, заполняющий основные поля базового класса
         /// </summary>
-        public static void SetBaseData(Person person)
+        public static void SetBaseData(PersonBase person)
         {
             person.Age = _random.Next(person.MinAge, person.MaxAge);
 
-            switch (person.Gender)
+            if (person.Gender == Gender.Male)
             {
-                //TODO: RSDN
-                case Gender.Male:
-                    {
-                        person.FirstName = maleNamesList
-                            [_random.Next(maleNamesList.Count)];
-                        person.SecondName = maleSecondNamesList
-                            [_random.Next(maleSecondNamesList.Count)];
-                        break;
-                    }
-                case Gender.Female:
-                    {
-                        person.FirstName = femaleNamesList
-                            [_random.Next(femaleNamesList.Count)];
-                        person.SecondName = femaleSecondNamesList
-                            [_random.Next(femaleSecondNamesList.Count)];
-                        break;
-                    }
+                person.FirstName = maleNamesList
+                        [_random.Next(maleNamesList.Count)];
+                person.SecondName = maleSecondNamesList
+                    [_random.Next(maleSecondNamesList.Count)];
+            }
+            else
+            {
+                person.FirstName = femaleNamesList
+                        [_random.Next(femaleNamesList.Count)];
+                person.SecondName = femaleSecondNamesList
+                    [_random.Next(femaleSecondNamesList.Count)];
             }
         }
 
@@ -92,7 +91,7 @@ namespace EverythingAboutPerson
         /// Метод, случайным образом определяющий пол 
         /// </summary>
         /// <param name="person"> Объект класса базового класса </param>
-        public static void SetPersonGender(Person person)
+        public static void SetPersonGender(PersonBase person)
         {
             person.Gender = 
                 (Gender)_random.Next(Enum.GetValues(typeof(Gender)).Length);
@@ -109,23 +108,17 @@ namespace EverythingAboutPerson
             bool isMarried = _random.Next(0, 2) == 0;
             if (isMarried == true)
             {
-                switch (adult.Gender)
+                if (adult.Gender == Gender.Male)
                 {
-                    //TODO: RSDN
-                    case Gender.Male:
-                        {
-                            int secondNameIndex = maleSecondNamesList.IndexOf(adult.SecondName);
-                            partner = CreateRandomAdult(Gender.Female);
-                            partner.SecondName = femaleSecondNamesList[secondNameIndex];
-                            break;
-                        }
-                    case Gender.Female:
-                        {
-                            int secondNameIndex = femaleSecondNamesList.IndexOf(adult.SecondName);
-                            partner = CreateRandomAdult(Gender.Male);
-                            partner.SecondName = maleSecondNamesList[secondNameIndex];
-                            break;
-                        }
+                    int secondNameIndex = maleSecondNamesList.IndexOf(adult.SecondName);
+                    partner = CreateRandomAdult(Gender.Female);
+                    partner.SecondName = femaleSecondNamesList[secondNameIndex];
+                }
+                else
+                {
+                    int secondNameIndex = femaleSecondNamesList.IndexOf(adult.SecondName);
+                    partner = CreateRandomAdult(Gender.Male);
+                    partner.SecondName = maleSecondNamesList[secondNameIndex];
                 }
                 adult.Partner = partner;
             }
@@ -139,52 +132,35 @@ namespace EverythingAboutPerson
         public static void SetParents(Child child)
         {
             Adult parent = CreateRandomAdult();
-            switch (parent.Gender)
+            if (parent.Gender == Gender.Male)
             {
-                case Gender.Male:
-                    {
-                        child.Father = parent;
-                        SetAPartner(parent);
-                        child.Mother = parent.Partner;
-                        switch (child.Gender)
-                        {
-                            //TODO: RSDN
-                            case Gender.Male:
-                                {
-                                    child.SecondName = parent.SecondName;
-                                    break;
-                                }
-                            case Gender.Female:
-                                {
-                                    int secondNameIndex = maleSecondNamesList.IndexOf(parent.SecondName);
-                                    child.SecondName = femaleSecondNamesList[secondNameIndex];
-                                    break;
-                                }
-                        }
-                        break;
-                    }
-                case Gender.Female:
-                    {
-                        child.Mother = parent;
-                        SetAPartner(parent);
-                        child.Father = parent.Partner;
-                        switch (child.Gender)
-                        {
-                            //TODO: RSDN
-                            case Gender.Male:
-                                {
-                                    int secondNameIndex = femaleSecondNamesList.IndexOf(parent.SecondName);
-                                    child.SecondName = maleSecondNamesList[secondNameIndex];
-                                    break;
-                                }
-                            case Gender.Female:
-                                {
-                                    child.SecondName = parent.SecondName;
-                                    break;
-                                }
-                        }
-                        break;
-                    }
+                child.Father = parent;
+                SetAPartner(parent);
+                child.Mother = parent.Partner;
+                if (child.Gender == Gender.Male)
+                {
+                    child.SecondName = parent.SecondName;
+                }
+                else
+                {
+                    int secondNameIndex = maleSecondNamesList.IndexOf(parent.SecondName);
+                    child.SecondName = femaleSecondNamesList[secondNameIndex];
+                }
+            }
+            else
+            {
+                child.Mother = parent;
+                SetAPartner(parent);
+                child.Father = parent.Partner;
+                if (child.Gender == Gender.Female)
+                {
+                    child.SecondName = parent.SecondName;
+                }
+                else
+                {
+                    int secondNameIndex = femaleSecondNamesList.IndexOf(parent.SecondName);
+                    child.SecondName = maleSecondNamesList[secondNameIndex];
+                }
             }          
         }
 
@@ -198,12 +174,10 @@ namespace EverythingAboutPerson
         /// <returns> Объект класса <see cref="Adult"/> </returns>
         public static Adult CreateRandomAdult(Gender gender)
         {
-
             Adult adult = new();
             adult.Gender = gender;
             SetBaseData(adult);
             return adult;
-
         }
 
         /// <summary>
@@ -230,9 +204,9 @@ namespace EverythingAboutPerson
                 adult.Job = "Пенсионер";
             }
 
-            //TODO: duplication
-            adult.PassportSeries = GetRandomNumbers(4);
-            adult.PassportNumber = GetRandomNumbers(6);
+            //TODO: duplication+
+            adult.PassportSeries = GetRandomNumbers(Adult.SeriesLength);
+            adult.PassportNumber = GetRandomNumbers(Adult.NumberLength);
             SetAPartner(adult);
             return adult;
         }
@@ -257,8 +231,6 @@ namespace EverythingAboutPerson
             }
             SetParents(child);
             return child;
-
         }
-
     }
 }
