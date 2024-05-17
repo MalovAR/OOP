@@ -19,10 +19,13 @@ namespace ConsoleLoader
             Console.Write("Расчет полного сопротивления цепи\n" +
                 "Введите активное сопротивление элемента: ");
             resistor.Resistance = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите индуктивность элемента: ");
+
+            Console.Write("Введите индуктивность элемента, мГн: ");
             inductor.Inductance = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите емкость элемента: ");
+
+            Console.Write("Введите емкость элемента, мкФ: ");
             capacitor.Capacity = Convert.ToDouble(Console.ReadLine());
+
             Console.Write("Введите частоту электрического тока: ");
             CircuitElement.Frequency = Convert.ToDouble(Console.ReadLine());
 

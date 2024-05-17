@@ -25,12 +25,12 @@ namespace Passive_electrical_circuit_elements_Model
 
         public override Complex Impedance()
         {
-            Complex result = new Complex(0, 2 * Math.PI * Frequency * Capacity);
+            Complex result = new Complex(0, 1 / (2 * Math.PI * Frequency * Capacity / 1000000));
             return result;
         }
         public override string GetInfo()
         {
-            return ($"Комплексное сопротивление элемента {Impedance().Real}+j{Impedance().Imaginary}");
+            return ($"Комплексное сопротивление конденсатора: {Impedance().Real}-j{Impedance().Imaginary} Ом");
         }
     }
 }

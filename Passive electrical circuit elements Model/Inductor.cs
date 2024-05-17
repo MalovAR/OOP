@@ -31,13 +31,13 @@ namespace Passive_electrical_circuit_elements_Model
 
         public override Complex Impedance()
         {
-            Complex result = new Complex(0, 2*Math.PI*Frequency*Inductance);
+            Complex result = new Complex(0, 2 * Math.PI * Frequency * Inductance / 1000);
             return result;
         }
 
         public override string GetInfo()
         {
-            return ($"Комплексное сопротивление элемента {Impedance().Real}+j{Impedance().Imaginary}");
+            return ($"Комплексное сопротивление катушки индуктивности: {Impedance().Real}+j{Impedance().Imaginary} Ом");
         }
     }
 }

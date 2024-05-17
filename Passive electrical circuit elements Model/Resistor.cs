@@ -36,7 +36,7 @@ namespace Passive_electrical_circuit_elements_Model
         }
         public override string GetInfo()
         {
-            return ($"Комплексное сопротивление элемента {Impedance().Real}+j{Impedance().Imaginary}");
+            return ($"Комплексное сопротивление резистора: {Impedance().Real}+j{Impedance().Imaginary} Ом");
         }
     }
 }
