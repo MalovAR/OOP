@@ -8,19 +8,19 @@ using System.Numerics;
 
 namespace Passive_electrical_circuit_elements_Model
 {
-    public abstract class CircuitElement
+    public abstract class BaseCircuitElement
     {
         /// <summary>
         /// Поле класса - частота электрического тока в цепи
         /// </summary>
-        private static double _frequency;
+        private double _frequency;
 
         /// <summary>
         /// Поле класса - минимальное значение величины
         /// </summary>
         private const int _minValue = 0;
 
-        public static double Frequency 
+        public double Frequency 
         {
             get  
             {

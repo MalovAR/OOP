@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Passive_electrical_circuit_elements_Model
 {
-    public class Resistor : CircuitElement
+    public class Resistor : BaseCircuitElement
     {
         /// <summary>
         /// Поле класса - активное сопротивление

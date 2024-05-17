@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Passive_electrical_circuit_elements_Model
 {
-    public class Inductor : CircuitElement
+    public class Inductor : BaseCircuitElement
     {
         /// <summary>
         /// Поле класса - индуктивность
@@ -31,7 +31,7 @@ namespace Passive_electrical_circuit_elements_Model
 
         public override Complex Impedance()
         {
-            Complex result = new Complex(0, 2 * Math.PI * Frequency * Inductance / 1000);
+            Complex result = new Complex(0, 2 * Math.PI * Frequency * Inductance);
             return result;
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Passive_electrical_circuit_elements_Model
 {
-    public class Capacitor : CircuitElement
+    public class Capacitor : BaseCircuitElement
     {
         private double _capacity;
 
@@ -25,7 +25,7 @@ namespace Passive_electrical_circuit_elements_Model
 
         public override Complex Impedance()
         {
-            Complex result = new Complex(0, 1 / (2 * Math.PI * Frequency * Capacity / 1000000));
+            Complex result = new Complex(0, 1 / (2 * Math.PI * Frequency * Capacity));
             return result;
         }
         public override string GetInfo()
