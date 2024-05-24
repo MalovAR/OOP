@@ -53,16 +53,11 @@ namespace Test
             PersonList personList = new PersonList();
             for (int i = 0; i < 7; i++)
             {
-                bool isAdult = random.Next(0,2) == 0;
-                //BUG:+
-                if (isAdult)
-                {
-                    personList.AddPerson(RandomPerson.CreateRandomAdult());
-                }
-                else
-                {
-                    personList.AddPerson(RandomPerson.CreateRandomChild());
-                }
+                PersonBase tmpPerson = random.Next(0,2) == 0
+                    ? RandomPerson.CreateRandomAdult()
+                    : RandomPerson.CreateRandomChild();
+
+                personList.AddPerson(tmpPerson);
             }
 
             Console.WriteLine(personList.GetPersonsList());
