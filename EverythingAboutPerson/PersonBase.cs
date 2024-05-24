@@ -8,7 +8,6 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-    //TODO: RSDN+
     /// <summary>
     /// Базовый класс Person
     /// </summary>

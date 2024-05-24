@@ -11,7 +11,6 @@ using System.Xml.Linq;
 
 namespace EverythingAboutPerson
 {
-    //TODO: XML+
     /// <summary>
     /// Класс Adult
     /// </summary>
@@ -38,7 +37,6 @@ namespace EverythingAboutPerson
         /// </summary>
         private string _job;
 
-        //TODO: XML+
         /// <summary>
         /// Регулярное выражение проверяющее, что строка состоит только из цифр
         /// </summary>
@@ -105,7 +103,6 @@ namespace EverythingAboutPerson
             get { return _passportSeries; }
             set
             {
-                //TODO: duplication+
                 if (value.Length == SeriesLength && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
@@ -127,7 +124,6 @@ namespace EverythingAboutPerson
             get { return _passportNumber; }
             set
             {
-                //TODO: duplication+
                 if (value.Length == NumberLength && 
                     Regex.IsMatch(value, _onlyNumbersPattern))
                 {
@@ -204,7 +200,6 @@ namespace EverythingAboutPerson
             job = $"Место работы: {Job}";
             switch (textInfo.ToUpper(Job))
             {
-                //TODO: RSDN+
                 case "":
                 {
                     job = "Нигде не работает";

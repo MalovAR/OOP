@@ -9,24 +9,27 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace EverythingAboutPerson
 {
-    //TODO: XML+
     /// <summary>
     /// класс RandomPerson
     /// </summary>
     public class RandomPerson
     {
+        //TODO: RSDN
         static List<string> maleNamesList = new List<string>() {
                 "Андрей", "Артемий","Александр", "Владимир",
                 "Вячеслав","Владлен","Глеб","Георгий",
                 "Григорий","Ерофей","Евгений","Егор" };
+
         static List<string> femaleNamesList = new List<string>() {
                 "Анастасия","Анна","Александра","Валентина",
                 "Валерия","Василиса","Галина","Дарья",
                 "Оксана","Елена","Евгения","Екатерина" };
+
         static List<string> maleSecondNamesList = new List<string>() {
                 "Попов","Лебедев","Петров","Ленин",
                 "Русский","Татарский","Дугин","Сковорода",
                 "Путин","Копцев","Кац","Сорокин" };
+
         static List<string> femaleSecondNamesList = new List<string>() {
                 "Попова","Лебедева","Петрова","Ленина",
                 "Русская","Татарская","Дугина","Сковорода",
@@ -204,7 +207,6 @@ namespace EverythingAboutPerson
                 adult.Job = "Пенсионер";
             }
 
-            //TODO: duplication+
             adult.PassportSeries = GetRandomNumbers(Adult.SeriesLength);
             adult.PassportNumber = GetRandomNumbers(Adult.NumberLength);
             SetAPartner(adult);

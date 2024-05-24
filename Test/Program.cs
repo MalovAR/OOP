@@ -54,7 +54,7 @@ namespace Test
             for (int i = 0; i < 7; i++)
             {
                 bool isAdult = random.Next(0,2) == 0;
-                //TODO: refactor+
+                //BUG:
                 personList.AddPerson(RandomPerson.CreateRandomChild());
                 if (isAdult)
                 {
