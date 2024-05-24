@@ -14,36 +14,57 @@ namespace EverythingAboutPerson
     /// </summary>
     public class RandomPerson
     {
-        //TODO: RSDN
-        static List<string> maleNamesList = new List<string>() {
+        //TODO: RSDN+
+        /// <summary>
+        /// Список мужских имен
+        /// </summary>
+        private static List<string> _maleNamesList = new List<string>() {
                 "Андрей", "Артемий","Александр", "Владимир",
                 "Вячеслав","Владлен","Глеб","Георгий",
                 "Григорий","Ерофей","Евгений","Егор" };
 
-        static List<string> femaleNamesList = new List<string>() {
+        /// <summary>
+        /// Список Женских имен
+        /// </summary>
+        private static List<string> _femaleNamesList = new List<string>() {
                 "Анастасия","Анна","Александра","Валентина",
                 "Валерия","Василиса","Галина","Дарья",
                 "Оксана","Елена","Евгения","Екатерина" };
 
-        static List<string> maleSecondNamesList = new List<string>() {
+        /// <summary>
+        /// Список мужских фамилий
+        /// </summary>
+        private static List<string> _maleSecondNamesList = new List<string>() {
                 "Попов","Лебедев","Петров","Ленин",
                 "Русский","Татарский","Дугин","Сковорода",
                 "Путин","Копцев","Кац","Сорокин" };
 
-        static List<string> femaleSecondNamesList = new List<string>() {
+        /// <summary>
+        /// Список женских фамилий
+        /// </summary>
+        private static List<string> _femaleSecondNamesList = new List<string>() {
                 "Попова","Лебедева","Петрова","Ленина",
                 "Русская","Татарская","Дугина","Сковорода",
                 "Путина","Копцева","Кац","Сорокина" };
 
-        static List<string> jobsList = new List<string>() {
+        /// <summary>
+        /// Список мест работы
+        /// </summary>
+        private static List<string> _jobsList = new List<string>() {
                 "МВД", "МЧС", "ФСБ", "Детский Сад N10",
                 "Школа N1", "Государственный Лицей",
                 "Поликлинника N1", "Автомастерская"};
 
-        static List<string> kindergardensList = new List<string>() {
+        /// <summary>
+        /// Список детских садов
+        /// </summary>
+        private static List<string> _kindergardensList = new List<string>() {
                 "Детский Сад N1", "Детский Сад N10", "Детский Сад N35"};
 
-        static List<string> schoolsList = new List<string>() {
+        /// <summary>
+        /// Список школ
+        /// </summary>
+        private static List<string> _schoolsList = new List<string>() {
                 "Школа N1", "Государственный Лицей", "Гимназия N5"};
 
         /// <summary>
@@ -76,17 +97,17 @@ namespace EverythingAboutPerson
 
             if (person.Gender == Gender.Male)
             {
-                person.FirstName = maleNamesList
-                        [_random.Next(maleNamesList.Count)];
-                person.SecondName = maleSecondNamesList
-                    [_random.Next(maleSecondNamesList.Count)];
+                person.FirstName = _maleNamesList
+                        [_random.Next(_maleNamesList.Count)];
+                person.SecondName = _maleSecondNamesList
+                    [_random.Next(_maleSecondNamesList.Count)];
             }
             else
             {
-                person.FirstName = femaleNamesList
-                        [_random.Next(femaleNamesList.Count)];
-                person.SecondName = femaleSecondNamesList
-                    [_random.Next(femaleSecondNamesList.Count)];
+                person.FirstName = _femaleNamesList
+                        [_random.Next(_femaleNamesList.Count)];
+                person.SecondName = _femaleSecondNamesList
+                    [_random.Next(_femaleSecondNamesList.Count)];
             }
         }
 
@@ -113,15 +134,19 @@ namespace EverythingAboutPerson
             {
                 if (adult.Gender == Gender.Male)
                 {
-                    int secondNameIndex = maleSecondNamesList.IndexOf(adult.SecondName);
+                    int secondNameIndex = 
+                        _maleSecondNamesList.IndexOf(adult.SecondName);
                     partner = CreateRandomAdult(Gender.Female);
-                    partner.SecondName = femaleSecondNamesList[secondNameIndex];
+                    partner.SecondName = 
+                        _femaleSecondNamesList[secondNameIndex];
                 }
                 else
                 {
-                    int secondNameIndex = femaleSecondNamesList.IndexOf(adult.SecondName);
+                    int secondNameIndex = 
+                        _femaleSecondNamesList.IndexOf(adult.SecondName);
                     partner = CreateRandomAdult(Gender.Male);
-                    partner.SecondName = maleSecondNamesList[secondNameIndex];
+                    partner.SecondName = 
+                        _maleSecondNamesList[secondNameIndex];
                 }
                 adult.Partner = partner;
             }
@@ -146,8 +171,10 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    int secondNameIndex = maleSecondNamesList.IndexOf(parent.SecondName);
-                    child.SecondName = femaleSecondNamesList[secondNameIndex];
+                    int secondNameIndex = 
+                        _maleSecondNamesList.IndexOf(parent.SecondName);
+                    child.SecondName = 
+                        _femaleSecondNamesList[secondNameIndex];
                 }
             }
             else
@@ -161,8 +188,10 @@ namespace EverythingAboutPerson
                 }
                 else
                 {
-                    int secondNameIndex = femaleSecondNamesList.IndexOf(parent.SecondName);
-                    child.SecondName = maleSecondNamesList[secondNameIndex];
+                    int secondNameIndex = 
+                        _femaleSecondNamesList.IndexOf(parent.SecondName);
+                    child.SecondName = 
+                        _maleSecondNamesList[secondNameIndex];
                 }
             }          
         }
@@ -194,12 +223,14 @@ namespace EverythingAboutPerson
             SetPersonGender(adult);
             SetBaseData(adult);
 
-            if (adult.Gender == Gender.Male && adult.Age < Adult.MalePensionAge ||
-                adult.Gender == Gender.Female && adult.Age < Adult.FemalePensionAge)
+            if (adult.Gender == Gender.Male && 
+                adult.Age < Adult.MalePensionAge ||
+                adult.Gender == Gender.Female && 
+                adult.Age < Adult.FemalePensionAge)
             {
                 if (isWorking == true)
                 {
-                    adult.Job = jobsList[_random.Next(jobsList.Count)];
+                    adult.Job = _jobsList[_random.Next(_jobsList.Count)];
                 }
             }
             else
@@ -223,13 +254,17 @@ namespace EverythingAboutPerson
             bool isEducated = _random.Next(0, 2) == 0;
             SetPersonGender(child);
             SetBaseData(child);
-            if (child.Age > 0 && child.Age < 7 && isEducated == true) 
+            if (child.Age > child.MinAge && 
+                child.Age < child.SchoolAge && 
+                isEducated == true) 
             {
-                child.Institute = kindergardensList[_random.Next(kindergardensList.Count)];
+                child.Institute = _kindergardensList
+                    [_random.Next(_kindergardensList.Count)];
             }
             if (child.Age > 7 && isEducated == true)
             {
-                child.Institute = schoolsList[_random.Next(schoolsList.Count)];
+                child.Institute = _schoolsList
+                    [_random.Next(_schoolsList.Count)];
             }
             SetParents(child);
             return child;

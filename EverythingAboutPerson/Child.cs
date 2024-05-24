@@ -29,6 +29,11 @@ namespace EverythingAboutPerson
         private string _institute;
 
         /// <summary>
+        /// константа - школьный возраст
+        /// </summary>
+        public int SchoolAge { get; } = 7;
+
+        /// <summary>
         /// константа - максимальный возраст ребенка
         /// </summary>
         public override int MaxAge { get; } = 17;

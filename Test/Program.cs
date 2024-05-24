@@ -54,11 +54,14 @@ namespace Test
             for (int i = 0; i < 7; i++)
             {
                 bool isAdult = random.Next(0,2) == 0;
-                //BUG:
-                personList.AddPerson(RandomPerson.CreateRandomChild());
+                //BUG:+
                 if (isAdult)
                 {
                     personList.AddPerson(RandomPerson.CreateRandomAdult());
+                }
+                else
+                {
+                    personList.AddPerson(RandomPerson.CreateRandomChild());
                 }
             }
 
