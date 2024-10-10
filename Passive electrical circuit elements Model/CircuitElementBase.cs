@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 
-namespace Passive_electrical_circuit_elements_Model
+namespace ElecticalElementsModel
 {
     //TODO: RSDN
     /// <summary>
@@ -69,6 +69,6 @@ namespace Passive_electrical_circuit_elements_Model
         /// элемента электрической цепи.
         /// </summary>
         /// <returns></returns>
-        public abstract string GetInfo();
+        public abstract string GetInfo(int accuracy);
     }
 }

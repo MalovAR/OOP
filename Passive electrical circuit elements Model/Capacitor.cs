@@ -5,8 +5,8 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-//TODO: XML
-namespace Passive_electrical_circuit_elements_Model
+//TODO: XML+
+namespace ElecticalElementsModel
 {
     /// <summary>
     /// Класс элемента электрической цепи: Конденсатор
@@ -48,11 +48,11 @@ namespace Passive_electrical_circuit_elements_Model
         /// <inheritdoc/>
         /// </summary>
         /// <returns>Комплексное сопротивление резистора.</returns>
-        public override string GetInfo()
+        public override string GetInfo(int accuracy)
         {
             return ($"Комплексное сопротивление конденсатора: " +
-                $"{Impedance().Real}" +
-                $"-j{Math.Round(Impedance().Imaginary,3)} Ом");
+                $"{Math.Round(Impedance().Real, accuracy)}" +
+                $"-j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
         }
     }
 }

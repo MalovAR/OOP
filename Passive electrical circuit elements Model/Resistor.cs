@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Passive_electrical_circuit_elements_Model
+namespace ElecticalElementsModel
 {
     /// <summary>
     /// Класс элемента электрической цепи: Резистор
@@ -47,10 +47,12 @@ namespace Passive_electrical_circuit_elements_Model
         /// <inheritdoc/>
         /// </summary>
         /// <returns>Комплексное сопротивление конденсатора.</returns>
-        public override string GetInfo()
+        public override string GetInfo(int accuracy)
         {
-            //TODO: RSDN
-            return ($"Комплексное сопротивление резистора: {Impedance().Real}+j{Impedance().Imaginary} Ом");
+            //TODO: RSDN+
+            return ($"Комплексное сопротивление резистора: " +
+                $"{Math.Round(Impedance().Real, accuracy)}" +
+                $"+j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
         }
     }
 }

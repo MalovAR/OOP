@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Passive_electrical_circuit_elements_Model
+namespace ElecticalElementsModel
 {
     /// <summary>
     /// Класс элемента электрической цепи: Катушка индуктивности
@@ -35,21 +35,25 @@ namespace Passive_electrical_circuit_elements_Model
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        /// <returns>Комплексное сопротивление катушки индуктивности.</returns>
+        /// <returns>Комплексное сопротивление 
+        /// катушки индуктивности.</returns>
         public override Complex Impedance()
         {
-            Complex result = new Complex(0, 2 * Math.PI * Frequency * Inductance);
+            Complex result = 
+                new Complex(0, 2 * Math.PI * Frequency * Inductance);
             return result;
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        /// <returns>Комплексное сопротивление катушки индуктивности.</returns>
-        public override string GetInfo()
+        /// <returns>Комплексное сопротивление 
+        /// катушки индуктивности.</returns>
+        public override string GetInfo(int accuracy)
         {
             return ($"Комплексное сопротивление катушки индуктивности: " +
-                $"{Impedance().Real}+j{Math.Round(Impedance().Imaginary,3)} Ом");
+                $"{Math.Round(Impedance().Real, accuracy)}" +
+                $"+j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
         }
     }
 }

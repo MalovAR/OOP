@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Passive_electrical_circuit_elements_Model;
+using ElecticalElementsModel;
+using System.Text.RegularExpressions;
 using static System.Collections.Specialized.BitVector32;
 
 namespace ConsoleLoader
@@ -23,9 +24,16 @@ namespace ConsoleLoader
             Dictionary<Type, Action<string>> catchDictionary =
                 new Dictionary<Type, Action<string>>()
             {
-
                 {
                     typeof(ArgumentException),
+                    Console.WriteLine
+                },
+                {
+                    typeof(ArgumentOutOfRangeException),
+                    Console.WriteLine
+                },
+                {
+                    typeof(FormatException),
                     Console.WriteLine
                 },
             };
@@ -40,9 +48,9 @@ namespace ConsoleLoader
                         break;
                     }
                     catch (Exception exception)
-                    {
+                    {    
                         catchDictionary[exception.GetType()].
-                            Invoke(exception.Message);
+                        Invoke(exception.Message);
                     }
                 }
             }
@@ -62,8 +70,7 @@ namespace ConsoleLoader
                 number = number.Replace('.', ',');
             }
 
-            bool isParsed = double.TryParse(number,
-                        out double checkNumber);
+            double checkNumber = double.Parse(number);
 
             return checkNumber;
         }
@@ -73,9 +80,9 @@ namespace ConsoleLoader
         /// </summary>
         /// <returns>Элемент электрической цепи, выбранного типа.</returns>
         /// <exception cref="ArgumentException"></exception>
-        public static BaseCircuitElement ChooseCircuitElement()
+        public static CircuitElementBase ChooseCircuitElement()
         {
-            BaseCircuitElement CircuitElement = new Resistor();
+            CircuitElementBase CircuitElement = new Resistor();
 
             var actions = new List<Action>()
             {
@@ -88,29 +95,29 @@ namespace ConsoleLoader
                     _ = int.TryParse(Console.ReadLine(), out int CircuitElementType);
                     switch (CircuitElementType)
                     {
-                        //TODO: RSDN
+                        //TODO: RSDN+
                         case 1:
-                            {
-                                CircuitElement = InsertResistor();
-                                break;
-                            }
+                        {
+                            CircuitElement = InsertResistor();
+                            break;
+                        }
 
                         case 2:
-                            {
-                                CircuitElement = InsertInductor();
-                                break;
-                            }
+                        {
+                            CircuitElement = InsertInductor();
+                            break;
+                        }
 
                         case 3:
-                            {
-                                CircuitElement = InsertCapacitor();
-                                break;
-                            }
+                        {
+                            CircuitElement = InsertCapacitor();
+                            break;
+                        }
                         default:
-                            {
-                                throw new ArgumentException
-                                    ("Выберите один из предложеных вариантов");
-                            }
+                        {
+                            throw new ArgumentException
+                                ("Выберите один из предложеных вариантов");
+                        }
                     }
                 })
             };
@@ -210,9 +217,20 @@ namespace ConsoleLoader
         static void Main(string[] args)
         {
             while (true)
-            { 
-                BaseCircuitElement circuitElement = ChooseCircuitElement();
-                Console.WriteLine(circuitElement.GetInfo());
+            {
+                CircuitElementBase circuitElement = ChooseCircuitElement();
+                var actionCapacitor = new List<Action>
+                {
+                    (new Action(() =>
+                    {
+                        Console.WriteLine(
+                            "Введите число знаков после запятой");
+                        int accuracy = int.Parse(Console.ReadLine());
+                        Console.WriteLine(
+                            circuitElement.GetInfo(accuracy));
+                    }))
+                };
+                ActionHandler(actionCapacitor);
 
                 Console.WriteLine("Чтобы выйти из программы, нажмите " +
                     "клавишу \"Esc\", для продолжения работы - любую " +
