@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Passive_electrical_circuit_elements_Model
 {
+    /// <summary>
+    /// Класс элемента электрической цепи: Резистор
+    /// </summary>
     public class Resistor : BaseCircuitElement
     {
         /// <summary>
@@ -29,11 +32,21 @@ namespace Passive_electrical_circuit_elements_Model
             } 
         }
 
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns>Комплексное сопротивление конденсатора.</returns>
         public override Complex Impedance()
         {
             Complex result = new Complex(Resistance, 0);
             return result;
         }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns>Комплексное сопротивление конденсатора.</returns>
         public override string GetInfo()
         {
             return ($"Комплексное сопротивление резистора: {Impedance().Real}+j{Impedance().Imaginary} Ом");

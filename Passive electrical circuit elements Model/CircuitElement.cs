@@ -8,18 +8,24 @@ using System.Numerics;
 
 namespace Passive_electrical_circuit_elements_Model
 {
+    /// <summary>
+    /// Абстрактный базовый класс элемента электрической цепи.
+    /// </summary>
     public abstract class BaseCircuitElement
     {
         /// <summary>
-        /// Поле класса - частота электрического тока в цепи
+        /// Поле класса - частота электрического тока в цепи.
         /// </summary>
         private double _frequency;
 
         /// <summary>
-        /// Поле класса - минимальное значение величины
+        /// Поле класса - минимальное значение величины.
         /// </summary>
         private const int _minValue = 0;
 
+        /// <summary>
+        /// Частота электрического тока в цепи.
+        /// </summary>
         public double Frequency 
         {
             get  
@@ -32,7 +38,7 @@ namespace Passive_electrical_circuit_elements_Model
             }
         }
         /// <summary>
-        /// Метод, проверяющий, что значение величины не отрицательное
+        /// Метод, проверяющий, что значение величины не отрицательное.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -51,11 +57,16 @@ namespace Passive_electrical_circuit_elements_Model
         }
 
         /// <summary>
-        /// Расчет комплексного сопротивления элемента
+        /// Расчет комплексного сопротивления элемента.
         /// </summary>
         /// <returns></returns>
         public abstract Complex Impedance();
 
+        /// <summary>
+        /// Метод вывода комплексного сопротивления
+        /// элемента электрической цепи.
+        /// </summary>
+        /// <returns></returns>
         public abstract string GetInfo();
     }
 }

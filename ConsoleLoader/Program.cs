@@ -3,39 +3,227 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Passive_electrical_circuit_elements_Model;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ConsoleLoader
 {
+    /// <summary>
+    /// Класс Program.
+    /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// Обработчик действий.
+        /// </summary>
+        /// <param name="actions"></param>
+        private static void ActionHandler(List<Action> actions)
+        {
+            Dictionary<Type, Action<string>> catchDictionary =
+                new Dictionary<Type, Action<string>>()
+            {
+
+                {
+                    typeof(ArgumentException),
+                    Console.WriteLine
+                },
+            };
+
+            foreach (var action in actions)
+            {
+                while (true)
+                {
+                    try
+                    {
+                        action.Invoke();
+                        break;
+                    }
+                    catch (Exception exception)
+                    {
+                        catchDictionary[exception.GetType()].
+                            Invoke(exception.Message);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Метод исправления ввода десятичных чисел.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>Десятичное число записанное через запятую, 
+        /// если введенное число было написано через точку</returns>
+        /// <exception cref="ArgumentException">.</exception>
+        private static double CheckNumber(string number)
+        {
+            if (number.Contains('.'))
+            {
+                number = number.Replace('.', ',');
+            }
+
+            bool isParsed = double.TryParse(number,
+                        out double checkNumber);
+
+            return checkNumber;
+        }
+
+        /// <summary>
+        /// Метод выбора типа элемента электической цепи.
+        /// </summary>
+        /// <returns>Элемент электрической цепи, выбранного типа.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static BaseCircuitElement ChooseCircuitElement()
+        {
+            BaseCircuitElement CircuitElement = new Resistor();
+
+            var actions = new List<Action>()
+            {
+                (()=>
+                {
+                    Console.Write("Выберите тип элемента электрической цепи:\n" +
+                    "1 - резистор;\n" +
+                    "2 - катушка индуктивности\n" +
+                    "3 - конденсатор\n");
+                    _ = int.TryParse(Console.ReadLine(), out int CircuitElementType);
+                    switch (CircuitElementType)
+                    {
+
+                        case 1:
+                            {
+                                CircuitElement = InsertResistor();
+                                break;
+                            }
+
+                        case 2:
+                            {
+                                CircuitElement = InsertInductor();
+                                break;
+                            }
+
+                        case 3:
+                            {
+                                CircuitElement = InsertCapacitor();
+                                break;
+                            }
+                        default:
+                            {
+                                throw new ArgumentException
+                                    ("Выберите один из предложеных вариантов");
+                            }
+                    }
+                })
+            };
+            ActionHandler(actions);
+            return CircuitElement;
+        }
+
+        /// <summary>
+        /// Метод чтения параметров для расчета 
+        /// комплексного сопротивления резистора.
+        /// </summary>
+        /// <returns>Объект класса <see cref="Resistor"/>.</returns>
+        public static Resistor InsertResistor()
+        {
+            Resistor Resistor = new Resistor();
+            var actionResistor = new List<Action>
+            {
+                (new Action(() =>
+                   {
+                       Console.Write("Введите сопротивление резистора, Ом: ");
+                       Resistor.Resistance = CheckNumber(Console.ReadLine());
+                   }))
+            };
+
+            ActionHandler(actionResistor);
+
+            return Resistor;
+        }
+
+        /// <summary>
+        /// Метод чтения параметров для расчета комплексного 
+        /// сопротивления катушки индуктивности.
+        /// </summary>
+        /// <returns>Объект класса <see cref="Inductor"/>.</returns>
+        public static Inductor InsertInductor()
+        {
+            Inductor Inductor = new Inductor();
+            var actionInductor = new List<Action>
+            {
+                (new Action(() =>
+                   {
+                       Console.Write("Введите индуктивность, Гн:");
+                            Inductor.Inductance =
+                                Convert.ToDouble(CheckNumber(Console.ReadLine()));
+
+                   })),
+
+                (new Action(() =>
+                   {
+                       Console.Write("Введите частоту, Гц:");
+                            Inductor.Frequency =
+                                Convert.ToDouble(CheckNumber(Console.ReadLine()));
+
+                   }))
+            };
+
+            ActionHandler(actionInductor);
+
+            return Inductor;
+        }
+
+        /// <summary>
+        /// Метод чтения параметров для расчета комплексного 
+        /// сопротивления конденсатора.
+        /// </summary>
+        /// <returns>Объект класса <see cref="Capacitor"/>.</returns>
+        public static Capacitor InsertCapacitor()
+        {
+            Capacitor Capacitor = new Capacitor();
+            var actionCapacitor = new List<Action>
+            {
+                (new Action(() =>
+                   {
+                       Console.Write("Введите ёмкость, Ф:");
+                            Capacitor.Capacity =
+                                Convert.ToDouble(CheckNumber(Console.ReadLine()));
+
+                   })),
+
+                (new Action(() =>
+                   {
+                       Console.Write("Введите частоту, Гц:");
+                            Capacitor.Frequency =
+                                Convert.ToDouble(CheckNumber(Console.ReadLine()));
+
+                   }))
+            };
+            ActionHandler(actionCapacitor);
+
+            return Capacitor;
+        }
+
+        /// <summary>
+        /// Метод Main.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Resistor resistor = new Resistor();
-            Inductor inductor = new Inductor();
-            Capacitor capacitor = new Capacitor();
-            
+            while (true)
+            { 
+                BaseCircuitElement circuitElement = ChooseCircuitElement();
+                Console.WriteLine(circuitElement.GetInfo());
 
-            Console.Write("Введите активное сопротивление элемента, Ом: ");
-            resistor.Resistance = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Чтобы выйти из программы, нажмите " +
+                    "клавишу \"Esc\", для продолжения работы - любую " +
+                    "другую клавишу :");
 
-            Console.Write("Введите индуктивность элемента, Гн: ");
-            inductor.Inductance = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Введите емкость элемента, Ф: ");
-            capacitor.Capacity = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Введите частоту электрического тока: ");
-            double frequency = Convert.ToDouble(Console.ReadLine());
-
-            inductor.Frequency = frequency;
-            capacitor.Frequency = frequency;
-
-
-            Console.WriteLine(resistor.GetInfo());
-            Console.WriteLine(inductor.GetInfo());
-            Console.WriteLine(capacitor.GetInfo());
-            Console.ReadKey();
+                var key = Console.ReadKey();
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    return;
+                }
+            }
         }
     }
 }

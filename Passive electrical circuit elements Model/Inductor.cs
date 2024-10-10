@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Passive_electrical_circuit_elements_Model
 {
+    /// <summary>
+    /// Класс элемента электрической цепи: Катушка индуктивности
+    /// </summary>
     public class Inductor : BaseCircuitElement
     {
         /// <summary>
@@ -29,15 +32,24 @@ namespace Passive_electrical_circuit_elements_Model
             }
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns>Комплексное сопротивление катушки индуктивности.</returns>
         public override Complex Impedance()
         {
             Complex result = new Complex(0, 2 * Math.PI * Frequency * Inductance);
             return result;
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns>Комплексное сопротивление катушки индуктивности.</returns>
         public override string GetInfo()
         {
-            return ($"Комплексное сопротивление катушки индуктивности: {Impedance().Real}+j{Impedance().Imaginary} Ом");
+            return ($"Комплексное сопротивление катушки индуктивности: " +
+                $"{Impedance().Real}+j{Math.Round(Impedance().Imaginary,3)} Ом");
         }
     }
 }
