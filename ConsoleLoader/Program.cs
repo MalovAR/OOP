@@ -88,7 +88,7 @@ namespace ConsoleLoader
                     _ = int.TryParse(Console.ReadLine(), out int CircuitElementType);
                     switch (CircuitElementType)
                     {
-
+                        //TODO: RSDN
                         case 1:
                             {
                                 CircuitElement = InsertResistor();

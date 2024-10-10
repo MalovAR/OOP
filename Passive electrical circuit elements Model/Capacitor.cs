@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
+//TODO: XML
 namespace Passive_electrical_circuit_elements_Model
 {
     /// <summary>

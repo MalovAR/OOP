@@ -8,6 +8,7 @@ using System.Numerics;
 
 namespace Passive_electrical_circuit_elements_Model
 {
+    //TODO: RSDN
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
     /// </summary>
@@ -37,6 +38,7 @@ namespace Passive_electrical_circuit_elements_Model
                 _frequency = CheckValue(value);
             }
         }
+
         /// <summary>
         /// Метод, проверяющий, что значение величины не отрицательное.
         /// </summary>

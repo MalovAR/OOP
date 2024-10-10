@@ -49,6 +49,7 @@ namespace Passive_electrical_circuit_elements_Model
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public override string GetInfo()
         {
+            //TODO: RSDN
             return ($"Комплексное сопротивление резистора: {Impedance().Real}+j{Impedance().Imaginary} Ом");
         }
     }
