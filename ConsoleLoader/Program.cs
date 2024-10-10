@@ -17,7 +17,7 @@ namespace ConsoleLoader
         /// <summary>
         /// Обработчик действий.
         /// </summary>
-        /// <param name="actions"></param>
+        /// <param name="actions">Список действий</param>
         private static void ActionHandler(List<Action> actions)
         {
             Dictionary<Type, Action<string>> catchDictionary =
@@ -51,7 +51,7 @@ namespace ConsoleLoader
         /// <summary>
         /// Метод исправления ввода десятичных чисел.
         /// </summary>
-        /// <param name="number"></param>
+        /// <param name="number">Проверяемое число</param>
         /// <returns>Десятичное число записанное через запятую, 
         /// если введенное число было написано через точку</returns>
         /// <exception cref="ArgumentException">.</exception>
