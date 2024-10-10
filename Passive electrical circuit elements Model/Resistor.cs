@@ -10,7 +10,7 @@ namespace Passive_electrical_circuit_elements_Model
     /// <summary>
     /// Класс элемента электрической цепи: Резистор
     /// </summary>
-    public class Resistor : BaseCircuitElement
+    public class Resistor : CircuitElementBase
     {
         /// <summary>
         /// Поле класса - активное сопротивление

@@ -12,7 +12,7 @@ namespace Passive_electrical_circuit_elements_Model
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
     /// </summary>
-    public abstract class BaseCircuitElement
+    public abstract class CircuitElementBase
     {
         /// <summary>
         /// Поле класса - частота электрического тока в цепи.

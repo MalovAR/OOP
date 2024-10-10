@@ -10,7 +10,7 @@ namespace Passive_electrical_circuit_elements_Model
     /// <summary>
     /// Класс элемента электрической цепи: Катушка индуктивности
     /// </summary>
-    public class Inductor : BaseCircuitElement
+    public class Inductor : CircuitElementBase
     {
         /// <summary>
         /// Поле класса - индуктивность

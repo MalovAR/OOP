@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passive electrical circuit elements Model", "Passive electrical circuit elements Model\Passive electrical circuit elements Model.csproj", "{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElecticalElementsModel", "Passive electrical circuit elements Model\ElecticalElementsModel.csproj", "{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLoader", "ConsoleLoader\ConsoleLoader.csproj", "{DA40931B-1C03-42CA-BA3E-62434B832EF4}"
 EndProject

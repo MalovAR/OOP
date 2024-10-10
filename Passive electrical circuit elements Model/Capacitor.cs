@@ -11,7 +11,7 @@ namespace Passive_electrical_circuit_elements_Model
     /// <summary>
     /// Класс элемента электрической цепи: Конденсатор
     /// </summary>
-    public class Capacitor : BaseCircuitElement
+    public class Capacitor : CircuitElementBase
     {
         /// <summary>
         /// Поле класса - ёмкость

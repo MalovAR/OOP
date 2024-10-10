@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Passive electrical circuit elements Model\Passive electrical circuit elements Model.csproj">
+    <ProjectReference Include="..\Passive electrical circuit elements Model\ElecticalElementsModel.csproj">
       <Project>{5873cc21-5ec6-42b2-bad8-48671b1ece79}</Project>
-      <Name>Passive electrical circuit elements Model</Name>
+      <Name>ElecticalElementsModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
