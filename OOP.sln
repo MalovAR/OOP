@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElecticalElementsModel", "Passive electrical circuit elements Model\ElecticalElementsModel.csproj", "{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLoader", "ConsoleLoader\ConsoleLoader.csproj", "{DA40931B-1C03-42CA-BA3E-62434B832EF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{A705D078-CE94-4597-8D9F-61BF066D3D83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5873CC21-5EC6-42B2-BAD8-48671B1ECE79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA40931B-1C03-42CA-BA3E-62434B832EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA40931B-1C03-42CA-BA3E-62434B832EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA40931B-1C03-42CA-BA3E-62434B832EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA40931B-1C03-42CA-BA3E-62434B832EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A705D078-CE94-4597-8D9F-61BF066D3D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A705D078-CE94-4597-8D9F-61BF066D3D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A705D078-CE94-4597-8D9F-61BF066D3D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A705D078-CE94-4597-8D9F-61BF066D3D83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
