@@ -8,7 +8,6 @@ using System.Numerics;
 
 namespace ElecticalElementsModel
 {
-    //TODO: RSDN
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
     /// </summary>
