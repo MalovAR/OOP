@@ -24,15 +24,6 @@ namespace View
         /// </summary>
         private bool _isAddFormOpened = false;
 
-        /// <summary>
-        /// Состояние формы фильтра.
-        /// </summary>
-        private bool _isFilterFormOpened = false;
-
-        private bool _isFiltered = false;
-
-
-
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +33,7 @@ namespace View
 
         private void ClickAddElementButton(object sender, EventArgs e)
         {
-            if (_isAddFormOpened == false && _isFiltered == false)
+            if (_isAddFormOpened == false)
             {
                 _isAddFormOpened = true;
                 AddElementForm addElementForm = new AddElementForm();
@@ -56,8 +47,8 @@ namespace View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Инициализируйте столбцы DataGridView
-            _elementsList
+            _elementsList = new BindingList<CircuitElementBase>();
+            CreateTable(_elementsList, calculateImpedanceDataGridView);
         }
 
         private void CreateTable(BindingList<CircuitElementBase> elements, 
