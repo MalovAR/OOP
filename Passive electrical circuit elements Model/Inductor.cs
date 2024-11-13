@@ -32,17 +32,26 @@ namespace ElecticalElementsModel
             }
         }
 
+        public override string ElementType
+        {
+            get { return "Катушка индуктивности"; }
+        }
+
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns>Комплексное сопротивление 
         /// катушки индуктивности.</returns>
-        public override Complex Impedance()
+        public override Complex Impedance
         {
-            Complex result = 
+            get
+            {
+                Complex result =
                 new Complex(0, 2 * Math.PI * Frequency * Inductance);
-            return result;
+                return result;
+            }
         }
+
 
         /// <summary>
         /// <inheritdoc/>
@@ -52,8 +61,8 @@ namespace ElecticalElementsModel
         public override string GetInfo(int accuracy)
         {
             return ($"Комплексное сопротивление катушки индуктивности: " +
-                $"{Math.Round(Impedance().Real, accuracy)}" +
-                $"+j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
+                $"{Math.Round(Impedance.Real, accuracy)}" +
+                $"+j{Math.Round(Impedance.Imaginary, accuracy)} Ом");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Filtering;
 using ElecticalElementsModel;
 
 namespace View
@@ -24,11 +26,18 @@ namespace View
         /// </summary>
         private bool _isAddFormOpened = false;
 
+        /// <summary>
+        /// Состояние фильтрации.
+        /// </summary>
+        private bool _isFiltered = false;
+
         public MainForm()
         {
             InitializeComponent();
 
             _addElementButton.Click += ClickAddElementButton;
+            _elementTypeComboBox.SelectedIndexChanged += elementTypeComboBoxSelectedIndexChanged;
+            _clearFilterButton.Click += RemoveFilter;
         }
 
         private void ClickAddElementButton(object sender, EventArgs e)
@@ -45,6 +54,13 @@ namespace View
 
         }
 
+        private void ClickDeleteElementButton(object sender, EventArgs e)
+        {
+
+           
+
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             _elementsList = new BindingList<CircuitElementBase>();
@@ -54,9 +70,9 @@ namespace View
         private void CreateTable(BindingList<CircuitElementBase> elements, 
             DataGridView dataGridView)
         {
-            dataGridView.RowHeadersVisible = false;
-            var source = new BindingSource(elements, null);
-            dataGridView.DataSource = source;
+            dataGridView.DataSource = elements;
+            dataGridView.Columns.Remove("Impedance");
+            dataGridView.RowHeadersVisible = false; 
             dataGridView.AllowUserToResizeColumns = false;
             dataGridView.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
@@ -83,6 +99,42 @@ namespace View
             _elementsList.Add(addedEventArgs?.CircuitElementBase);
         }
 
-        
+        private void ApplyFilter()
+        {
+            string filterCriteria = _elementTypeComboBox.SelectedItem.ToString();
+
+            if (filterCriteria == "Резистор")
+            {
+                _isFiltered = true;
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == "Резистор").ToList();
+            }
+            if (filterCriteria == "Катушка индуктивности")
+            {
+                _isFiltered = true;
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == "Катушка индуктивности").ToList();
+            }
+            if (filterCriteria == "Конденсатор")
+            {
+                _isFiltered = true;
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == "Конденсатор").ToList();
+            }
+        }
+
+        private void RemoveFilter(object sender, EventArgs e)
+        {
+            if (_isFiltered == true) 
+            {
+
+                _isFiltered = false;
+            }
+        }
+        private void elementTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilter();
+            calculateImpedanceDataGridView.Columns.Remove("Impedance");
+        }
     }
 }

@@ -30,28 +30,30 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
-            this.calculateImpedanceGruopBox = new System.Windows.Forms.GroupBox();
+            this.calculateImpedanceGroupBox = new System.Windows.Forms.GroupBox();
             this.calculateImpedanceDataGridView = new System.Windows.Forms.DataGridView();
             this.editElementsListGroupBox = new System.Windows.Forms.GroupBox();
-            this.clearFilterButton = new System.Windows.Forms.Button();
-            this.setFilterButton = new System.Windows.Forms.Button();
-            this.deleteElementButton = new System.Windows.Forms.Button();
+            this._clearFilterButton = new System.Windows.Forms.Button();
+            this._setFilterButton = new System.Windows.Forms.Button();
+            this._deleteElementButton = new System.Windows.Forms.Button();
             this._addElementButton = new System.Windows.Forms.Button();
-            this.calculateImpedanceGruopBox.SuspendLayout();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this._elementTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.calculateImpedanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).BeginInit();
             this.editElementsListGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // calculateImpedanceGruopBox
+            // calculateImpedanceGroupBox
             // 
-            this.calculateImpedanceGruopBox.AutoSize = true;
-            this.calculateImpedanceGruopBox.Controls.Add(this.calculateImpedanceDataGridView);
-            this.calculateImpedanceGruopBox.Location = new System.Drawing.Point(0, 38);
-            this.calculateImpedanceGruopBox.Name = "calculateImpedanceGruopBox";
-            this.calculateImpedanceGruopBox.Size = new System.Drawing.Size(584, 347);
-            this.calculateImpedanceGruopBox.TabIndex = 0;
-            this.calculateImpedanceGruopBox.TabStop = false;
-            this.calculateImpedanceGruopBox.Text = "Расчет комплексного сопротивления";
+            this.calculateImpedanceGroupBox.AutoSize = true;
+            this.calculateImpedanceGroupBox.Controls.Add(this.calculateImpedanceDataGridView);
+            this.calculateImpedanceGroupBox.Location = new System.Drawing.Point(0, 38);
+            this.calculateImpedanceGroupBox.Name = "calculateImpedanceGroupBox";
+            this.calculateImpedanceGroupBox.Size = new System.Drawing.Size(584, 347);
+            this.calculateImpedanceGroupBox.TabIndex = 0;
+            this.calculateImpedanceGroupBox.TabStop = false;
+            this.calculateImpedanceGroupBox.Text = "Расчет комплексного сопротивления";
             // 
             // calculateImpedanceDataGridView
             // 
@@ -65,9 +67,9 @@ namespace View
             // 
             // editElementsListGroupBox
             // 
-            this.editElementsListGroupBox.Controls.Add(this.clearFilterButton);
-            this.editElementsListGroupBox.Controls.Add(this.setFilterButton);
-            this.editElementsListGroupBox.Controls.Add(this.deleteElementButton);
+            this.editElementsListGroupBox.Controls.Add(this._clearFilterButton);
+            this.editElementsListGroupBox.Controls.Add(this._setFilterButton);
+            this.editElementsListGroupBox.Controls.Add(this._deleteElementButton);
             this.editElementsListGroupBox.Controls.Add(this._addElementButton);
             this.editElementsListGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.editElementsListGroupBox.Location = new System.Drawing.Point(0, 391);
@@ -77,32 +79,32 @@ namespace View
             this.editElementsListGroupBox.TabStop = false;
             this.editElementsListGroupBox.Text = "Редактирование списка";
             // 
-            // clearFilterButton
+            // _clearFilterButton
             // 
-            this.clearFilterButton.Location = new System.Drawing.Point(384, 20);
-            this.clearFilterButton.Name = "clearFilterButton";
-            this.clearFilterButton.Size = new System.Drawing.Size(120, 40);
-            this.clearFilterButton.TabIndex = 3;
-            this.clearFilterButton.Text = "Сбросить фильтр";
-            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this._clearFilterButton.Location = new System.Drawing.Point(384, 20);
+            this._clearFilterButton.Name = "_clearFilterButton";
+            this._clearFilterButton.Size = new System.Drawing.Size(120, 40);
+            this._clearFilterButton.TabIndex = 3;
+            this._clearFilterButton.Text = "Сбросить фильтр";
+            this._clearFilterButton.UseVisualStyleBackColor = true;
             // 
-            // setFilterButton
+            // _setFilterButton
             // 
-            this.setFilterButton.Location = new System.Drawing.Point(258, 20);
-            this.setFilterButton.Name = "setFilterButton";
-            this.setFilterButton.Size = new System.Drawing.Size(120, 40);
-            this.setFilterButton.TabIndex = 2;
-            this.setFilterButton.Text = "Настроить фильтр";
-            this.setFilterButton.UseVisualStyleBackColor = true;
+            this._setFilterButton.Location = new System.Drawing.Point(258, 20);
+            this._setFilterButton.Name = "_setFilterButton";
+            this._setFilterButton.Size = new System.Drawing.Size(120, 40);
+            this._setFilterButton.TabIndex = 2;
+            this._setFilterButton.Text = "Настроить фильтр";
+            this._setFilterButton.UseVisualStyleBackColor = true;
             // 
-            // deleteElementButton
+            // _deleteElementButton
             // 
-            this.deleteElementButton.Location = new System.Drawing.Point(132, 20);
-            this.deleteElementButton.Name = "deleteElementButton";
-            this.deleteElementButton.Size = new System.Drawing.Size(120, 40);
-            this.deleteElementButton.TabIndex = 1;
-            this.deleteElementButton.Text = "Удалить элемент";
-            this.deleteElementButton.UseVisualStyleBackColor = true;
+            this._deleteElementButton.Location = new System.Drawing.Point(132, 20);
+            this._deleteElementButton.Name = "_deleteElementButton";
+            this._deleteElementButton.Size = new System.Drawing.Size(120, 40);
+            this._deleteElementButton.TabIndex = 1;
+            this._deleteElementButton.Text = "Удалить элемент";
+            this._deleteElementButton.UseVisualStyleBackColor = true;
             // 
             // _addElementButton
             // 
@@ -114,17 +116,31 @@ namespace View
             this._addElementButton.UseVisualStyleBackColor = true;
             this._addElementButton.Click += new System.EventHandler(this.ClickAddElementButton);
             // 
+            // _elementTypeComboBox
+            // 
+            this._elementTypeComboBox.FormattingEnabled = true;
+            this._elementTypeComboBox.Items.AddRange(new object[] {
+            "Резистор",
+            "Катушка индуктивности",
+            "Конденсатор"});
+            this._elementTypeComboBox.Location = new System.Drawing.Point(442, 12);
+            this._elementTypeComboBox.Name = "_elementTypeComboBox";
+            this._elementTypeComboBox.Size = new System.Drawing.Size(121, 23);
+            this._elementTypeComboBox.TabIndex = 2;
+            this._elementTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.elementTypeComboBoxSelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this._elementTypeComboBox);
             this.Controls.Add(this.editElementsListGroupBox);
-            this.Controls.Add(this.calculateImpedanceGruopBox);
+            this.Controls.Add(this.calculateImpedanceGroupBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Расчет комплексного сопротивления";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.calculateImpedanceGruopBox.ResumeLayout(false);
+            this.calculateImpedanceGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).EndInit();
             this.editElementsListGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -135,13 +151,15 @@ namespace View
 
         #endregion
 
-        private GroupBox calculateImpedanceGruopBox;
+        private GroupBox calculateImpedanceGroupBox;
         private DataGridView calculateImpedanceDataGridView;
         private GroupBox editElementsListGroupBox;
         private Button _addElementButton;
-        private Button deleteElementButton;
-        private Button clearFilterButton;
-        private Button setFilterButton;
+        private Button _deleteElementButton;
+        private Button _clearFilterButton;
+        private Button _setFilterButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ComboBox _elementTypeComboBox;
     }
 }
 

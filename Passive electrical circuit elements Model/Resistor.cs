@@ -32,15 +32,21 @@ namespace ElecticalElementsModel
             } 
         }
 
+        public override string ElementType
+        {
+            get { return "Резистор"; }
+        }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns>Комплексное сопротивление конденсатора.</returns>
-        public override Complex Impedance()
+        public override Complex Impedance
         {
-            Complex result = new Complex(Resistance, 0);
-            return result;
+            get {
+                Complex result = new Complex(Resistance, 0);
+                return result;
+            }
         }
 
         /// <summary>
@@ -51,8 +57,8 @@ namespace ElecticalElementsModel
         {
             //TODO: RSDN+
             return ($"Комплексное сопротивление резистора: " +
-                $"{Math.Round(Impedance().Real, accuracy)}" +
-                $"+j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
+                $"{Math.Round(Impedance.Real, accuracy)}" +
+                $"+j{Math.Round(Impedance.Imaginary, accuracy)} Ом");
         }
     }
 }

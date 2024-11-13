@@ -38,8 +38,8 @@
             this.addInductorUserControl = new View.AddInductorUserControl();
             this.addCapacitorUserControl = new View.AddCapacitorUserControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.addButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,51 +97,42 @@
             this.groupBox2.Controls.Add(this.addCapacitorUserControl);
             this.groupBox2.Location = new System.Drawing.Point(12, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(365, 80);
+            this.groupBox2.Size = new System.Drawing.Size(365, 104);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
             // addResistorUserControl
             // 
-            this.addResistorUserControl.Location = new System.Drawing.Point(-1, 19);
+            this.addResistorUserControl.Location = new System.Drawing.Point(5, 29);
             this.addResistorUserControl.Name = "addResistorUserControl";
-            this.addResistorUserControl.Size = new System.Drawing.Size(360, 50);
+            this.addResistorUserControl.Size = new System.Drawing.Size(354, 60);
             this.addResistorUserControl.TabIndex = 2;
             // 
             // addInductorUserControl
             // 
-            this.addInductorUserControl.Location = new System.Drawing.Point(0, 30);
+            this.addInductorUserControl.Location = new System.Drawing.Point(5, 19);
             this.addInductorUserControl.Name = "addInductorUserControl";
-            this.addInductorUserControl.Size = new System.Drawing.Size(360, 50);
+            this.addInductorUserControl.Size = new System.Drawing.Size(354, 70);
             this.addInductorUserControl.TabIndex = 1;
             // 
             // addCapacitorUserControl
             // 
-            this.addCapacitorUserControl.Location = new System.Drawing.Point(0, 30);
+            this.addCapacitorUserControl.Location = new System.Drawing.Point(5, 19);
             this.addCapacitorUserControl.Name = "addCapacitorUserControl";
-            this.addCapacitorUserControl.Size = new System.Drawing.Size(360, 50);
+            this.addCapacitorUserControl.Size = new System.Drawing.Size(354, 70);
             this.addCapacitorUserControl.TabIndex = 0;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.closeButton);
             this.groupBox3.Controls.Add(this.addButton);
-            this.groupBox3.Location = new System.Drawing.Point(11, 257);
+            this.groupBox3.Location = new System.Drawing.Point(12, 281);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(365, 80);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(23, 40);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Рассчитать";
-            this.addButton.UseVisualStyleBackColor = true;
             // 
             // closeButton
             // 
@@ -152,11 +143,20 @@
             this.closeButton.Text = "Закрыть";
             this.closeButton.UseVisualStyleBackColor = true;
             // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(23, 40);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Рассчитать";
+            this.addButton.UseVisualStyleBackColor = true;
+            // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 371);
+            this.ClientSize = new System.Drawing.Size(384, 369);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -33,15 +34,23 @@ namespace ElecticalElementsModel
             } 
         }
 
+        public override string ElementType
+        {
+            get { return "Конденсатор"; }
+        }
+
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns>Комплексное сопротивление резистора.</returns>
-        public override Complex Impedance()
+        public override Complex Impedance
         {
-            Complex result = 
-                new Complex(0, 1 / (2 * Math.PI * Frequency * Capacity));
-            return result;
+            get {
+                Complex result =
+                new Complex(0, -(1 / (2 * Math.PI * Frequency * Capacity)));
+                return result;
+            }
+    
         }
 
         /// <summary>
@@ -51,8 +60,8 @@ namespace ElecticalElementsModel
         public override string GetInfo(int accuracy)
         {
             return ($"Комплексное сопротивление конденсатора: " +
-                $"{Math.Round(Impedance().Real, accuracy)}" +
-                $"-j{Math.Round(Impedance().Imaginary, accuracy)} Ом");
+                $"{Math.Round(Impedance.Real, accuracy)}" +
+                $"-j{Math.Round(Impedance.Imaginary, accuracy)} Ом");
         }
     }
 }
