@@ -30,6 +30,7 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.calculateImpedanceGroupBox = new System.Windows.Forms.GroupBox();
             this.calculateImpedanceDataGridView = new System.Windows.Forms.DataGridView();
             this.editElementsListGroupBox = new System.Windows.Forms.GroupBox();
@@ -39,9 +40,18 @@ namespace View
             this._addElementButton = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this._elementTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.resistorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.circuitElementBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.resistorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+#if DEBUG
+            this.randomButton = new System.Windows.Forms.Button();
+#endif
             this.calculateImpedanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).BeginInit();
             this.editElementsListGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circuitElementBaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // calculateImpedanceGroupBox
@@ -103,7 +113,7 @@ namespace View
             this._deleteElementButton.Name = "_deleteElementButton";
             this._deleteElementButton.Size = new System.Drawing.Size(120, 40);
             this._deleteElementButton.TabIndex = 1;
-            this._deleteElementButton.Text = "Удалить элемент";
+            this._deleteElementButton.Text = "Удалить";
             this._deleteElementButton.UseVisualStyleBackColor = true;
             // 
             // _addElementButton
@@ -118,6 +128,7 @@ namespace View
             // 
             // _elementTypeComboBox
             // 
+            this._elementTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.resistorBindingSource, "ElementType", true));
             this._elementTypeComboBox.FormattingEnabled = true;
             this._elementTypeComboBox.Items.AddRange(new object[] {
             "Резистор",
@@ -129,9 +140,35 @@ namespace View
             this._elementTypeComboBox.TabIndex = 2;
             this._elementTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.elementTypeComboBoxSelectedIndexChanged);
             // 
+            // resistorBindingSource
+            // 
+            this.resistorBindingSource.DataSource = typeof(ElecticalElementsModel.Resistor);
+            // 
+            // circuitElementBaseBindingSource
+            // 
+            this.circuitElementBaseBindingSource.DataSource = typeof(ElecticalElementsModel.CircuitElementBase);
+            // 
+            // resistorBindingSource1
+            // 
+            this.resistorBindingSource1.DataSource = typeof(ElecticalElementsModel.Resistor);
+#if DEBUG
+            // 
+            // randomButton
+            // 
+            this.randomButton.Location = new System.Drawing.Point(6, 7);
+            this.randomButton.Name = "randomButton";
+            this.randomButton.Size = new System.Drawing.Size(227, 30);
+            this.randomButton.TabIndex = 3;
+            this.randomButton.Text = "Добавить случайный элемент";
+            this.randomButton.UseVisualStyleBackColor = true;
+#endif
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(584, 461);
+#if DEBUG
+            this.Controls.Add(this.randomButton);
+#endif
             this.Controls.Add(this._elementTypeComboBox);
             this.Controls.Add(this.editElementsListGroupBox);
             this.Controls.Add(this.calculateImpedanceGroupBox);
@@ -143,6 +180,9 @@ namespace View
             this.calculateImpedanceGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).EndInit();
             this.editElementsListGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circuitElementBaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resistorBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +200,12 @@ namespace View
         private Button _setFilterButton;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ComboBox _elementTypeComboBox;
+        private BindingSource circuitElementBaseBindingSource;
+        private BindingSource resistorBindingSource;
+        private BindingSource resistorBindingSource1;
+#if DEBUG
+        private Button randomButton;
+#endif
     }
 }
 

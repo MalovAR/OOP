@@ -27,7 +27,7 @@ namespace ElecticalElementsModel
         /// <summary>
         /// Частота электрического тока в цепи.
         /// </summary>
-        [DisplayName("Частота")]
+        [DisplayName("Частота, Гц")]
         public double Frequency 
         {
             get  
@@ -46,23 +46,23 @@ namespace ElecticalElementsModel
             get;
         }
 
-   
+        [Browsable(false)]
         public abstract Complex Impedance
         {
             get; 
         }
 
-        [DisplayName("Сопротивление")]
+        [DisplayName("Сопротивление, Ом")]
         public string ImpedanceShow
         {
             get {
                 if (Impedance.Imaginary < 0)
                 {
-                    return $"{Impedance.Real} - j{-Impedance.Imaginary} Ом";
+                    return $"{Impedance.Real} - j{-Impedance.Imaginary}";
                 }
                 else
                 {
-                    return $"{Impedance.Real} + j{Impedance.Imaginary} Ом";
+                    return $"{Impedance.Real} + j{Impedance.Imaginary}";
                 }
             }
         }

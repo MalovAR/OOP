@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Capacitor.cs" />
     <Compile Include="CircuitElementBase.cs" />
+    <Compile Include="RandomElement.cs" />
     <Compile Include="Inductor.cs" />
     <Compile Include="Resistor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using DevExpress.XtraEditors.Filtering;
 using ElecticalElementsModel;
+using static DevExpress.Data.Helpers.ExpressiveSortInfo;
 
 namespace View
 {
@@ -38,6 +41,11 @@ namespace View
             _addElementButton.Click += ClickAddElementButton;
             _elementTypeComboBox.SelectedIndexChanged += elementTypeComboBoxSelectedIndexChanged;
             _clearFilterButton.Click += RemoveFilter;
+            _deleteElementButton.Click += ClickDeleteElementButton;
+#if DEBUG
+            randomButton.Click += ClickRandomButton;
+#endif
+
         }
 
         private void ClickAddElementButton(object sender, EventArgs e)
@@ -56,14 +64,17 @@ namespace View
 
         private void ClickDeleteElementButton(object sender, EventArgs e)
         {
-
-           
-
+            foreach (DataGridViewRow item in calculateImpedanceDataGridView.SelectedRows)
+            {
+                if (item.DataBoundItem is CircuitElementBase element)
+                {
+                    _elementsList.Remove(element);
+                }
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _elementsList = new BindingList<CircuitElementBase>();
             CreateTable(_elementsList, calculateImpedanceDataGridView);
         }
 
@@ -71,7 +82,6 @@ namespace View
             DataGridView dataGridView)
         {
             dataGridView.DataSource = elements;
-            dataGridView.Columns.Remove("Impedance");
             dataGridView.RowHeadersVisible = false; 
             dataGridView.AllowUserToResizeColumns = false;
             dataGridView.AutoSizeColumnsMode =
@@ -103,23 +113,25 @@ namespace View
         {
             string filterCriteria = _elementTypeComboBox.SelectedItem.ToString();
 
-            if (filterCriteria == "Резистор")
+            _isFiltered = true;
+
+            if (filterCriteria == _elementTypeComboBox.Items[0].ToString())
             {
-                _isFiltered = true;
+                Resistor element = new Resistor();
                 calculateImpedanceDataGridView.DataSource =
-                    _elementsList.Where(obj => obj.ElementType == "Резистор").ToList();
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
             }
-            if (filterCriteria == "Катушка индуктивности")
+            if (filterCriteria == _elementTypeComboBox.Items[1].ToString())
             {
-                _isFiltered = true;
+                Inductor element = new Inductor();
                 calculateImpedanceDataGridView.DataSource =
-                    _elementsList.Where(obj => obj.ElementType == "Катушка индуктивности").ToList();
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
             }
-            if (filterCriteria == "Конденсатор")
+            if (filterCriteria == _elementTypeComboBox.Items[2].ToString())
             {
-                _isFiltered = true;
+                Capacitor element = new Capacitor();
                 calculateImpedanceDataGridView.DataSource =
-                    _elementsList.Where(obj => obj.ElementType == "Конденсатор").ToList();
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
             }
         }
 
@@ -127,14 +139,18 @@ namespace View
         {
             if (_isFiltered == true) 
             {
-
+                calculateImpedanceDataGridView.DataSource = _elementsList;
                 _isFiltered = false;
             }
         }
         private void elementTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyFilter();
-            calculateImpedanceDataGridView.Columns.Remove("Impedance");
+        }
+
+        private void ClickRandomButton(object sender, EventArgs e)
+        {
+            _elementsList.Add(RandomElement.GetRandomElement());
         }
     }
 }
