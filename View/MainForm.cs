@@ -39,7 +39,8 @@ namespace View
             InitializeComponent();
 
             _addElementButton.Click += ClickAddElementButton;
-            _elementTypeComboBox.SelectedIndexChanged += elementTypeComboBoxSelectedIndexChanged;
+            _elementTypeComboBox.SelectedIndexChanged += ApplyFilter;
+            checkedListBox1.ItemCheck += FilterByType;
             _clearFilterButton.Click += RemoveFilter;
             _deleteElementButton.Click += ClickDeleteElementButton;
 #if DEBUG
@@ -70,6 +71,10 @@ namespace View
                 {
                     _elementsList.Remove(element);
                 }
+            }
+            if (_isFiltered == true)
+            {
+                ApplyFilter(sender, e);
             }
         }
 
@@ -109,7 +114,7 @@ namespace View
             _elementsList.Add(addedEventArgs?.CircuitElementBase);
         }
 
-        private void ApplyFilter()
+        private void ApplyFilter(object sender, EventArgs e)
         {
             string filterCriteria = _elementTypeComboBox.SelectedItem.ToString();
 
@@ -143,14 +148,34 @@ namespace View
                 _isFiltered = false;
             }
         }
-        private void elementTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
-        {
-            ApplyFilter();
-        }
-
+       
         private void ClickRandomButton(object sender, EventArgs e)
         {
+
             _elementsList.Add(RandomElement.GetRandomElement());
+            if (_isFiltered == true)
+            {
+                ApplyFilter(sender, e);
+            }
+        }
+
+
+        private void FilterByType(object sender, EventArgs e)
+        {
+
+            var selectedItems = checkedListBox1.CheckedItems.Cast<string>().ToList();
+            _isFiltered = true;
+           
+            if (selectedItems.Count == 0)
+            {
+                calculateImpedanceDataGridView.DataSource = _elementsList;
+                _isFiltered = false;
+            }
+
+            var filteredElements = _elementsList.Where
+                (element => selectedItems.Contains(element.ElementType)).ToList();
+
+            calculateImpedanceDataGridView.DataSource = filteredElements;
         }
     }
 }

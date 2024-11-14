@@ -43,9 +43,8 @@ namespace View
             this.resistorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.circuitElementBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resistorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-#if DEBUG
             this.randomButton = new System.Windows.Forms.Button();
-#endif
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.calculateImpedanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).BeginInit();
             this.editElementsListGroupBox.SuspendLayout();
@@ -58,9 +57,9 @@ namespace View
             // 
             this.calculateImpedanceGroupBox.AutoSize = true;
             this.calculateImpedanceGroupBox.Controls.Add(this.calculateImpedanceDataGridView);
-            this.calculateImpedanceGroupBox.Location = new System.Drawing.Point(0, 38);
+            this.calculateImpedanceGroupBox.Location = new System.Drawing.Point(0, 65);
             this.calculateImpedanceGroupBox.Name = "calculateImpedanceGroupBox";
-            this.calculateImpedanceGroupBox.Size = new System.Drawing.Size(584, 347);
+            this.calculateImpedanceGroupBox.Size = new System.Drawing.Size(584, 320);
             this.calculateImpedanceGroupBox.TabIndex = 0;
             this.calculateImpedanceGroupBox.TabStop = false;
             this.calculateImpedanceGroupBox.Text = "Расчет комплексного сопротивления";
@@ -72,7 +71,7 @@ namespace View
             this.calculateImpedanceDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calculateImpedanceDataGridView.Location = new System.Drawing.Point(3, 17);
             this.calculateImpedanceDataGridView.Name = "calculateImpedanceDataGridView";
-            this.calculateImpedanceDataGridView.Size = new System.Drawing.Size(578, 327);
+            this.calculateImpedanceDataGridView.Size = new System.Drawing.Size(578, 300);
             this.calculateImpedanceDataGridView.TabIndex = 0;
             // 
             // editElementsListGroupBox
@@ -138,7 +137,6 @@ namespace View
             this._elementTypeComboBox.Name = "_elementTypeComboBox";
             this._elementTypeComboBox.Size = new System.Drawing.Size(121, 23);
             this._elementTypeComboBox.TabIndex = 2;
-            this._elementTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.elementTypeComboBoxSelectedIndexChanged);
             // 
             // resistorBindingSource
             // 
@@ -151,7 +149,6 @@ namespace View
             // resistorBindingSource1
             // 
             this.resistorBindingSource1.DataSource = typeof(ElecticalElementsModel.Resistor);
-#if DEBUG
             // 
             // randomButton
             // 
@@ -161,14 +158,24 @@ namespace View
             this.randomButton.TabIndex = 3;
             this.randomButton.Text = "Добавить случайный элемент";
             this.randomButton.UseVisualStyleBackColor = true;
-#endif
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Резистор",
+            "Катушка индуктивности",
+            "Конденсатор"});
+            this.checkedListBox1.Location = new System.Drawing.Point(250, 7);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(169, 52);
+            this.checkedListBox1.TabIndex = 4;
             // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(584, 461);
-#if DEBUG
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.randomButton);
-#endif
             this.Controls.Add(this._elementTypeComboBox);
             this.Controls.Add(this.editElementsListGroupBox);
             this.Controls.Add(this.calculateImpedanceGroupBox);
@@ -205,6 +212,7 @@ namespace View
         private BindingSource resistorBindingSource1;
 #if DEBUG
         private Button randomButton;
+        private CheckedListBox checkedListBox1;
 #endif
     }
 }
