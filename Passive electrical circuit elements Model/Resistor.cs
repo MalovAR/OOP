@@ -55,7 +55,6 @@ namespace ElecticalElementsModel
         /// <returns>Комплексное сопротивление конденсатора.</returns>
         public override string GetInfo(int accuracy)
         {
-            //TODO: RSDN+
             return ($"Комплексное сопротивление резистора: " +
                 $"{Math.Round(Impedance.Real, accuracy)}" +
                 $"+j{Math.Round(Impedance.Imaginary, accuracy)} Ом");

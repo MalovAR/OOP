@@ -6,7 +6,6 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-//TODO: XML+
 namespace ElecticalElementsModel
 {
     /// <summary>
