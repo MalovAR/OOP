@@ -30,63 +30,63 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
-            this.calculateImpedanceGroupBox = new System.Windows.Forms.GroupBox();
-            this.calculateImpedanceDataGridView = new System.Windows.Forms.DataGridView();
+            this._calculateImpedanceGroupBox = new System.Windows.Forms.GroupBox();
+            this._calculateImpedanceDataGridView = new System.Windows.Forms.DataGridView();
             this._setFilterButton = new System.Windows.Forms.Button();
             this._clearFilterButton = new System.Windows.Forms.Button();
-            this.randomButton = new System.Windows.Forms.Button();
-            this.editElementsListGroupBox = new System.Windows.Forms.GroupBox();
+            this._randomButton = new System.Windows.Forms.Button();
+            this._editElementsListGroupBox = new System.Windows.Forms.GroupBox();
             this._deleteElementButton = new System.Windows.Forms.Button();
             this._addElementButton = new System.Windows.Forms.Button();
-            this.CapacitorCheckBox = new System.Windows.Forms.CheckBox();
-            this.InductorCheckBox = new System.Windows.Forms.CheckBox();
-            this.ResistorCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.frequencyCheckBox = new System.Windows.Forms.CheckBox();
-            this.ImpedanceCheckBox = new System.Windows.Forms.CheckBox();
-            this.frequencyNumBox = new View.NumBox();
-            this.impedanceRealNumBox = new View.NumBox();
-            this.impedanceImgNumBox = new View.NumBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calculateImpedanceGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).BeginInit();
-            this.editElementsListGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this._capacitorCheckBox = new System.Windows.Forms.CheckBox();
+            this._inductorCheckBox = new System.Windows.Forms.CheckBox();
+            this._resistorCheckBox = new System.Windows.Forms.CheckBox();
+            this._filterGroupBox = new System.Windows.Forms.GroupBox();
+            this._jLabel = new System.Windows.Forms.Label();
+            this._ohmLabel = new System.Windows.Forms.Label();
+            this._hzLabel = new System.Windows.Forms.Label();
+            this._frequencyNumBox = new View.NumBox();
+            this._frequencyCheckBox = new System.Windows.Forms.CheckBox();
+            this._impedanceRealNumBox = new View.NumBox();
+            this._impedanceCheckBox = new System.Windows.Forms.CheckBox();
+            this._impedanceImgNumBox = new View.NumBox();
+            this._fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._fileMenuStrip = new System.Windows.Forms.MenuStrip();
+            this._calculateImpedanceGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._calculateImpedanceDataGridView)).BeginInit();
+            this._editElementsListGroupBox.SuspendLayout();
+            this._filterGroupBox.SuspendLayout();
+            this._fileMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // calculateImpedanceGroupBox
+            // _calculateImpedanceGroupBox
             // 
-            this.calculateImpedanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._calculateImpedanceGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.calculateImpedanceGroupBox.AutoSize = true;
-            this.calculateImpedanceGroupBox.Controls.Add(this.calculateImpedanceDataGridView);
-            this.calculateImpedanceGroupBox.Location = new System.Drawing.Point(0, 27);
-            this.calculateImpedanceGroupBox.Name = "calculateImpedanceGroupBox";
-            this.calculateImpedanceGroupBox.Size = new System.Drawing.Size(584, 370);
-            this.calculateImpedanceGroupBox.TabIndex = 0;
-            this.calculateImpedanceGroupBox.TabStop = false;
-            this.calculateImpedanceGroupBox.Text = "Отображение списка элементов";
+            this._calculateImpedanceGroupBox.AutoSize = true;
+            this._calculateImpedanceGroupBox.Controls.Add(this._calculateImpedanceDataGridView);
+            this._calculateImpedanceGroupBox.Location = new System.Drawing.Point(0, 27);
+            this._calculateImpedanceGroupBox.Name = "_calculateImpedanceGroupBox";
+            this._calculateImpedanceGroupBox.Size = new System.Drawing.Size(584, 370);
+            this._calculateImpedanceGroupBox.TabIndex = 0;
+            this._calculateImpedanceGroupBox.TabStop = false;
+            this._calculateImpedanceGroupBox.Text = "Отображение списка элементов";
             // 
-            // calculateImpedanceDataGridView
+            // _calculateImpedanceDataGridView
             // 
-            this.calculateImpedanceDataGridView.AllowUserToAddRows = false;
-            this.calculateImpedanceDataGridView.AllowUserToDeleteRows = false;
-            this.calculateImpedanceDataGridView.AllowUserToOrderColumns = true;
-            this.calculateImpedanceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.calculateImpedanceDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calculateImpedanceDataGridView.Location = new System.Drawing.Point(3, 17);
-            this.calculateImpedanceDataGridView.Name = "calculateImpedanceDataGridView";
-            this.calculateImpedanceDataGridView.ReadOnly = true;
-            this.calculateImpedanceDataGridView.Size = new System.Drawing.Size(578, 350);
-            this.calculateImpedanceDataGridView.TabIndex = 0;
+            this._calculateImpedanceDataGridView.AllowUserToAddRows = false;
+            this._calculateImpedanceDataGridView.AllowUserToDeleteRows = false;
+            this._calculateImpedanceDataGridView.AllowUserToOrderColumns = true;
+            this._calculateImpedanceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._calculateImpedanceDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._calculateImpedanceDataGridView.Location = new System.Drawing.Point(3, 17);
+            this._calculateImpedanceDataGridView.Name = "_calculateImpedanceDataGridView";
+            this._calculateImpedanceDataGridView.ReadOnly = true;
+            this._calculateImpedanceDataGridView.Size = new System.Drawing.Size(578, 350);
+            this._calculateImpedanceDataGridView.TabIndex = 0;
             // 
             // _setFilterButton
             // 
@@ -108,29 +108,29 @@ namespace View
             this._clearFilterButton.Text = "Сбросить фильтр";
             this._clearFilterButton.UseVisualStyleBackColor = true;
             // 
-            // randomButton
+            // _randomButton
             // 
-            this.randomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.randomButton.Location = new System.Drawing.Point(444, 20);
-            this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(134, 40);
-            this.randomButton.TabIndex = 3;
-            this.randomButton.Text = "Добавить случайный элемент";
-            this.randomButton.UseVisualStyleBackColor = true;
+            this._randomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._randomButton.Location = new System.Drawing.Point(444, 20);
+            this._randomButton.Name = "_randomButton";
+            this._randomButton.Size = new System.Drawing.Size(134, 40);
+            this._randomButton.TabIndex = 3;
+            this._randomButton.Text = "Добавить случайный элемент";
+            this._randomButton.UseVisualStyleBackColor = true;
             // 
-            // editElementsListGroupBox
+            // _editElementsListGroupBox
             // 
-            this.editElementsListGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._editElementsListGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editElementsListGroupBox.Controls.Add(this.randomButton);
-            this.editElementsListGroupBox.Controls.Add(this._deleteElementButton);
-            this.editElementsListGroupBox.Controls.Add(this._addElementButton);
-            this.editElementsListGroupBox.Location = new System.Drawing.Point(0, 501);
-            this.editElementsListGroupBox.Name = "editElementsListGroupBox";
-            this.editElementsListGroupBox.Size = new System.Drawing.Size(584, 70);
-            this.editElementsListGroupBox.TabIndex = 1;
-            this.editElementsListGroupBox.TabStop = false;
-            this.editElementsListGroupBox.Text = "Редактирование списка";
+            this._editElementsListGroupBox.Controls.Add(this._randomButton);
+            this._editElementsListGroupBox.Controls.Add(this._deleteElementButton);
+            this._editElementsListGroupBox.Controls.Add(this._addElementButton);
+            this._editElementsListGroupBox.Location = new System.Drawing.Point(0, 501);
+            this._editElementsListGroupBox.Name = "_editElementsListGroupBox";
+            this._editElementsListGroupBox.Size = new System.Drawing.Size(584, 70);
+            this._editElementsListGroupBox.TabIndex = 1;
+            this._editElementsListGroupBox.TabStop = false;
+            this._editElementsListGroupBox.Text = "Редактирование списка";
             // 
             // _deleteElementButton
             // 
@@ -151,179 +151,179 @@ namespace View
             this._addElementButton.UseVisualStyleBackColor = true;
             this._addElementButton.Click += new System.EventHandler(this.ClickAddElementButton);
             // 
-            // CapacitorCheckBox
+            // _capacitorCheckBox
             // 
-            this.CapacitorCheckBox.AutoSize = true;
-            this.CapacitorCheckBox.Location = new System.Drawing.Point(6, 70);
-            this.CapacitorCheckBox.Name = "CapacitorCheckBox";
-            this.CapacitorCheckBox.Size = new System.Drawing.Size(103, 19);
-            this.CapacitorCheckBox.TabIndex = 7;
-            this.CapacitorCheckBox.Text = "Конденсатор";
-            this.CapacitorCheckBox.UseVisualStyleBackColor = true;
+            this._capacitorCheckBox.AutoSize = true;
+            this._capacitorCheckBox.Location = new System.Drawing.Point(6, 70);
+            this._capacitorCheckBox.Name = "_capacitorCheckBox";
+            this._capacitorCheckBox.Size = new System.Drawing.Size(103, 19);
+            this._capacitorCheckBox.TabIndex = 7;
+            this._capacitorCheckBox.Text = "Конденсатор";
+            this._capacitorCheckBox.UseVisualStyleBackColor = true;
             // 
-            // InductorCheckBox
+            // _inductorCheckBox
             // 
-            this.InductorCheckBox.AutoSize = true;
-            this.InductorCheckBox.Location = new System.Drawing.Point(6, 37);
-            this.InductorCheckBox.Name = "InductorCheckBox";
-            this.InductorCheckBox.Size = new System.Drawing.Size(113, 34);
-            this.InductorCheckBox.TabIndex = 6;
-            this.InductorCheckBox.Text = "Катушка \r\nиндуктивности";
-            this.InductorCheckBox.UseVisualStyleBackColor = true;
+            this._inductorCheckBox.AutoSize = true;
+            this._inductorCheckBox.Location = new System.Drawing.Point(6, 37);
+            this._inductorCheckBox.Name = "_inductorCheckBox";
+            this._inductorCheckBox.Size = new System.Drawing.Size(113, 34);
+            this._inductorCheckBox.TabIndex = 6;
+            this._inductorCheckBox.Text = "Катушка \r\nиндуктивности";
+            this._inductorCheckBox.UseVisualStyleBackColor = true;
             // 
-            // ResistorCheckBox
+            // _resistorCheckBox
             // 
-            this.ResistorCheckBox.AutoSize = true;
-            this.ResistorCheckBox.Location = new System.Drawing.Point(6, 20);
-            this.ResistorCheckBox.Name = "ResistorCheckBox";
-            this.ResistorCheckBox.Size = new System.Drawing.Size(81, 19);
-            this.ResistorCheckBox.TabIndex = 5;
-            this.ResistorCheckBox.Text = "Резистор";
-            this.ResistorCheckBox.UseVisualStyleBackColor = true;
+            this._resistorCheckBox.AutoSize = true;
+            this._resistorCheckBox.Location = new System.Drawing.Point(6, 20);
+            this._resistorCheckBox.Name = "_resistorCheckBox";
+            this._resistorCheckBox.Size = new System.Drawing.Size(81, 19);
+            this._resistorCheckBox.TabIndex = 5;
+            this._resistorCheckBox.Text = "Резистор";
+            this._resistorCheckBox.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // _filterGroupBox
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this._filterGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.frequencyNumBox);
-            this.groupBox1.Controls.Add(this.frequencyCheckBox);
-            this.groupBox1.Controls.Add(this.impedanceRealNumBox);
-            this.groupBox1.Controls.Add(this.ImpedanceCheckBox);
-            this.groupBox1.Controls.Add(this.impedanceImgNumBox);
-            this.groupBox1.Controls.Add(this.InductorCheckBox);
-            this.groupBox1.Controls.Add(this.CapacitorCheckBox);
-            this.groupBox1.Controls.Add(this.ResistorCheckBox);
-            this.groupBox1.Controls.Add(this._clearFilterButton);
-            this.groupBox1.Controls.Add(this._setFilterButton);
-            this.groupBox1.Location = new System.Drawing.Point(6, 403);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 92);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Найтройка фильтрации";
+            this._filterGroupBox.Controls.Add(this._jLabel);
+            this._filterGroupBox.Controls.Add(this._ohmLabel);
+            this._filterGroupBox.Controls.Add(this._hzLabel);
+            this._filterGroupBox.Controls.Add(this._frequencyNumBox);
+            this._filterGroupBox.Controls.Add(this._frequencyCheckBox);
+            this._filterGroupBox.Controls.Add(this._impedanceRealNumBox);
+            this._filterGroupBox.Controls.Add(this._impedanceCheckBox);
+            this._filterGroupBox.Controls.Add(this._impedanceImgNumBox);
+            this._filterGroupBox.Controls.Add(this._inductorCheckBox);
+            this._filterGroupBox.Controls.Add(this._capacitorCheckBox);
+            this._filterGroupBox.Controls.Add(this._resistorCheckBox);
+            this._filterGroupBox.Controls.Add(this._clearFilterButton);
+            this._filterGroupBox.Controls.Add(this._setFilterButton);
+            this._filterGroupBox.Location = new System.Drawing.Point(6, 403);
+            this._filterGroupBox.Name = "_filterGroupBox";
+            this._filterGroupBox.Size = new System.Drawing.Size(578, 92);
+            this._filterGroupBox.TabIndex = 8;
+            this._filterGroupBox.TabStop = false;
+            this._filterGroupBox.Text = "Найтройка фильтрации";
             // 
-            // label2
+            // _jLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 15);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "j";
+            this._jLabel.AutoSize = true;
+            this._jLabel.Location = new System.Drawing.Point(313, 20);
+            this._jLabel.Name = "_jLabel";
+            this._jLabel.Size = new System.Drawing.Size(10, 15);
+            this._jLabel.TabIndex = 18;
+            this._jLabel.Text = "j";
             // 
-            // label1
+            // _ohmLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(379, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 15);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Ом";
+            this._ohmLabel.AutoSize = true;
+            this._ohmLabel.Location = new System.Drawing.Point(379, 20);
+            this._ohmLabel.Name = "_ohmLabel";
+            this._ohmLabel.Size = new System.Drawing.Size(25, 15);
+            this._ohmLabel.TabIndex = 17;
+            this._ohmLabel.Text = "Ом";
             // 
-            // label3
+            // _hzLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(312, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 15);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Гц";
+            this._hzLabel.AutoSize = true;
+            this._hzLabel.Location = new System.Drawing.Point(312, 46);
+            this._hzLabel.Name = "_hzLabel";
+            this._hzLabel.Size = new System.Drawing.Size(21, 15);
+            this._hzLabel.TabIndex = 16;
+            this._hzLabel.Text = "Гц";
             // 
-            // frequencyCheckBox
+            // _frequencyNumBox
             // 
-            this.frequencyCheckBox.AutoSize = true;
-            this.frequencyCheckBox.Location = new System.Drawing.Point(129, 45);
-            this.frequencyCheckBox.Name = "frequencyCheckBox";
-            this.frequencyCheckBox.Size = new System.Drawing.Size(78, 19);
-            this.frequencyCheckBox.TabIndex = 11;
-            this.frequencyCheckBox.Text = "Частота:";
-            this.frequencyCheckBox.UseVisualStyleBackColor = true;
+            this._frequencyNumBox.Location = new System.Drawing.Point(256, 43);
+            this._frequencyNumBox.Name = "_frequencyNumBox";
+            this._frequencyNumBox.Size = new System.Drawing.Size(50, 21);
+            this._frequencyNumBox.TabIndex = 13;
             // 
-            // ImpedanceCheckBox
+            // _frequencyCheckBox
             // 
-            this.ImpedanceCheckBox.AutoSize = true;
-            this.ImpedanceCheckBox.Location = new System.Drawing.Point(129, 20);
-            this.ImpedanceCheckBox.Name = "ImpedanceCheckBox";
-            this.ImpedanceCheckBox.Size = new System.Drawing.Size(121, 19);
-            this.ImpedanceCheckBox.TabIndex = 9;
-            this.ImpedanceCheckBox.Text = "Сопротивление:";
-            this.ImpedanceCheckBox.UseVisualStyleBackColor = true;
+            this._frequencyCheckBox.AutoSize = true;
+            this._frequencyCheckBox.Location = new System.Drawing.Point(129, 45);
+            this._frequencyCheckBox.Name = "_frequencyCheckBox";
+            this._frequencyCheckBox.Size = new System.Drawing.Size(78, 19);
+            this._frequencyCheckBox.TabIndex = 11;
+            this._frequencyCheckBox.Text = "Частота:";
+            this._frequencyCheckBox.UseVisualStyleBackColor = true;
             // 
-            // frequencyNumBox
+            // _impedanceRealNumBox
             // 
-            this.frequencyNumBox.Location = new System.Drawing.Point(256, 43);
-            this.frequencyNumBox.Name = "frequencyNumBox";
-            this.frequencyNumBox.Size = new System.Drawing.Size(50, 21);
-            this.frequencyNumBox.TabIndex = 13;
+            this._impedanceRealNumBox.Location = new System.Drawing.Point(256, 16);
+            this._impedanceRealNumBox.Name = "_impedanceRealNumBox";
+            this._impedanceRealNumBox.Size = new System.Drawing.Size(50, 21);
+            this._impedanceRealNumBox.TabIndex = 10;
             // 
-            // impedanceRealNumBox
+            // _impedanceCheckBox
             // 
-            this.impedanceRealNumBox.Location = new System.Drawing.Point(256, 16);
-            this.impedanceRealNumBox.Name = "impedanceRealNumBox";
-            this.impedanceRealNumBox.Size = new System.Drawing.Size(50, 21);
-            this.impedanceRealNumBox.TabIndex = 10;
+            this._impedanceCheckBox.AutoSize = true;
+            this._impedanceCheckBox.Location = new System.Drawing.Point(129, 20);
+            this._impedanceCheckBox.Name = "_impedanceCheckBox";
+            this._impedanceCheckBox.Size = new System.Drawing.Size(121, 19);
+            this._impedanceCheckBox.TabIndex = 9;
+            this._impedanceCheckBox.Text = "Сопротивление:";
+            this._impedanceCheckBox.UseVisualStyleBackColor = true;
             // 
-            // impedanceImgNumBox
+            // _impedanceImgNumBox
             // 
-            this.impedanceImgNumBox.Location = new System.Drawing.Point(323, 16);
-            this.impedanceImgNumBox.Name = "impedanceImgNumBox";
-            this.impedanceImgNumBox.Size = new System.Drawing.Size(50, 21);
-            this.impedanceImgNumBox.TabIndex = 8;
+            this._impedanceImgNumBox.Location = new System.Drawing.Point(323, 16);
+            this._impedanceImgNumBox.Name = "_impedanceImgNumBox";
+            this._impedanceImgNumBox.Size = new System.Drawing.Size(50, 21);
+            this._impedanceImgNumBox.TabIndex = 8;
             // 
-            // menuStrip1
+            // _fileToolStripMenuItem
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this._fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._saveToolStripMenuItem,
+            this._loadToolStripMenuItem});
+            this._fileToolStripMenuItem.Name = "_fileToolStripMenuItem";
+            this._fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this._fileToolStripMenuItem.Text = "Файл";
             // 
-            // fileToolStripMenuItem
+            // _saveToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.loadToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fileToolStripMenuItem.Text = "Файл";
+            this._saveToolStripMenuItem.Name = "_saveToolStripMenuItem";
+            this._saveToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this._saveToolStripMenuItem.Text = "Сохранить";
             // 
-            // saveToolStripMenuItem
+            // _loadToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Сохранить";
+            this._loadToolStripMenuItem.Name = "_loadToolStripMenuItem";
+            this._loadToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this._loadToolStripMenuItem.Text = "Загрузить";
             // 
-            // loadToolStripMenuItem
+            // _fileMenuStrip
             // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadToolStripMenuItem.Text = "Загрузить";
+            this._fileMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._fileToolStripMenuItem});
+            this._fileMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this._fileMenuStrip.Name = "_fileMenuStrip";
+            this._fileMenuStrip.Size = new System.Drawing.Size(584, 24);
+            this._fileMenuStrip.TabIndex = 2;
+            this._fileMenuStrip.Text = "menuStrip1";
             // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(584, 571);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.editElementsListGroupBox);
-            this.Controls.Add(this.calculateImpedanceGroupBox);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this._filterGroupBox);
+            this.Controls.Add(this._editElementsListGroupBox);
+            this.Controls.Add(this._calculateImpedanceGroupBox);
+            this.Controls.Add(this._fileMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this._fileMenuStrip;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Расчет комплексного сопротивления";
             this.Load += new System.EventHandler(this.LoadMainForm);
-            this.calculateImpedanceGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).EndInit();
-            this.editElementsListGroupBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this._calculateImpedanceGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._calculateImpedanceDataGridView)).EndInit();
+            this._editElementsListGroupBox.ResumeLayout(false);
+            this._filterGroupBox.ResumeLayout(false);
+            this._filterGroupBox.PerformLayout();
+            this._fileMenuStrip.ResumeLayout(false);
+            this._fileMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,32 +332,32 @@ namespace View
 
         #endregion
 
-        private GroupBox calculateImpedanceGroupBox;
-        private DataGridView calculateImpedanceDataGridView;
-        private GroupBox editElementsListGroupBox;
+        private GroupBox _calculateImpedanceGroupBox;
+        private DataGridView _calculateImpedanceDataGridView;
+        private GroupBox _editElementsListGroupBox;
         private Button _addElementButton;
         private Button _deleteElementButton;
         private Button _clearFilterButton;
         private Button _setFilterButton;
 #if DEBUG
-        private Button randomButton;
-        private CheckBox CapacitorCheckBox;
-        private CheckBox InductorCheckBox;
-        private CheckBox ResistorCheckBox;
-        private GroupBox groupBox1;
-        private NumBox impedanceImgNumBox;
-        private CheckBox ImpedanceCheckBox;
-        private NumBox impedanceRealNumBox;
-        private CheckBox frequencyCheckBox;
-        private NumBox frequencyNumBox;
-        private Label label2;
-        private Label label1;
-        private Label label3;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
-        private ToolStripMenuItem loadToolStripMenuItem;
+        private Button _randomButton;
 #endif
+        private CheckBox _capacitorCheckBox;
+        private CheckBox _inductorCheckBox;
+        private CheckBox _resistorCheckBox;
+        private GroupBox _filterGroupBox;
+        private NumBox _impedanceImgNumBox;
+        private CheckBox _impedanceCheckBox;
+        private NumBox _impedanceRealNumBox;
+        private CheckBox _frequencyCheckBox;
+        private NumBox _frequencyNumBox;
+        private Label _jLabel;
+        private Label _ohmLabel;
+        private Label _hzLabel;
+        private ToolStripMenuItem _fileToolStripMenuItem;
+        private ToolStripMenuItem _saveToolStripMenuItem;
+        private ToolStripMenuItem _loadToolStripMenuItem;
+        private MenuStrip _fileMenuStrip;
     }
 }
 

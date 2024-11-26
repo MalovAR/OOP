@@ -55,19 +55,19 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
-            frequencyNumBox.Enabled = false;
-            impedanceRealNumBox.Enabled = false;
-            impedanceImgNumBox.Enabled = false;
-            frequencyCheckBox.CheckedChanged += EnableNumBoxes;
-            ImpedanceCheckBox.CheckedChanged += EnableNumBoxes;
+            _frequencyNumBox.Enabled = false;
+            _impedanceRealNumBox.Enabled = false;
+            _impedanceImgNumBox.Enabled = false;
+            _frequencyCheckBox.CheckedChanged += EnableNumBoxes;
+            _impedanceCheckBox.CheckedChanged += EnableNumBoxes;
             _addElementButton.Click += ClickAddElementButton;
             _clearFilterButton.Click += RemoveFilter;
             _deleteElementButton.Click += ClickDeleteElementButton;
             _setFilterButton.Click += ApplyFilter;
-            saveToolStripMenuItem.Click += SaveFile;
-            loadToolStripMenuItem.Click += LoadFile;
+            _saveToolStripMenuItem.Click += SaveFile;
+            _loadToolStripMenuItem.Click += LoadFile;
 #if DEBUG
-            randomButton.Click += ClickRandomButton;
+            _randomButton.Click += ClickRandomButton;
 #endif
         }
 
@@ -78,9 +78,9 @@ namespace View
         /// <param name="e"></param>
         private void EnableNumBoxes(object sender, EventArgs e)
         {
-            frequencyNumBox.Enabled = frequencyCheckBox.Checked;
-            impedanceRealNumBox.Enabled = ImpedanceCheckBox.Checked;
-            impedanceImgNumBox.Enabled = ImpedanceCheckBox.Checked;
+            _frequencyNumBox.Enabled = _frequencyCheckBox.Checked;
+            _impedanceRealNumBox.Enabled = _impedanceCheckBox.Checked;
+            _impedanceImgNumBox.Enabled = _impedanceCheckBox.Checked;
         }
         /// <summary>
         /// Метод нажатия на кнопку "Добавить элемент".
@@ -107,7 +107,7 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ClickDeleteElementButton(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in calculateImpedanceDataGridView.SelectedRows)
+            foreach (DataGridViewRow item in _calculateImpedanceDataGridView.SelectedRows)
             {
                 if (item.DataBoundItem is CircuitElementBase element)
                 {
@@ -127,7 +127,7 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void LoadMainForm(object sender, EventArgs e)
         {
-            CreateTable(_elementsList, calculateImpedanceDataGridView);
+            CreateTable(_elementsList, _calculateImpedanceDataGridView);
         }
 
         /// <summary>
@@ -181,19 +181,19 @@ namespace View
             List<CircuitElementBase> filterdElements = null;
             List<string> typeFilterCriteria = new List<string>();
             CircuitElementBase element = new Resistor();
-            double? frequency = GetValueFromNumBox(frequencyNumBox);
-            double? impedanceReal = GetValueFromNumBox(impedanceRealNumBox);
-            double? impedanceImg = GetValueFromNumBox(impedanceImgNumBox);
-            if (ResistorCheckBox.Checked) 
+            double? frequency = GetValueFromNumBox(_frequencyNumBox);
+            double? impedanceReal = GetValueFromNumBox(_impedanceRealNumBox);
+            double? impedanceImg = GetValueFromNumBox(_impedanceImgNumBox);
+            if (_resistorCheckBox.Checked) 
             {
                 typeFilterCriteria.Add(element.ElementType);
             } 
-            if (InductorCheckBox.Checked)
+            if (_inductorCheckBox.Checked)
             {
                 element = new Inductor();
                 typeFilterCriteria.Add(element.ElementType);
             }
-            if (CapacitorCheckBox.Checked)
+            if (_capacitorCheckBox.Checked)
             {
                 element = new Capacitor();
                 typeFilterCriteria.Add(element.ElementType);
@@ -210,7 +210,7 @@ namespace View
                (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg)
                ).ToList();
 
-            calculateImpedanceDataGridView.DataSource = filterdElements;
+            _calculateImpedanceDataGridView.DataSource = filterdElements;
 
             if (filterdElements.Count == 0)
             {
@@ -227,7 +227,7 @@ namespace View
         {
             if (_isFiltered == true) 
             {
-                calculateImpedanceDataGridView.DataSource = _elementsList;
+                _calculateImpedanceDataGridView.DataSource = _elementsList;
                 _isFiltered = false;
                 ResetControls(sender,e);
             }
@@ -275,11 +275,11 @@ namespace View
         /// <param name="e"></param>
         private void ResetControls(object sender, EventArgs e)
         {
-            frequencyCheckBox.Checked = false;
-            ImpedanceCheckBox.Checked = false;
-            ResistorCheckBox.Checked = false;
-            CapacitorCheckBox.Checked = false;
-            InductorCheckBox.Checked = false;    
+            _frequencyCheckBox.Checked = false;
+            _impedanceCheckBox.Checked = false;
+            _resistorCheckBox.Checked = false;
+            _capacitorCheckBox.Checked = false;
+            _inductorCheckBox.Checked = false;    
         }
 
         /// <summary>
@@ -338,8 +338,8 @@ namespace View
                         (BindingList<CircuitElementBase>)_serializer.Deserialize(file);
                 }
 
-                calculateImpedanceDataGridView.DataSource = _elementsList;
-                calculateImpedanceDataGridView.CurrentCell = null;
+                _calculateImpedanceDataGridView.DataSource = _elementsList;
+                _calculateImpedanceDataGridView.CurrentCell = null;
                 MessageBox.Show("Файл успешно загружен.",
                     "Загрузка завершена",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
