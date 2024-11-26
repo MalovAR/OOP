@@ -22,6 +22,9 @@ using System.IO;
 
 namespace View
 {
+    /// <summary>
+    /// Основная форма программы.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -46,14 +49,17 @@ namespace View
         private readonly XmlSerializer _serializer =
             new XmlSerializer(typeof(BindingList<CircuitElementBase>));
 
+        /// <summary>
+        /// Конструктор класса MainForm.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             frequencyNumBox.Enabled = false;
             impedanceRealNumBox.Enabled = false;
             impedanceImgNumBox.Enabled = false;
-            frequencyCheckBox.CheckedChanged += CheckChange;
-            ImpedanceCheckBox.CheckedChanged += CheckChange;
+            frequencyCheckBox.CheckedChanged += EnableNumBoxes;
+            ImpedanceCheckBox.CheckedChanged += EnableNumBoxes;
             _addElementButton.Click += ClickAddElementButton;
             _clearFilterButton.Click += RemoveFilter;
             _deleteElementButton.Click += ClickDeleteElementButton;
@@ -65,13 +71,22 @@ namespace View
 #endif
         }
 
-        private void CheckChange(object sender, EventArgs e)
+        /// <summary>
+        /// Метод, разблокирующий поля ввода данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EnableNumBoxes(object sender, EventArgs e)
         {
             frequencyNumBox.Enabled = frequencyCheckBox.Checked;
             impedanceRealNumBox.Enabled = ImpedanceCheckBox.Checked;
             impedanceImgNumBox.Enabled = ImpedanceCheckBox.Checked;
         }
-
+        /// <summary>
+        /// Метод нажатия на кнопку "Добавить элемент".
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ClickAddElementButton(object sender, EventArgs e)
         {
             if (_isAddFormOpened == false)
@@ -85,6 +100,11 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Метод нажатия на кнопку "Удалить элемент".
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ClickDeleteElementButton(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in calculateImpedanceDataGridView.SelectedRows)
@@ -100,11 +120,21 @@ namespace View
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Метод загрузки формы.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
+        private void LoadMainForm(object sender, EventArgs e)
         {
             CreateTable(_elementsList, calculateImpedanceDataGridView);
         }
 
+        /// <summary>
+        /// Метод создания таблицы на форме.
+        /// </summary>
+        /// <param name="motionList">Список движений.</param>
+        /// <param name="dataGridView">Сетка.</param>
         private void CreateTable(BindingList<CircuitElementBase> elements, 
             DataGridView dataGridView)
         {
@@ -140,6 +170,11 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Метод применения фильтра.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ApplyFilter(object sender, EventArgs e)
         {
             _isFiltered = true;
@@ -181,9 +216,13 @@ namespace View
             {
                 MessageBox.Show("Нет элементов, удовлетворяющих критериям фильтрации");
             }
-     
         }
 
+        /// <summary>
+        /// Метод сброса фильтра.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveFilter(object sender, EventArgs e)
         {
             if (_isFiltered == true) 
@@ -193,7 +232,12 @@ namespace View
                 ResetControls(sender,e);
             }
         }
-       
+
+        /// <summary>
+        /// Метода нажатия на кнопку "Добавить случайный элемент".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickRandomButton(object sender, EventArgs e)
         {
             _elementsList.Add(RandomElement.GetRandomElement());
@@ -203,6 +247,11 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Метод чтения значения из поля ввода данных.
+        /// </summary>
+        /// <param name="numBox"></param>
+        /// <returns></returns>
         private double? GetValueFromNumBox(NumBox numBox)
         {
             if (!numBox.Enabled)
@@ -219,6 +268,11 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Метод сброса состояний всех CheckBox'ов.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetControls(object sender, EventArgs e)
         {
             frequencyCheckBox.Checked = false;

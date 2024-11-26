@@ -316,7 +316,7 @@ namespace View
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Расчет комплексного сопротивления";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.LoadMainForm);
             this.calculateImpedanceGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculateImpedanceDataGridView)).EndInit();
             this.editElementsListGroupBox.ResumeLayout(false);
