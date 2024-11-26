@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElecticalElementsModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,35 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class AddCapacitorUserControl : UserControl
+    //TODO: XML
+    public partial class AddCapacitorUserControl : UserControl, IElementAddable
     {
+        //TODO: XML
         public AddCapacitorUserControl()
         {
             InitializeComponent();
+        }
+
+        public CircuitElementBase Element 
+        {
+            get
+            {
+                try { 
+                    //TODO: перенести элемент сюда
+                }
+                catch(Exception)
+                {
+                    
+                }
+
+                return new Capacitor()
+                {
+                    Capacity = Convert.ToDouble(
+                            capacityNumBox.Text),
+                    Frequency = Convert.ToDouble(
+                            frequencyNumBox.Text)
+                };
+            }        
         }
     }
 }

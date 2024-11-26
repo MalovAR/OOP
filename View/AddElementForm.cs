@@ -1,4 +1,5 @@
-﻿using ElecticalElementsModel;
+﻿using DevExpress.DirectX.Common.Direct2D;
+using ElecticalElementsModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace View
     /// </summary>
     public partial class AddElementForm : Form
     {
+        //private List<IElementAddable> _elementAddableControls; 
+
         /// <summary>
         /// Событие добавления движения.
         /// </summary>
@@ -40,6 +43,11 @@ namespace View
                 ChooseCapacitor;
 
             _addButton.Click += ClickAddButton;
+
+            //_elementAddableControls = new List<IElementAddable>()
+            //{
+            //    _addCapacitorUserControl
+            //};
         }
 
         /// <summary>
@@ -87,8 +95,17 @@ namespace View
         {
             try
             {
+                //TODO: RSDN
                 CircuitElementBase CircuitElementBase = null;
+                //foreach(var userControl in _elementAddableControls)
+                //{
+                //    if (((UserControl)userControl).Visible)
+                //    {
+                //        CircuitElementBase = userControl.Element;
+                //    }
+                //}
 
+                //TODO: нарушение инкапсуляции
                 if (_addResistorUserControl.Visible)
                 {
                     CircuitElementBase = new Resistor()
