@@ -205,9 +205,9 @@ namespace View
                &&
                (!frequency.HasValue || obj.Frequency == frequency)
                &&
-               (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal)
+               (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal.Value)
                &&
-               (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg)
+               (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg.Value)
                ).ToList();
 
             _calculateImpedanceDataGridView.DataSource = filterdElements;
