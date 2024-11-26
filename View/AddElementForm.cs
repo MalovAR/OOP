@@ -28,18 +28,18 @@ namespace View
         {
             InitializeComponent();
 
-            closeButton.Click += ClickCancelButton;
+            _closeButton.Click += ClickCancelButton;
 
             resistorRadioButton.CheckedChanged +=
                 ChooseResistor;
 
-            inductorRadioButton.CheckedChanged +=
+            _inductorRadioButton.CheckedChanged +=
                 ChooseInductor;
 
-            capacitorRadioButton.CheckedChanged +=
+            _capacitorRadioButton.CheckedChanged +=
                 ChooseCapacitor;
 
-            addButton.Click += ClickAddButton;
+            _addButton.Click += ClickAddButton;
         }
 
         /// <summary>
@@ -49,9 +49,9 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ChooseResistor(object sender, EventArgs e)
         {
-            addResistorUserControl.Visible = true;
-            addInductorUserControl.Visible = false;
-            addCapacitorUserControl.Visible = false;
+            _addResistorUserControl.Visible = true;
+            _addInductorUserControl.Visible = false;
+            _addCapacitorUserControl.Visible = false;
         }
 
         /// <summary>
@@ -61,9 +61,9 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ChooseInductor(object sender, EventArgs e)
         {
-            addResistorUserControl.Visible = false;
-            addInductorUserControl.Visible = true;
-            addCapacitorUserControl.Visible = false;
+            _addResistorUserControl.Visible = false;
+            _addInductorUserControl.Visible = true;
+            _addCapacitorUserControl.Visible = false;
         }
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace View
         /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ChooseCapacitor(object sender, EventArgs e)
         {
-            addResistorUserControl.Visible = false;
-            addInductorUserControl.Visible = false;
-            addCapacitorUserControl.Visible = true;
+            _addResistorUserControl.Visible = false;
+            _addInductorUserControl.Visible = false;
+            _addCapacitorUserControl.Visible = true;
         }
 
         /// <summary>
@@ -89,35 +89,35 @@ namespace View
             {
                 CircuitElementBase CircuitElementBase = null;
 
-                if (addResistorUserControl.Visible)
+                if (_addResistorUserControl.Visible)
                 {
                     CircuitElementBase = new Resistor()
                     {
                         Resistance = Convert.ToDouble(
-                            addResistorUserControl.
+                            _addResistorUserControl.
                             resistanceNumBox.Text)
                     };
                 }
 
-                if (addInductorUserControl.Visible)
+                if (_addInductorUserControl.Visible)
                 {
                     CircuitElementBase = new Inductor()
                     {
                         Inductance = Convert.ToDouble(
-                            addInductorUserControl.inductanceNumBox.Text),
+                            _addInductorUserControl.inductanceNumBox.Text),
                         Frequency = Convert.ToDouble(
-                            addInductorUserControl.frequencyNumBox.Text)
+                            _addInductorUserControl.frequencyNumBox.Text)
                     };
                 }
 
-                if (addCapacitorUserControl.Visible)
+                if (_addCapacitorUserControl.Visible)
                 {
                     CircuitElementBase = new Capacitor()
                     {
                         Capacity = Convert.ToDouble(
-                            addCapacitorUserControl.capacityNumBox.Text),
+                            _addCapacitorUserControl.capacityNumBox.Text),
                         Frequency = Convert.ToDouble(
-                            addCapacitorUserControl.frequencyNumBox.Text)
+                            _addCapacitorUserControl.frequencyNumBox.Text)
                     };
                 }
 

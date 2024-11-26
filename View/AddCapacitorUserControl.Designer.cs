@@ -36,7 +36,7 @@
             // 
             // capacityNumBox
             // 
-            this.capacityNumBox.Location = new System.Drawing.Point(240, 15);
+            this.capacityNumBox.Location = new System.Drawing.Point(115, 15);
             this.capacityNumBox.Name = "capacityNumBox";
             this.capacityNumBox.Size = new System.Drawing.Size(100, 20);
             this.capacityNumBox.TabIndex = 0;
@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 15);
+            this.label1.Location = new System.Drawing.Point(25, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             // frequencyNumBox
             // 
-            this.frequencyNumBox.Location = new System.Drawing.Point(240, 41);
+            this.frequencyNumBox.Location = new System.Drawing.Point(115, 41);
             this.frequencyNumBox.Name = "frequencyNumBox";
             this.frequencyNumBox.Size = new System.Drawing.Size(100, 20);
             this.frequencyNumBox.TabIndex = 2;
@@ -60,7 +60,7 @@
             // frequency
             // 
             this.frequency.AutoSize = true;
-            this.frequency.Location = new System.Drawing.Point(26, 48);
+            this.frequency.Location = new System.Drawing.Point(25, 43);
             this.frequency.Name = "frequency";
             this.frequency.Size = new System.Drawing.Size(49, 13);
             this.frequency.TabIndex = 3;
@@ -75,7 +75,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.capacityNumBox);
             this.Name = "AddCapacitorUserControl";
-            this.Size = new System.Drawing.Size(360, 80);
+            this.Size = new System.Drawing.Size(225, 80);
             this.ResumeLayout(false);
             this.PerformLayout();
 

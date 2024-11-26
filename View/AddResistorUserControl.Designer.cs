@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resistanceNumBox = new NumBox();
+            this.resistanceNumBox = new View.NumBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // resistanceNumBox
             // 
-            this.resistanceNumBox.Location = new System.Drawing.Point(240, 15);
-            this.resistanceNumBox.Name = "textBox1";
+            this.resistanceNumBox.Location = new System.Drawing.Point(120, 15);
+            this.resistanceNumBox.Name = "resistanceNumBox";
             this.resistanceNumBox.Size = new System.Drawing.Size(100, 20);
             this.resistanceNumBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 18);
+            this.label1.Location = new System.Drawing.Point(25, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 3;
@@ -55,7 +55,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resistanceNumBox);
             this.Name = "AddResistorUserControl";
-            this.Size = new System.Drawing.Size(360, 50);
+            this.Size = new System.Drawing.Size(225, 50);
             this.ResumeLayout(false);
             this.PerformLayout();
 

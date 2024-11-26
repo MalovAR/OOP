@@ -28,56 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.capacitorRadioButton = new System.Windows.Forms.RadioButton();
-            this.inductorRadioButton = new System.Windows.Forms.RadioButton();
+            this._typesGroupBox = new System.Windows.Forms.GroupBox();
+            this._capacitorRadioButton = new System.Windows.Forms.RadioButton();
+            this._inductorRadioButton = new System.Windows.Forms.RadioButton();
             this.resistorRadioButton = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.addResistorUserControl = new View.AddResistorUserControl();
-            this.addInductorUserControl = new View.AddInductorUserControl();
-            this.addCapacitorUserControl = new View.AddCapacitorUserControl();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this._parametersGroupBox = new System.Windows.Forms.GroupBox();
+            this._addCapacitorUserControl = new View.AddCapacitorUserControl();
+            this._addInductorUserControl = new View.AddInductorUserControl();
+            this._addResistorUserControl = new View.AddResistorUserControl();
+            this._btnGroupBox3 = new System.Windows.Forms.GroupBox();
+            this._closeButton = new System.Windows.Forms.Button();
+            this._addButton = new System.Windows.Forms.Button();
+            this._typesGroupBox.SuspendLayout();
+            this._parametersGroupBox.SuspendLayout();
+            this._btnGroupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // _typesGroupBox
             // 
-            this.groupBox1.Controls.Add(this.capacitorRadioButton);
-            this.groupBox1.Controls.Add(this.inductorRadioButton);
-            this.groupBox1.Controls.Add(this.resistorRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(365, 150);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this._typesGroupBox.Controls.Add(this._capacitorRadioButton);
+            this._typesGroupBox.Controls.Add(this._inductorRadioButton);
+            this._typesGroupBox.Controls.Add(this.resistorRadioButton);
+            this._typesGroupBox.Location = new System.Drawing.Point(12, 15);
+            this._typesGroupBox.Name = "_typesGroupBox";
+            this._typesGroupBox.Size = new System.Drawing.Size(253, 105);
+            this._typesGroupBox.TabIndex = 0;
+            this._typesGroupBox.TabStop = false;
+            this._typesGroupBox.Text = "Тип элемента";
             // 
             // capacitorRadioButton
             // 
-            this.capacitorRadioButton.AutoSize = true;
-            this.capacitorRadioButton.Location = new System.Drawing.Point(22, 110);
-            this.capacitorRadioButton.Name = "capacitorRadioButton";
-            this.capacitorRadioButton.Size = new System.Drawing.Size(91, 17);
-            this.capacitorRadioButton.TabIndex = 2;
-            this.capacitorRadioButton.TabStop = true;
-            this.capacitorRadioButton.Text = "Конденсатор";
-            this.capacitorRadioButton.UseVisualStyleBackColor = true;
+            this._capacitorRadioButton.AutoSize = true;
+            this._capacitorRadioButton.Location = new System.Drawing.Point(22, 76);
+            this._capacitorRadioButton.Name = "capacitorRadioButton";
+            this._capacitorRadioButton.Size = new System.Drawing.Size(91, 17);
+            this._capacitorRadioButton.TabIndex = 2;
+            this._capacitorRadioButton.TabStop = true;
+            this._capacitorRadioButton.Text = "Конденсатор";
+            this._capacitorRadioButton.UseVisualStyleBackColor = true;
             // 
             // inductorRadioButton
             // 
-            this.inductorRadioButton.AutoSize = true;
-            this.inductorRadioButton.Location = new System.Drawing.Point(22, 70);
-            this.inductorRadioButton.Name = "inductorRadioButton";
-            this.inductorRadioButton.Size = new System.Drawing.Size(146, 17);
-            this.inductorRadioButton.TabIndex = 1;
-            this.inductorRadioButton.TabStop = true;
-            this.inductorRadioButton.Text = "Катушка индуктивности";
-            this.inductorRadioButton.UseVisualStyleBackColor = true;
+            this._inductorRadioButton.AutoSize = true;
+            this._inductorRadioButton.Location = new System.Drawing.Point(22, 53);
+            this._inductorRadioButton.Name = "inductorRadioButton";
+            this._inductorRadioButton.Size = new System.Drawing.Size(146, 17);
+            this._inductorRadioButton.TabIndex = 1;
+            this._inductorRadioButton.TabStop = true;
+            this._inductorRadioButton.Text = "Катушка индуктивности";
+            this._inductorRadioButton.UseVisualStyleBackColor = true;
             // 
             // resistorRadioButton
             // 
@@ -90,100 +90,99 @@
             this.resistorRadioButton.Text = "Резистор";
             this.resistorRadioButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // _parametersGroupBox
             // 
-            this.groupBox2.Controls.Add(this.addResistorUserControl);
-            this.groupBox2.Controls.Add(this.addInductorUserControl);
-            this.groupBox2.Controls.Add(this.addCapacitorUserControl);
-            this.groupBox2.Location = new System.Drawing.Point(12, 171);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(365, 104);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this._parametersGroupBox.Controls.Add(this._addCapacitorUserControl);
+            this._parametersGroupBox.Controls.Add(this._addInductorUserControl);
+            this._parametersGroupBox.Controls.Add(this._addResistorUserControl);
+            this._parametersGroupBox.Location = new System.Drawing.Point(12, 126);
+            this._parametersGroupBox.Name = "_parametersGroupBox";
+            this._parametersGroupBox.Size = new System.Drawing.Size(253, 104);
+            this._parametersGroupBox.TabIndex = 1;
+            this._parametersGroupBox.TabStop = false;
+            this._parametersGroupBox.Text = "Параметры элемента";
             // 
-            // addResistorUserControl
+            // _addCapacitorUserControl
             // 
-            this.addResistorUserControl.Location = new System.Drawing.Point(5, 29);
-            this.addResistorUserControl.Name = "addResistorUserControl";
-            this.addResistorUserControl.Size = new System.Drawing.Size(354, 60);
-            this.addResistorUserControl.TabIndex = 2;
+            this._addCapacitorUserControl.Location = new System.Drawing.Point(8, 19);
+            this._addCapacitorUserControl.Name = "_addCapacitorUserControl";
+            this._addCapacitorUserControl.Size = new System.Drawing.Size(225, 80);
+            this._addCapacitorUserControl.TabIndex = 2;
             // 
-            // addInductorUserControl
+            // _addInductorUserControl
             // 
-            this.addInductorUserControl.Location = new System.Drawing.Point(5, 19);
-            this.addInductorUserControl.Name = "addInductorUserControl";
-            this.addInductorUserControl.Size = new System.Drawing.Size(354, 70);
-            this.addInductorUserControl.TabIndex = 1;
+            this._addInductorUserControl.Location = new System.Drawing.Point(8, 18);
+            this._addInductorUserControl.Name = "_addInductorUserControl";
+            this._addInductorUserControl.Size = new System.Drawing.Size(225, 80);
+            this._addInductorUserControl.TabIndex = 1;
             // 
-            // addCapacitorUserControl
+            // _addResistorUserControl
             // 
-            this.addCapacitorUserControl.Location = new System.Drawing.Point(5, 19);
-            this.addCapacitorUserControl.Name = "addCapacitorUserControl";
-            this.addCapacitorUserControl.Size = new System.Drawing.Size(354, 70);
-            this.addCapacitorUserControl.TabIndex = 0;
+            this._addResistorUserControl.Location = new System.Drawing.Point(8, 28);
+            this._addResistorUserControl.Name = "_addResistorUserControl";
+            this._addResistorUserControl.Size = new System.Drawing.Size(225, 50);
+            this._addResistorUserControl.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.closeButton);
-            this.groupBox3.Controls.Add(this.addButton);
-            this.groupBox3.Location = new System.Drawing.Point(12, 281);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 80);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this._btnGroupBox3.Controls.Add(this._closeButton);
+            this._btnGroupBox3.Controls.Add(this._addButton);
+            this._btnGroupBox3.Location = new System.Drawing.Point(12, 236);
+            this._btnGroupBox3.Name = "groupBox3";
+            this._btnGroupBox3.Size = new System.Drawing.Size(253, 57);
+            this._btnGroupBox3.TabIndex = 2;
+            this._btnGroupBox3.TabStop = false;
             // 
-            // closeButton
+            // _closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(131, 40);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 1;
-            this.closeButton.Text = "Закрыть";
-            this.closeButton.UseVisualStyleBackColor = true;
+            this._closeButton.Location = new System.Drawing.Point(22, 19);
+            this._closeButton.Name = "_closeButton";
+            this._closeButton.Size = new System.Drawing.Size(75, 23);
+            this._closeButton.TabIndex = 1;
+            this._closeButton.Text = "Закрыть";
+            this._closeButton.UseVisualStyleBackColor = true;
             // 
-            // addButton
+            // _addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(23, 40);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Рассчитать";
-            this.addButton.UseVisualStyleBackColor = true;
+            this._addButton.Location = new System.Drawing.Point(158, 19);
+            this._addButton.Name = "_addButton";
+            this._addButton.Size = new System.Drawing.Size(75, 23);
+            this._addButton.TabIndex = 0;
+            this._addButton.Text = "Рассчитать";
+            this._addButton.UseVisualStyleBackColor = true;
             // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 369);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(269, 297);
+            this.Controls.Add(this._btnGroupBox3);
+            this.Controls.Add(this._parametersGroupBox);
+            this.Controls.Add(this._typesGroupBox);
             this.MaximizeBox = false;
             this.Name = "AddElementForm";
             this.Text = "AddElementForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this._typesGroupBox.ResumeLayout(false);
+            this._typesGroupBox.PerformLayout();
+            this._parametersGroupBox.ResumeLayout(false);
+            this._btnGroupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox _typesGroupBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton capacitorRadioButton;
-        private System.Windows.Forms.RadioButton inductorRadioButton;
+        private System.Windows.Forms.GroupBox _parametersGroupBox;
+        private System.Windows.Forms.RadioButton _capacitorRadioButton;
+        private System.Windows.Forms.RadioButton _inductorRadioButton;
         private System.Windows.Forms.RadioButton resistorRadioButton;
-        private AddCapacitorUserControl addCapacitorUserControl;
-        private AddResistorUserControl addResistorUserControl;
-        private AddInductorUserControl addInductorUserControl;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.GroupBox _btnGroupBox3;
+        private System.Windows.Forms.Button _addButton;
+        private System.Windows.Forms.Button _closeButton;
+        private AddCapacitorUserControl _addCapacitorUserControl;
+        private AddInductorUserControl _addInductorUserControl;
+        private AddResistorUserControl _addResistorUserControl;
     }
 }
