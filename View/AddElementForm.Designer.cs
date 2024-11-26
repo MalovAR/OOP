@@ -34,12 +34,12 @@
             this.resistorRadioButton = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.addResistorUserControl = new View.AddResistorUserControl();
-            this.addInductorUserControl = new View.AddInductorUserControl();
-            this.addCapacitorUserControl = new View.AddCapacitorUserControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.closeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.addResistorUserControl = new View.AddResistorUserControl();
+            this.addInductorUserControl = new View.AddInductorUserControl();
+            this.addCapacitorUserControl = new View.AddCapacitorUserControl();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -102,27 +102,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // addResistorUserControl
-            // 
-            this.addResistorUserControl.Location = new System.Drawing.Point(5, 29);
-            this.addResistorUserControl.Name = "addResistorUserControl";
-            this.addResistorUserControl.Size = new System.Drawing.Size(354, 60);
-            this.addResistorUserControl.TabIndex = 2;
-            // 
-            // addInductorUserControl
-            // 
-            this.addInductorUserControl.Location = new System.Drawing.Point(5, 19);
-            this.addInductorUserControl.Name = "addInductorUserControl";
-            this.addInductorUserControl.Size = new System.Drawing.Size(354, 70);
-            this.addInductorUserControl.TabIndex = 1;
-            // 
-            // addCapacitorUserControl
-            // 
-            this.addCapacitorUserControl.Location = new System.Drawing.Point(5, 19);
-            this.addCapacitorUserControl.Name = "addCapacitorUserControl";
-            this.addCapacitorUserControl.Size = new System.Drawing.Size(354, 70);
-            this.addCapacitorUserControl.TabIndex = 0;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.closeButton);
@@ -152,6 +131,27 @@
             this.addButton.Text = "Рассчитать";
             this.addButton.UseVisualStyleBackColor = true;
             // 
+            // addResistorUserControl
+            // 
+            this.addResistorUserControl.Location = new System.Drawing.Point(5, 29);
+            this.addResistorUserControl.Name = "addResistorUserControl";
+            this.addResistorUserControl.Size = new System.Drawing.Size(354, 60);
+            this.addResistorUserControl.TabIndex = 2;
+            // 
+            // addInductorUserControl
+            // 
+            this.addInductorUserControl.Location = new System.Drawing.Point(5, 19);
+            this.addInductorUserControl.Name = "addInductorUserControl";
+            this.addInductorUserControl.Size = new System.Drawing.Size(354, 70);
+            this.addInductorUserControl.TabIndex = 1;
+            // 
+            // addCapacitorUserControl
+            // 
+            this.addCapacitorUserControl.Location = new System.Drawing.Point(5, 19);
+            this.addCapacitorUserControl.Name = "addCapacitorUserControl";
+            this.addCapacitorUserControl.Size = new System.Drawing.Size(354, 70);
+            this.addCapacitorUserControl.TabIndex = 0;
+            // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +160,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "AddElementForm";
             this.Text = "AddElementForm";
             this.groupBox1.ResumeLayout(false);
