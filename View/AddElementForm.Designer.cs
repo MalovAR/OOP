@@ -34,12 +34,12 @@
             this.resistorRadioButton = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
             this.addResistorUserControl = new View.AddResistorUserControl();
             this.addInductorUserControl = new View.AddInductorUserControl();
             this.addCapacitorUserControl = new View.AddCapacitorUserControl();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -102,35 +102,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.closeButton);
-            this.groupBox3.Controls.Add(this.addButton);
-            this.groupBox3.Location = new System.Drawing.Point(12, 281);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 80);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // closeButton
-            // 
-            this.closeButton.Location = new System.Drawing.Point(131, 39);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 1;
-            this.closeButton.Text = "Закрыть";
-            this.closeButton.UseVisualStyleBackColor = true;
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(23, 40);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Рассчитать";
-            this.addButton.UseVisualStyleBackColor = true;
-            // 
             // addResistorUserControl
             // 
             this.addResistorUserControl.Location = new System.Drawing.Point(5, 29);
@@ -151,6 +122,35 @@
             this.addCapacitorUserControl.Name = "addCapacitorUserControl";
             this.addCapacitorUserControl.Size = new System.Drawing.Size(354, 70);
             this.addCapacitorUserControl.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.closeButton);
+            this.groupBox3.Controls.Add(this.addButton);
+            this.groupBox3.Location = new System.Drawing.Point(12, 281);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(365, 80);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(131, 40);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 1;
+            this.closeButton.Text = "Закрыть";
+            this.closeButton.UseVisualStyleBackColor = true;
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(23, 40);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Рассчитать";
+            this.addButton.UseVisualStyleBackColor = true;
             // 
             // AddElementForm
             // 

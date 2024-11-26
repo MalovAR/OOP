@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Форма программы для добавления элемента.
+    /// </summary>
     public partial class AddElementForm : Form
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace View
         /// </summary>
         public EventHandler ElementAdded;
 
+        /// <summary>
+        /// Конструктор класса AddElementForm.
+        /// </summary>
         public AddElementForm()
         {
             InitializeComponent();
@@ -37,7 +43,7 @@ namespace View
         }
 
         /// <summary>
-        /// Метод 
+        /// Метод отображения полей для ввода данных резистора.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект, содержащий данные о событии.</param>
@@ -49,7 +55,7 @@ namespace View
         }
 
         /// <summary>
-        /// Метод 
+        /// Метод отображения полей для ввода данных катушки индуктивности. 
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект, содержащий данные о событии.</param>
@@ -61,7 +67,7 @@ namespace View
         }
 
         /// <summary>
-        /// Метод 
+        /// Метод отображения полей для ввода данных конденсатора.
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект, содержащий данные о событии.</param>
@@ -72,6 +78,11 @@ namespace View
             addCapacitorUserControl.Visible = true;
         }
 
+        /// <summary>
+        /// Метод нажатия на кнопку "Рассчитать".
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект, содержащий данные о событии.</param>
         private void ClickAddButton(object sender, EventArgs e)
         {
             try
@@ -122,6 +133,11 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Метод нажатия на кнопку "Закрыть".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickCancelButton(object sender, EventArgs e)
         {
             Close();
