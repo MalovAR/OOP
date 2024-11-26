@@ -57,22 +57,22 @@
             this._typesGroupBox.TabStop = false;
             this._typesGroupBox.Text = "Тип элемента";
             // 
-            // capacitorRadioButton
+            // _capacitorRadioButton
             // 
             this._capacitorRadioButton.AutoSize = true;
             this._capacitorRadioButton.Location = new System.Drawing.Point(22, 76);
-            this._capacitorRadioButton.Name = "capacitorRadioButton";
+            this._capacitorRadioButton.Name = "_capacitorRadioButton";
             this._capacitorRadioButton.Size = new System.Drawing.Size(91, 17);
             this._capacitorRadioButton.TabIndex = 2;
             this._capacitorRadioButton.TabStop = true;
             this._capacitorRadioButton.Text = "Конденсатор";
             this._capacitorRadioButton.UseVisualStyleBackColor = true;
             // 
-            // inductorRadioButton
+            // _inductorRadioButton
             // 
             this._inductorRadioButton.AutoSize = true;
             this._inductorRadioButton.Location = new System.Drawing.Point(22, 53);
-            this._inductorRadioButton.Name = "inductorRadioButton";
+            this._inductorRadioButton.Name = "_inductorRadioButton";
             this._inductorRadioButton.Size = new System.Drawing.Size(146, 17);
             this._inductorRadioButton.TabIndex = 1;
             this._inductorRadioButton.TabStop = true;
@@ -123,12 +123,12 @@
             this._addResistorUserControl.Size = new System.Drawing.Size(225, 50);
             this._addResistorUserControl.TabIndex = 0;
             // 
-            // groupBox3
+            // _btnGroupBox3
             // 
             this._btnGroupBox3.Controls.Add(this._closeButton);
             this._btnGroupBox3.Controls.Add(this._addButton);
             this._btnGroupBox3.Location = new System.Drawing.Point(12, 236);
-            this._btnGroupBox3.Name = "groupBox3";
+            this._btnGroupBox3.Name = "_btnGroupBox3";
             this._btnGroupBox3.Size = new System.Drawing.Size(253, 57);
             this._btnGroupBox3.TabIndex = 2;
             this._btnGroupBox3.TabStop = false;
@@ -159,6 +159,7 @@
             this.Controls.Add(this._btnGroupBox3);
             this.Controls.Add(this._parametersGroupBox);
             this.Controls.Add(this._typesGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AddElementForm";
             this.Text = "AddElementForm";

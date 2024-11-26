@@ -20,6 +20,7 @@ using System.Diagnostics.Eventing.Reader;
 using DevExpress.Data.Browsing;
 using System.Xml.Serialization;
 using System.IO;
+using DevExpress.DirectX.Common.DirectWrite;
 
 namespace View
 {
@@ -178,45 +179,59 @@ namespace View
         /// <param name="e"></param>
         private void ApplyFilter(object sender, EventArgs e)
         {
-            _isFiltered = true;
-            List<CircuitElementBase> filterdElements = null;
-            List<string> typeFilterCriteria = new List<string>();
-            CircuitElementBase element = new Resistor();
-            double? frequency = GetValueFromNumBox(_frequencyNumBox);
-            double? impedanceReal = GetValueFromNumBox(_impedanceRealNumBox);
-            double? impedanceImg = GetValueFromNumBox(_impedanceImgNumBox);
-            if (_resistorCheckBox.Checked) 
+            if(!_resistorCheckBox.Checked
+                && !_inductorCheckBox.Checked
+                && !_capacitorCheckBox.Checked 
+                && !_frequencyCheckBox.Checked
+                && !_impedanceCheckBox.Checked)
             {
-                typeFilterCriteria.Add(element.ElementType);
-            } 
-            if (_inductorCheckBox.Checked)
-            {
-                element = new Inductor();
-                typeFilterCriteria.Add(element.ElementType);
-            }
-            if (_capacitorCheckBox.Checked)
-            {
-                element = new Capacitor();
-                typeFilterCriteria.Add(element.ElementType);
+                _isFiltered = false;
             }
 
-            filterdElements = _elementsList.Where(obj =>
-               (typeFilterCriteria.Count == 0 ||
-               typeFilterCriteria.Contains(obj.ElementType))
-               &&
-               (!frequency.HasValue || obj.Frequency == frequency)
-               &&
-               (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal.Value)
-               &&
-               (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg.Value)
-               ).ToList();
-
-            _calculateImpedanceDataGridView.DataSource = filterdElements;
-
-            if (filterdElements.Count == 0)
+            else
             {
-                MessageBox.Show("Нет элементов, удовлетворяющих критериям фильтрации");
+                _isFiltered = true;
+                List<CircuitElementBase> filterdElements = null;
+                List<string> typeFilterCriteria = new List<string>();
+                CircuitElementBase element = new Resistor();
+                double? frequency = GetValueFromNumBox(_frequencyNumBox);
+                double? impedanceReal = GetValueFromNumBox(_impedanceRealNumBox);
+                double? impedanceImg = GetValueFromNumBox(_impedanceImgNumBox);
+                if (_resistorCheckBox.Checked)
+                {
+                    typeFilterCriteria.Add(element.ElementType);
+                }
+                if (_inductorCheckBox.Checked)
+                {
+                    element = new Inductor();
+                    typeFilterCriteria.Add(element.ElementType);
+                }
+                if (_capacitorCheckBox.Checked)
+                {
+                    element = new Capacitor();
+                    typeFilterCriteria.Add(element.ElementType);
+                }
+
+                filterdElements = _elementsList.Where(obj =>
+                   (typeFilterCriteria.Count == 0 ||
+                   typeFilterCriteria.Contains(obj.ElementType))
+                   &&
+                   (!frequency.HasValue || obj.Frequency == frequency)
+                   &&
+                   (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal.Value)
+                   &&
+                   (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg.Value)// не работает
+                   ).ToList();
+
+                _calculateImpedanceDataGridView.DataSource = filterdElements;
+
+                // исправить
+                if (filterdElements.Count == 0)
+                {
+                    MessageBox.Show("Нет элементов, удовлетворяющих критериям фильтрации");
+                }
             }
+            
         }
 
         /// <summary>

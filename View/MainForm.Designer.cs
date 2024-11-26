@@ -312,6 +312,7 @@ namespace View
             this.Controls.Add(this._calculateImpedanceGroupBox);
             this.Controls.Add(this._fileMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this._fileMenuStrip;
             this.MaximizeBox = false;
             this.Name = "MainForm";
