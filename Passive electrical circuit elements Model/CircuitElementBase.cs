@@ -5,9 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
+using System.Xml.Serialization;
 
 namespace ElecticalElementsModel
 {
+    /// <summary>
+    /// Абстрактный класс движения.
+    /// </summary>
+    [XmlInclude(typeof(Resistor))]
+    [XmlInclude(typeof(Inductor))]
+    [XmlInclude(typeof(Capacitor))]
     //TODO: RSDN
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
@@ -32,7 +39,7 @@ namespace ElecticalElementsModel
         {
             get  
             {
-                return _frequency; 
+                return Math.Round(_frequency,4); 
             }
             set
             {
@@ -58,11 +65,13 @@ namespace ElecticalElementsModel
             get {
                 if (Impedance.Imaginary < 0)
                 {
-                    return $"{Impedance.Real} - j{-Impedance.Imaginary}";
+                    return $"{Math.Round(Impedance.Real,2)} " +
+                           $"- j{-Math.Round(Impedance.Imaginary,2)}";
                 }
                 else
                 {
-                    return $"{Impedance.Real} + j{Impedance.Imaginary}";
+                    return $"{Math.Round(Impedance.Real,2)} " +
+                           $"+ j{Math.Round(Impedance.Imaginary,2)}";
                 }
             }
         }
@@ -75,7 +84,7 @@ namespace ElecticalElementsModel
         /// <exception cref="ArgumentException"></exception>
         public static double CheckValue(double value)
         {
-            if (value < _minValue)
+            if (value < _minValue || double.IsNaN(value))
             {
                 throw new ArgumentException
                     ("Не может быть отрицательной величиной");
