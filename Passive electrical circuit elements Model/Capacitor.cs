@@ -46,7 +46,7 @@ namespace ElecticalElementsModel
         {
             get {
                 Complex result =
-                new Complex(0, -(1000000 / (2 * Math.PI * Frequency * Capacity)));
+                new Complex(0, -(1 / (2 * Math.PI * Frequency * Capacity)));
                 return result;
             }
     

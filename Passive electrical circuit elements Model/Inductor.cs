@@ -47,7 +47,7 @@ namespace ElecticalElementsModel
             get
             {
                 Complex result =
-                new Complex(0, 2 * Math.PI * Frequency * Inductance/1000);
+                new Complex(0, 2 * Math.PI * Frequency * Inductance);
                 return result;
             }
         }

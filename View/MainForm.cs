@@ -13,12 +13,6 @@ using System.Xml.Linq;
 using DevExpress.XtraEditors.Filtering;
 using ElecticalElementsModel;
 using static DevExpress.Data.Helpers.ExpressiveSortInfo;
-using System.Numerics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Diagnostics.Eventing.Reader;
-using DevExpress.Data.Browsing;
-using System.Xml.Serialization;
-using System.IO;
 
 namespace View
 {
@@ -40,36 +34,19 @@ namespace View
         /// </summary>
         private bool _isFiltered = false;
 
-        /// <summary>
-        /// Для файлов.
-        /// </summary>
-        private readonly XmlSerializer _serializer =
-            new XmlSerializer(typeof(BindingList<CircuitElementBase>));
-
         public MainForm()
         {
             InitializeComponent();
-            frequencyNumBox.Enabled = false;
-            impedanceRealNumBox.Enabled = false;
-            impedanceImgNumBox.Enabled = false;
-            frequencyCheckBox.CheckedChanged += CheckChange;
-            ImpedanceCheckBox.CheckedChanged += CheckChange;
+
             _addElementButton.Click += ClickAddElementButton;
+            _elementTypeComboBox.SelectedIndexChanged += ApplyFilter;
+            checkedListBox1.ItemCheck += FilterByType;
             _clearFilterButton.Click += RemoveFilter;
             _deleteElementButton.Click += ClickDeleteElementButton;
-            _setFilterButton.Click += ApplyFilter;
-            saveToolStripMenuItem.Click += SaveFile;
-            loadToolStripMenuItem.Click += LoadFile;
 #if DEBUG
             randomButton.Click += ClickRandomButton;
 #endif
-        }
 
-        private void CheckChange(object sender, EventArgs e)
-        {
-            frequencyNumBox.Enabled = frequencyCheckBox.Checked;
-            impedanceRealNumBox.Enabled = ImpedanceCheckBox.Checked;
-            impedanceImgNumBox.Enabled = ImpedanceCheckBox.Checked;
         }
 
         private void ClickAddElementButton(object sender, EventArgs e)
@@ -83,6 +60,7 @@ namespace View
                 addElementForm.ElementAdded += AddedElement;
                 addElementForm.Show();
             }
+
         }
 
         private void ClickDeleteElementButton(object sender, EventArgs e)
@@ -134,54 +112,32 @@ namespace View
                 circuitElementBase as ElementAddedEvent;
 
             _elementsList.Add(addedEventArgs?.CircuitElementBase);
-            if (_isFiltered == true)
-            {
-                ApplyFilter(sender, circuitElementBase);
-            }
         }
 
         private void ApplyFilter(object sender, EventArgs e)
         {
+            string filterCriteria = _elementTypeComboBox.SelectedItem.ToString();
+
             _isFiltered = true;
-            List<CircuitElementBase> filterdElements = null;
-            List<string> typeFilterCriteria = new List<string>();
-            CircuitElementBase element = new Resistor();
-            double? frequency = GetValueFromNumBox(frequencyNumBox);
-            double? impedanceReal = GetValueFromNumBox(impedanceRealNumBox);
-            double? impedanceImg = GetValueFromNumBox(impedanceImgNumBox);
-            if (ResistorCheckBox.Checked) 
-            {
-                typeFilterCriteria.Add(element.ElementType);
-            } 
-            if (InductorCheckBox.Checked)
-            {
-                element = new Inductor();
-                typeFilterCriteria.Add(element.ElementType);
-            }
-            if (CapacitorCheckBox.Checked)
-            {
-                element = new Capacitor();
-                typeFilterCriteria.Add(element.ElementType);
-            }
 
-            filterdElements = _elementsList.Where(obj =>
-               (typeFilterCriteria.Count == 0 ||
-               typeFilterCriteria.Contains(obj.ElementType))
-               &&
-               (!frequency.HasValue || obj.Frequency == frequency)
-               &&
-               (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal)
-               &&
-               (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg)
-               ).ToList();
-
-            calculateImpedanceDataGridView.DataSource = filterdElements;
-
-            if (filterdElements.Count == 0)
+            if (filterCriteria == _elementTypeComboBox.Items[0].ToString())
             {
-                MessageBox.Show("Нет элементов, удовлетворяющих критериям фильтрации");
+                Resistor element = new Resistor();
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
             }
-     
+            if (filterCriteria == _elementTypeComboBox.Items[1].ToString())
+            {
+                Inductor element = new Inductor();
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
+            }
+            if (filterCriteria == _elementTypeComboBox.Items[2].ToString())
+            {
+                Capacitor element = new Capacitor();
+                calculateImpedanceDataGridView.DataSource =
+                    _elementsList.Where(obj => obj.ElementType == element.ElementType).ToList();
+            }
         }
 
         private void RemoveFilter(object sender, EventArgs e)
@@ -190,12 +146,12 @@ namespace View
             {
                 calculateImpedanceDataGridView.DataSource = _elementsList;
                 _isFiltered = false;
-                ResetControls(sender,e);
             }
         }
        
         private void ClickRandomButton(object sender, EventArgs e)
         {
+
             _elementsList.Add(RandomElement.GetRandomElement());
             if (_isFiltered == true)
             {
@@ -203,100 +159,23 @@ namespace View
             }
         }
 
-        private double? GetValueFromNumBox(NumBox numBox)
+
+        private void FilterByType(object sender, EventArgs e)
         {
-            if (!numBox.Enabled)
-            {
-                return null;
-            }
-            if (string.IsNullOrWhiteSpace(numBox.Text))
-            {
-                return null;
-            }
-            else 
-            {
-               return Convert.ToDouble(numBox.Text);
-            }
-        }
 
-        private void ResetControls(object sender, EventArgs e)
-        {
-            frequencyCheckBox.Checked = false;
-            ImpedanceCheckBox.Checked = false;
-            ResistorCheckBox.Checked = false;
-            CapacitorCheckBox.Checked = false;
-            InductorCheckBox.Checked = false;    
-        }
-
-        /// <summary>
-        /// Сохранение файла.
-        /// </summary>
-        /// <param name="sender">.</param>
-        /// <param name="e">.</param>
-        private void SaveFile(object sender, EventArgs e)
-        {
-            if (_elementsList.Count == 0)
+            var selectedItems = checkedListBox1.CheckedItems.Cast<string>().ToList();
+            _isFiltered = true;
+           
+            if (selectedItems.Count == 0)
             {
-                MessageBox.Show("Отсутствуют данные для сохранения.",
-                    "Данные не сохранены",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var saveFileDialog = new SaveFileDialog
-            {
-                Filter = "Файлы (*.elm)|*.elm|Все файлы (*.*)|*.*"
-            };
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var path = saveFileDialog.FileName.ToString();
-                using (FileStream file = System.IO.File.Create(path))
-                {
-                    _serializer.Serialize(file, _elementsList);
-                }
-                MessageBox.Show("Файл успешно сохранён.",
-                    "Сохранение завершено",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        /// <summary>
-        /// Открытие файла.
-        /// </summary>
-        /// <param name="sender">.</param>
-        /// <param name="e">.</param>
-        private void LoadFile(object sender, EventArgs e)
-        {
-            var openFileDialog = new OpenFileDialog
-            {
-                Filter = "Файлы (*.elm)|*.elm|Все файлы (*.*)|*.*"
-            };
-
-            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-
-            var path = openFileDialog.FileName.ToString();
-            try
-            {
-                using (var file = new StreamReader(path))
-                {
-                    _elementsList =
-                        (BindingList<CircuitElementBase>)_serializer.Deserialize(file);
-                }
-
                 calculateImpedanceDataGridView.DataSource = _elementsList;
-                calculateImpedanceDataGridView.CurrentCell = null;
-                MessageBox.Show("Файл успешно загружен.",
-                    "Загрузка завершена",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _isFiltered = false;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Не удалось загрузить файл.\n" +
-                    "Файл повреждён или не соответствует формату.",
-                    "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            var filteredElements = _elementsList.Where
+                (element => selectedItems.Contains(element.ElementType)).ToList();
+
+            calculateImpedanceDataGridView.DataSource = filteredElements;
         }
     }
 }
