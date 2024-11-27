@@ -11,13 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Форма для ввода параметров резистора.
+    /// </summary>
     public partial class AddResistorUserControl : UserControl, IElementAddable
     {
+        /// <summary>
+        /// Конструктор класса AddResistorUserControl.
+        /// </summary>
         public AddResistorUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Добавляемый элемент цепи - резистор.
+        /// </summary>
         public CircuitElementBase Element
         {
             get

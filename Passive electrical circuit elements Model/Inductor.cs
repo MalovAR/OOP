@@ -32,6 +32,9 @@ namespace ElecticalElementsModel
             }
         }
 
+        /// <summary>
+        /// Свойство класса - тип элемента цепи.
+        /// </summary>
         public override string ElementType
         {
             get { return "Катушка индуктивности"; }
@@ -51,7 +54,6 @@ namespace ElecticalElementsModel
                 return result;
             }
         }
-
 
         /// <summary>
         /// <inheritdoc/>

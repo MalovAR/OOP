@@ -56,12 +56,15 @@ namespace View
             _frequencyNumBox.Enabled = false;
             _impedanceRealNumBox.Enabled = false;
             _impedanceImgNumBox.Enabled = false;
+            _clearFilterButton.Enabled = false;
             _frequencyCheckBox.CheckedChanged += EnableNumBoxes;
             _impedanceCheckBox.CheckedChanged += EnableNumBoxes;
             _addElementButton.Click += ClickAddElementButton;
             _clearFilterButton.Click += RemoveFilter;
+            _clearFilterButton.Click += ShowIfFiltered;
             _deleteElementButton.Click += ClickDeleteElementButton;
             _setFilterButton.Click += ApplyFilter;
+            _setFilterButton.Click += ShowIfFiltered;
             _saveToolStripMenuItem.Click += SaveFile;
             _loadToolStripMenuItem.Click += LoadFile;
 #if DEBUG
@@ -70,7 +73,27 @@ namespace View
         }
 
         /// <summary>
-        /// Метод, разблокирующий поля ввода данных
+        /// Метод, меняющий состояния кнопок "отфильтровать" и 
+        /// "Сбросить фильтр", который позволяет пользователю 
+        /// понять отфильтрован ли список.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowIfFiltered(object sender, EventArgs e)
+        {
+            if (_isFiltered == true)
+            {
+                _clearFilterButton.Enabled = true;
+            }
+            else
+            {
+                _setFilterButton.Enabled = true;
+                _clearFilterButton.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Метод, разблокирующий поля ввода данных.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -80,6 +103,7 @@ namespace View
             _impedanceRealNumBox.Enabled = _impedanceCheckBox.Checked;
             _impedanceImgNumBox.Enabled = _impedanceCheckBox.Checked;
         }
+
         /// <summary>
         /// Метод нажатия на кнопку "Добавить элемент".
         /// </summary>

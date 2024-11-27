@@ -11,15 +11,23 @@ using System.Windows.Forms;
 
 namespace View
 {
-    //TODO: XML
+    /// <summary>
+    /// Форма для ввода параметров конденсатора.
+    /// </summary>
     public partial class AddCapacitorUserControl : UserControl, IElementAddable
     {
-        //TODO: XML
+        //TODO: XML+
+        /// <summary>
+        /// Конструктор класса AddCapacitorUserControl.
+        /// </summary>
         public AddCapacitorUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Добавляемый элемент цепи - конденсатор.
+        /// </summary>
         public CircuitElementBase Element 
         {
             get

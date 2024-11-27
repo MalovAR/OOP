@@ -10,12 +10,12 @@ using System.Xml.Serialization;
 namespace ElecticalElementsModel
 {
     /// <summary>
-    /// Абстрактный класс движения.
+    /// Абстрактный класс элемента электрической цепи.
     /// </summary>
     [XmlInclude(typeof(Resistor))]
     [XmlInclude(typeof(Inductor))]
     [XmlInclude(typeof(Capacitor))]
-    //TODO: RSDN
+    //TODO: RSDN+
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
     /// </summary>
@@ -32,7 +32,7 @@ namespace ElecticalElementsModel
         private const int _minValue = 0;
 
         /// <summary>
-        /// Частота электрического тока в цепи.
+        /// Свойство класса - частота электрического тока в цепи.
         /// </summary>
         [DisplayName("Частота, Гц")]
         public double Frequency 
@@ -47,18 +47,27 @@ namespace ElecticalElementsModel
             }
         }
 
+        /// <summary>
+        /// Свойство класса - тип элемента
+        /// </summary>
         [DisplayName("Тип элемента")]
         public abstract string ElementType
         {
             get;
         }
 
+        /// <summary>
+        /// Неотображаемое свойство класса - комплексное сопротивление
+        /// </summary>
         [Browsable(false)]
         public abstract Complex Impedance
         {
             get; 
         }
 
+        /// <summary>
+        /// Отображаемое свойство класса - комплексное сопротивление
+        /// </summary>
         [DisplayName("Сопротивление, Ом")]
         public string ImpedanceShow
         {
@@ -87,7 +96,7 @@ namespace ElecticalElementsModel
             if (value < _minValue || double.IsNaN(value))
             {
                 throw new ArgumentException
-                    ("Не может быть отрицательной величиной или null");
+                    ("Не может быть отрицательной величиной");
             }
             else
             {

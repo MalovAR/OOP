@@ -11,13 +11,22 @@ using System.Windows.Forms;
 
 namespace View
 {
+    /// <summary>
+    /// Форма для ввода параметров катушки индуктивности.
+    /// </summary>
     public partial class AddInductorUserControl : UserControl, IElementAddable
     {
+        /// <summary>
+        /// Конструктор класса AddInductorUserControl.
+        /// </summary>
         public AddInductorUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Добавляемый элемент цепи - катушка индуктивности.
+        /// </summary>
         public CircuitElementBase Element
         {
             get

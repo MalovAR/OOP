@@ -33,6 +33,9 @@ namespace ElecticalElementsModel
             } 
         }
 
+        /// <summary>
+        /// Свойство класса - тип элемента цепи.
+        /// </summary>
         public override string ElementType
         {
             get { return "Конденсатор"; }
