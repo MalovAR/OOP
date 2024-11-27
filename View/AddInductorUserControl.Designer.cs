@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.inductanceNumBox = new View.NumBox();
+            this._inductanceNumBox = new View.NumBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.frequencyNumBox = new View.NumBox();
+            this._frequencyNumBox = new View.NumBox();
             this.frequency = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // inductanceNumBox
+            // _inductanceNumBox
             // 
-            this.inductanceNumBox.Location = new System.Drawing.Point(115, 15);
-            this.inductanceNumBox.Name = "inductanceNumBox";
-            this.inductanceNumBox.Size = new System.Drawing.Size(100, 20);
-            this.inductanceNumBox.TabIndex = 1;
+            this._inductanceNumBox.Location = new System.Drawing.Point(115, 15);
+            this._inductanceNumBox.Name = "_inductanceNumBox";
+            this._inductanceNumBox.Size = new System.Drawing.Size(100, 20);
+            this._inductanceNumBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -50,12 +50,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Индуктивность";
             // 
-            // frequencyNumBox
+            // _frequencyNumBox
             // 
-            this.frequencyNumBox.Location = new System.Drawing.Point(115, 41);
-            this.frequencyNumBox.Name = "frequencyNumBox";
-            this.frequencyNumBox.Size = new System.Drawing.Size(100, 20);
-            this.frequencyNumBox.TabIndex = 3;
+            this._frequencyNumBox.Location = new System.Drawing.Point(115, 41);
+            this._frequencyNumBox.Name = "_frequencyNumBox";
+            this._frequencyNumBox.Size = new System.Drawing.Size(100, 20);
+            this._frequencyNumBox.TabIndex = 3;
             // 
             // frequency
             // 
@@ -71,9 +71,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.frequency);
-            this.Controls.Add(this.frequencyNumBox);
+            this.Controls.Add(this._frequencyNumBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.inductanceNumBox);
+            this.Controls.Add(this._inductanceNumBox);
             this.Name = "AddInductorUserControl";
             this.Size = new System.Drawing.Size(225, 80);
             this.ResumeLayout(false);
@@ -83,9 +83,9 @@
 
         #endregion
 
-        internal NumBox inductanceNumBox;
+        internal NumBox _inductanceNumBox;
         private System.Windows.Forms.Label label1;
-        internal NumBox frequencyNumBox;
+        internal NumBox _frequencyNumBox;
         private System.Windows.Forms.Label frequency;
     }
 }

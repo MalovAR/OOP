@@ -10,17 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using DevExpress.XtraEditors.Filtering;
 using ElecticalElementsModel;
-//TODO: remove?
-using static DevExpress.Data.Helpers.ExpressiveSortInfo;
+//TODO: remove?+
 using System.Numerics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Diagnostics.Eventing.Reader;
-using DevExpress.Data.Browsing;
 using System.Xml.Serialization;
 using System.IO;
-using DevExpress.DirectX.Common.DirectWrite;
 
 namespace View
 {
@@ -216,22 +212,18 @@ namespace View
                    (typeFilterCriteria.Count == 0 ||
                    typeFilterCriteria.Contains(obj.ElementType))
                    &&
-                   (!frequency.HasValue || obj.Frequency == frequency)
+                   (!frequency.HasValue || 
+                   obj.Frequency == frequency)
                    &&
-                   (!impedanceReal.HasValue || obj.Impedance.Real == impedanceReal.Value)
+                   (!impedanceReal.HasValue || 
+                   obj.Impedance.Real == impedanceReal.Value)
                    &&
-                   (!impedanceImg.HasValue || obj.Impedance.Imaginary == impedanceImg.Value)// не работает
+                   (!impedanceImg.HasValue ||
+                   Math.Round(obj.Impedance.Imaginary,2) == impedanceImg.Value)
                    ).ToList();
 
                 _calculateImpedanceDataGridView.DataSource = filterdElements;
-
-                // исправить
-                if (filterdElements.Count == 0)
-                {
-                    MessageBox.Show("Нет элементов, удовлетворяющих критериям фильтрации");
-                }
-            }
-            
+            }    
         }
 
         /// <summary>

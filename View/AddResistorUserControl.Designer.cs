@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resistanceNumBox = new View.NumBox();
+            this._resistanceNumBox = new View.NumBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // resistanceNumBox
             // 
-            this.resistanceNumBox.Location = new System.Drawing.Point(120, 15);
-            this.resistanceNumBox.Name = "resistanceNumBox";
-            this.resistanceNumBox.Size = new System.Drawing.Size(100, 20);
-            this.resistanceNumBox.TabIndex = 0;
+            this._resistanceNumBox.Location = new System.Drawing.Point(120, 15);
+            this._resistanceNumBox.Name = "resistanceNumBox";
+            this._resistanceNumBox.Size = new System.Drawing.Size(100, 20);
+            this._resistanceNumBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -53,7 +53,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.resistanceNumBox);
+            this.Controls.Add(this._resistanceNumBox);
             this.Name = "AddResistorUserControl";
             this.Size = new System.Drawing.Size(225, 50);
             this.ResumeLayout(false);
@@ -63,7 +63,7 @@
 
         #endregion
 
-        internal NumBox resistanceNumBox;
+        internal NumBox _resistanceNumBox;
         private System.Windows.Forms.Label label1;
     }
 }

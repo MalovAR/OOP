@@ -1,5 +1,4 @@
-﻿using DevExpress.DirectX.Common.Direct2D;
-using ElecticalElementsModel;
+﻿using ElecticalElementsModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +16,7 @@ namespace View
     /// </summary>
     public partial class AddElementForm : Form
     {
-        //private List<IElementAddable> _elementAddableControls; 
+        private List<IElementAddable> _elementAddableControls; 
 
         /// <summary>
         /// Событие добавления движения.
@@ -33,21 +32,23 @@ namespace View
 
             _closeButton.Click += ClickCancelButton;
 
-            resistorRadioButton.CheckedChanged +=
-                ChooseResistor;
+            _resistorRadioButton.CheckedChanged +=
+                ChooseElement;
 
             _inductorRadioButton.CheckedChanged +=
-                ChooseInductor;
+                ChooseElement;
 
             _capacitorRadioButton.CheckedChanged +=
-                ChooseCapacitor;
+                ChooseElement;
 
             _addButton.Click += ClickAddButton;
 
-            //_elementAddableControls = new List<IElementAddable>()
-            //{
-            //    _addCapacitorUserControl
-            //};
+            _elementAddableControls = new List<IElementAddable>()
+            {
+                _addResistorUserControl,
+                _addInductorUserControl,
+                _addCapacitorUserControl
+            };
         }
 
         /// <summary>
@@ -55,35 +56,11 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект, содержащий данные о событии.</param>
-        private void ChooseResistor(object sender, EventArgs e)
+        private void ChooseElement(object sender, EventArgs e)
         {
-            _addResistorUserControl.Visible = true;
-            _addInductorUserControl.Visible = false;
-            _addCapacitorUserControl.Visible = false;
-        }
-
-        /// <summary>
-        /// Метод отображения полей для ввода данных катушки индуктивности. 
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Объект, содержащий данные о событии.</param>
-        private void ChooseInductor(object sender, EventArgs e)
-        {
-            _addResistorUserControl.Visible = false;
-            _addInductorUserControl.Visible = true;
-            _addCapacitorUserControl.Visible = false;
-        }
-
-        /// <summary>
-        /// Метод отображения полей для ввода данных конденсатора.
-        /// </summary>
-        /// <param name="sender">Источник события.</param>
-        /// <param name="e">Объект, содержащий данные о событии.</param>
-        private void ChooseCapacitor(object sender, EventArgs e)
-        {
-            _addResistorUserControl.Visible = false;
-            _addInductorUserControl.Visible = false;
-            _addCapacitorUserControl.Visible = true;
+            _addResistorUserControl.Visible = _resistorRadioButton.Checked;
+            _addInductorUserControl.Visible = _inductorRadioButton.Checked;
+            _addCapacitorUserControl.Visible = _capacitorRadioButton.Checked;
         }
 
         /// <summary>
@@ -95,55 +72,22 @@ namespace View
         {
             try
             {
-                //TODO: RSDN
-                CircuitElementBase CircuitElementBase = null;
-                //foreach(var userControl in _elementAddableControls)
-                //{
-                //    if (((UserControl)userControl).Visible)
-                //    {
-                //        CircuitElementBase = userControl.Element;
-                //    }
-                //}
-
-                //TODO: нарушение инкапсуляции
-                if (_addResistorUserControl.Visible)
+                //TODO: RSDN+
+                CircuitElementBase circuitElementBase = null;
+                foreach (var userControl in _elementAddableControls)
                 {
-                    CircuitElementBase = new Resistor()
+                    if (((UserControl)userControl).Visible)
                     {
-                        Resistance = Convert.ToDouble(
-                            _addResistorUserControl.
-                            resistanceNumBox.Text)
-                    };
-                }
-
-                if (_addInductorUserControl.Visible)
-                {
-                    CircuitElementBase = new Inductor()
-                    {
-                        Inductance = Convert.ToDouble(
-                            _addInductorUserControl.inductanceNumBox.Text),
-                        Frequency = Convert.ToDouble(
-                            _addInductorUserControl.frequencyNumBox.Text)
-                    };
-                }
-
-                if (_addCapacitorUserControl.Visible)
-                {
-                    CircuitElementBase = new Capacitor()
-                    {
-                        Capacity = Convert.ToDouble(
-                            _addCapacitorUserControl.capacityNumBox.Text),
-                        Frequency = Convert.ToDouble(
-                            _addCapacitorUserControl.frequencyNumBox.Text)
-                    };
+                        circuitElementBase = userControl.Element;
+                    }
                 }
 
                 ElementAdded?.Invoke(this,
-                    new ElementAddedEvent(CircuitElementBase));
+                    new ElementAddedEvent(circuitElementBase));
                }
-            catch
+            catch (Exception exception)
             {
-                MessageBox.Show("Введите корректные данные.",
+                MessageBox.Show($"{exception.Message}. Введите корректные данные.",
                     "Предупреждение", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }

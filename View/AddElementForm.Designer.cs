@@ -31,7 +31,7 @@
             this._typesGroupBox = new System.Windows.Forms.GroupBox();
             this._capacitorRadioButton = new System.Windows.Forms.RadioButton();
             this._inductorRadioButton = new System.Windows.Forms.RadioButton();
-            this.resistorRadioButton = new System.Windows.Forms.RadioButton();
+            this._resistorRadioButton = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this._parametersGroupBox = new System.Windows.Forms.GroupBox();
             this._addCapacitorUserControl = new View.AddCapacitorUserControl();
@@ -49,7 +49,7 @@
             // 
             this._typesGroupBox.Controls.Add(this._capacitorRadioButton);
             this._typesGroupBox.Controls.Add(this._inductorRadioButton);
-            this._typesGroupBox.Controls.Add(this.resistorRadioButton);
+            this._typesGroupBox.Controls.Add(this._resistorRadioButton);
             this._typesGroupBox.Location = new System.Drawing.Point(12, 15);
             this._typesGroupBox.Name = "_typesGroupBox";
             this._typesGroupBox.Size = new System.Drawing.Size(253, 105);
@@ -81,14 +81,14 @@
             // 
             // resistorRadioButton
             // 
-            this.resistorRadioButton.AutoSize = true;
-            this.resistorRadioButton.Location = new System.Drawing.Point(22, 30);
-            this.resistorRadioButton.Name = "resistorRadioButton";
-            this.resistorRadioButton.Size = new System.Drawing.Size(73, 17);
-            this.resistorRadioButton.TabIndex = 0;
-            this.resistorRadioButton.TabStop = true;
-            this.resistorRadioButton.Text = "Резистор";
-            this.resistorRadioButton.UseVisualStyleBackColor = true;
+            this._resistorRadioButton.AutoSize = true;
+            this._resistorRadioButton.Location = new System.Drawing.Point(22, 30);
+            this._resistorRadioButton.Name = "resistorRadioButton";
+            this._resistorRadioButton.Size = new System.Drawing.Size(73, 17);
+            this._resistorRadioButton.TabIndex = 0;
+            this._resistorRadioButton.TabStop = true;
+            this._resistorRadioButton.Text = "Резистор";
+            this._resistorRadioButton.UseVisualStyleBackColor = true;
             // 
             // _parametersGroupBox
             // 
@@ -178,7 +178,7 @@
         private System.Windows.Forms.GroupBox _parametersGroupBox;
         private System.Windows.Forms.RadioButton _capacitorRadioButton;
         private System.Windows.Forms.RadioButton _inductorRadioButton;
-        private System.Windows.Forms.RadioButton resistorRadioButton;
+        private System.Windows.Forms.RadioButton _resistorRadioButton;
         private System.Windows.Forms.GroupBox _btnGroupBox3;
         private System.Windows.Forms.Button _addButton;
         private System.Windows.Forms.Button _closeButton;

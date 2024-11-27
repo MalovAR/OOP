@@ -24,14 +24,6 @@ namespace View
         {
             get
             {
-                try { 
-                    //TODO: перенести элемент сюда
-                }
-                catch(Exception)
-                {
-                    
-                }
-
                 return new Capacitor()
                 {
                     Capacity = Convert.ToDouble(

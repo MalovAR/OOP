@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElecticalElementsModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,25 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class AddInductorUserControl : UserControl
+    public partial class AddInductorUserControl : UserControl, IElementAddable
     {
         public AddInductorUserControl()
         {
             InitializeComponent();
+        }
+
+        public CircuitElementBase Element
+        {
+            get
+            {
+                return new Inductor()
+                {
+                    Inductance = Convert.ToDouble(
+                            _inductanceNumBox.Text),
+                    Frequency = Convert.ToDouble(
+                            _frequencyNumBox.Text)
+                };
+            }
         }
     }
 }

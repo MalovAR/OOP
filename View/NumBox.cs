@@ -25,15 +25,22 @@ namespace View
         private void CheckInput(object sender, KeyPressEventArgs e)
         {
             char symbol = e.KeyChar;
-            if ((symbol == '.' || symbol == ',')
-                && Text.IndexOf(',') != -1)
+            if ((symbol == '.' || symbol == ',' || symbol == '-')
+                && (Text.IndexOf(',') != -1))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if ((symbol == '-')
+                && Text.IndexOf('-') != -1)
             {
                 e.Handled = true;
                 return;
             }
 
             if (!char.IsDigit(symbol) && symbol != (char)Keys.Back
-                && symbol != ',' && symbol != '.')
+                && symbol != ',' && symbol != '.' && symbol != '-')
             {
                 e.Handled = true;
             }

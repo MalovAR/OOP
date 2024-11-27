@@ -87,7 +87,7 @@ namespace ElecticalElementsModel
             if (value < _minValue || double.IsNaN(value))
             {
                 throw new ArgumentException
-                    ("Не может быть отрицательной величиной");
+                    ("Не может быть отрицательной величиной или null");
             }
             else
             {
