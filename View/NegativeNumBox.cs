@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Forms;
 
 namespace View
 {
-    public class NumBox : TextBox
+    public class NegativeNumBox : NumBox
     {
         /// <summary>
-        /// Конструктор класса NumBox.
+        /// Конструктор класса NegativeNumBox.
         /// </summary>
-        public NumBox()
+        public NegativeNumBox()
         {
             KeyPress += new KeyPressEventHandler(CheckInput);
         }
@@ -22,18 +21,25 @@ namespace View
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект, содержащий данные о событии.</param>
-        public virtual void CheckInput(object sender, KeyPressEventArgs e)
+        public override void CheckInput(object sender, KeyPressEventArgs e)
         {
             char symbol = e.KeyChar;
-            if ((symbol == '.' || symbol == ',')
+            if ((symbol == '.' || symbol == ',' || symbol == '-')
                 && (Text.IndexOf(',') != -1))
             {
                 e.Handled = true;
                 return;
             }
 
+            if ((symbol == '-')
+                && Text.IndexOf('-') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
             if (!char.IsDigit(symbol) && symbol != (char)Keys.Back
-                && symbol != ',' && symbol != '.')
+                && symbol != ',' && symbol != '.' && symbol != '-')
             {
                 e.Handled = true;
             }

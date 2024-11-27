@@ -54,6 +54,9 @@
     <Compile Include="AddElementForm.Designer.cs">
       <DependentUpon>AddElementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NegativeNumBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="IElementAddable.cs" />
     <Compile Include="NumBox.cs">
       <SubType>Component</SubType>

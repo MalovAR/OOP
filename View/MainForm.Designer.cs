@@ -49,7 +49,7 @@ namespace View
             this._frequencyCheckBox = new System.Windows.Forms.CheckBox();
             this._impedanceRealNumBox = new View.NumBox();
             this._impedanceCheckBox = new System.Windows.Forms.CheckBox();
-            this._impedanceImgNumBox = new View.NumBox();
+            this._impedanceImgNumBox = new View.NegativeNumBox();
             this._fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -347,7 +347,7 @@ namespace View
         private CheckBox _inductorCheckBox;
         private CheckBox _resistorCheckBox;
         private GroupBox _filterGroupBox;
-        private NumBox _impedanceImgNumBox;
+        private NegativeNumBox _impedanceImgNumBox;
         private CheckBox _impedanceCheckBox;
         private NumBox _impedanceRealNumBox;
         private CheckBox _frequencyCheckBox;
