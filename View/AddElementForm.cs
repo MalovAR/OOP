@@ -1,12 +1,6 @@
 ﻿using ElecticalElementsModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
@@ -16,7 +10,9 @@ namespace View
     /// </summary>
     public partial class AddElementForm : Form
     {
-        //TODO: XML
+        /// <summary>
+        /// Список добавленных элементов.
+        /// </summary>
         private List<IElementAddable> _elementAddableControls; 
 
         /// <summary>

@@ -79,11 +79,11 @@
             this._inductorRadioButton.Text = "Катушка индуктивности";
             this._inductorRadioButton.UseVisualStyleBackColor = true;
             // 
-            // resistorRadioButton
+            // _resistorRadioButton
             // 
             this._resistorRadioButton.AutoSize = true;
             this._resistorRadioButton.Location = new System.Drawing.Point(22, 30);
-            this._resistorRadioButton.Name = "resistorRadioButton";
+            this._resistorRadioButton.Name = "_resistorRadioButton";
             this._resistorRadioButton.Size = new System.Drawing.Size(73, 17);
             this._resistorRadioButton.TabIndex = 0;
             this._resistorRadioButton.TabStop = true;
@@ -162,7 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AddElementForm";
-            this.Text = "AddElementForm";
+            this.Text = "Добавление элемента";
             this._typesGroupBox.ResumeLayout(false);
             this._typesGroupBox.PerformLayout();
             this._parametersGroupBox.ResumeLayout(false);
