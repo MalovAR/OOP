@@ -16,7 +16,6 @@ namespace View
     /// </summary>
     public partial class AddCapacitorUserControl : UserControl, IElementAddable
     {
-        //TODO: XML+
         /// <summary>
         /// Конструктор класса AddCapacitorUserControl.
         /// </summary>

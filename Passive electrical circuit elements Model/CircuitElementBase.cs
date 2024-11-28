@@ -15,7 +15,6 @@ namespace ElecticalElementsModel
     [XmlInclude(typeof(Resistor))]
     [XmlInclude(typeof(Inductor))]
     [XmlInclude(typeof(Capacitor))]
-    //TODO: RSDN+
     /// <summary>
     /// Абстрактный базовый класс элемента электрической цепи.
     /// </summary>

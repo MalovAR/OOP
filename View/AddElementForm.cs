@@ -16,6 +16,7 @@ namespace View
     /// </summary>
     public partial class AddElementForm : Form
     {
+        //TODO: XML
         private List<IElementAddable> _elementAddableControls; 
 
         /// <summary>
@@ -72,7 +73,6 @@ namespace View
         {
             try
             {
-                //TODO: RSDN+
                 CircuitElementBase circuitElementBase = null;
                 foreach (var userControl in _elementAddableControls)
                 {

@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Dynamic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using ElecticalElementsModel;
-//TODO: remove?+
-using System.Numerics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Diagnostics.Eventing.Reader;
 using System.Xml.Serialization;
 using System.IO;
 
